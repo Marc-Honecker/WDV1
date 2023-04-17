@@ -1,10 +1,10 @@
 # Fdb version 3
-["makeindex WDV1.idx"] 1681204040 "WDV1.idx" "WDV1.ind" "WDV1" 1681390048
-  "WDV1.idx" 1681390048 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+["makeindex WDV1.idx"] 1681204040 "WDV1.idx" "WDV1.ind" "WDV1" 1681723068
+  "WDV1.idx" 1681723068 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
   (generated)
   "WDV1.ilg"
   "WDV1.ind"
-["pdflatex"] 1681390047 "WDV1.tex" "WDV1.pdf" "WDV1" 1681390048
+["pdflatex"] 1681723067 "WDV1.tex" "WDV1.pdf" "WDV1" 1681723068
   "/etc/texmf/web2c/texmf.cnf" 1678809579 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/adobe/zapfding/pzdr.tfm" 1136768653 1528 f853c4d1b4e0550255e02831fdc8496f ""
@@ -241,14 +241,14 @@
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1644012257 39432 7155514e09a3d69036fac785183a21c2 ""
   "/usr/share/texmf/web2c/texmf.cnf" 1644012257 39432 7155514e09a3d69036fac785183a21c2 ""
   "/var/lib/texmf/web2c/xetex/xelatex.fmt" 1678809612 5134586 bb7336dbc8f1d64d2778fbf9be35d8a3 ""
-  "WDV1.aux" 1681390048 1790 e36bd4bba990a5462dd61ecaa40cc283 "pdflatex"
+  "WDV1.aux" 1681723068 2189 22d32e1be11833950fa34d1117eea648 "pdflatex"
   "WDV1.ind" 1681204040 0 d41d8cd98f00b204e9800998ecf8427e "makeindex WDV1.idx"
-  "WDV1.out" 1681390048 231 a474a8f414929cc4dbba8c26e426571e "pdflatex"
-  "WDV1.tex" 1681390045 18033 f0b45799722de2598f966920b832a136 ""
-  "WDV1.toc" 1681390048 299 b49d827f2a1bf2ec8ad6d4093f7878ca "pdflatex"
+  "WDV1.out" 1681723068 316 b6b3325b14a6f529914fa0eb3c68cf8a "pdflatex"
+  "WDV1.tex" 1681723065 22288 11c3db55d34e73cb3da7838ee1872602 ""
+  "WDV1.toc" 1681723068 468 04450392c7a5199b67b558187fe118e8 "pdflatex"
   "jupyterBook.cls" 1680089381 2881 d7be52eb557699167c5a8617d29c1b64 ""
   "sphinx.sty" 1680089381 12780 919e6ba449302e2597e7722681a087c6 ""
-  "sphinxhighlight.sty" 1681390045 6679 76d10c62e0f0661410b46f5db6118e26 ""
+  "sphinxhighlight.sty" 1681723065 6679 76d10c62e0f0661410b46f5db6118e26 ""
   "sphinxlatexadmonitions.sty" 1680089381 6238 2d867d769abf3f72abc17ef52adff78b ""
   "sphinxlatexcontainers.sty" 1680089381 901 d3a3a1b7b2547f47ade2499350b5c420 ""
   "sphinxlatexgraphics.sty" 1680089381 4840 a9578332b6f3b35e198751fb632c9b79 ""
@@ -263,7 +263,7 @@
   "sphinxlatexstyletext.sty" 1680089381 6177 c18841ce3fafc366cd3b145f8faa4c37 ""
   "sphinxlatextables.sty" 1680089381 21848 2827eb0b11b99b185a8b77317d3e131c ""
   "sphinxmanual.cls" 1680089381 4241 7b0d7a37df7b5715fb0dbd585c52ecdb ""
-  "sphinxmessages.sty" 1681390045 745 3f5fcd6cdd7964ed608767954a8ced6f ""
+  "sphinxmessages.sty" 1681723065 745 3f5fcd6cdd7964ed608767954a8ced6f ""
   "sphinxoptionsgeometry.sty" 1680089381 2061 47bb34b8ed8a78823eb0c886abfb9f4d ""
   "sphinxoptionshyperref.sty" 1680089381 1094 79beb8b8a3f10784f8cce804e0f9d3aa ""
   "sphinxpackagefootnote.sty" 1680089381 15217 dd26fe418b6fb1b26b18f042a7f43d40 ""

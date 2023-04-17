@@ -354,6 +354,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#das-hello-world-programm-improved">Das Hello World! - Programm Improved</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#schleifen-engl-loops">Schleifen (engl. Loops)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#die-if-else-anweisung">Die <code class="docutils literal notranslate"><span class="pre">if-else</span></code> - Anweisung</a></li>
 </ul>
 </li>
 </ul>
@@ -397,14 +398,9 @@ Deshalb wird dieses besondere Programm auch in diesem Kurs der Startpunkt für P
 <li><p>Einer <strong>Funktionendefinition:</strong> Damit man Funktionen nutzen kann, muss man diese vorher definieren. Danach kann man diese beliebig oft benutzen. Man muss noch erwähnen, dass das main()-Programm ein besonderes Programm ist. Dieses dient im Allgemeinen als Startpunkt für die Übersetzung. Die Syntax ist hier immer die gleiche. Zuerst das Schlüsselwort <code class="docutils literal notranslate"><span class="pre">def</span></code>, danach der Name der Funktion, gefolgt von einem Doppelpunkt.</p></li>
 <li><p>Einem <strong>Funktionenaufruf:</strong> Streng genommen sind hier zwei Aufrufe. Der erste in Zeile 3 und der zweite in Zeile 5. Der Aufruf an print() schreibt den Inhalt (hier: “Hello World!”) raus. Der Aufruf an main() startet das Programm und gibt dann “Hello World!” aus. Außerdem wird dem aufmerksamen Leser aufgefallen sein, dass wir <code class="docutils literal notranslate"><span class="pre">print()</span></code> nicht definiert hatten, obwohl doch eigentlich jede Funktion vorher definert sein müsste. Hier ist es allerdings ein wenig anders. Python liefert direkt die <code class="docutils literal notranslate"><span class="pre">print()</span></code>-Funktion mit aus, und sie damit einfach verfügbar. Es gibt noch weitere solcher Funktionen, die bei gegebener Zeit noch eingeführt werden.</p></li>
 </ol>
-<details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
-<summary class="sd-summary-title sd-card-header">
-Das main()-Programm in Python<div class="sd-summary-down docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-down" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M5.22 8.72a.75.75 0 000 1.06l6.25 6.25a.75.75 0 001.06 0l6.25-6.25a.75.75 0 00-1.06-1.06L12 14.44 6.28 8.72a.75.75 0 00-1.06 0z"></path></svg></div>
-<div class="sd-summary-up docutils">
-<svg version="1.1" width="1.5em" height="1.5em" class="sd-octicon sd-octicon-chevron-up" viewBox="0 0 24 24" aria-hidden="true"><path fill-rule="evenodd" d="M18.78 15.28a.75.75 0 000-1.06l-6.25-6.25a.75.75 0 00-1.06 0l-6.25 6.25a.75.75 0 101.06 1.06L12 9.56l5.72 5.72a.75.75 0 001.06 0z"></path></svg></div>
-</summary><div class="sd-summary-content sd-card-body docutils">
-<p class="sd-card-text">Es ist nicht notwendig in Python mit dem main() Programm zu starten. Deshalb wird es bald nicht mehr genutzt werden. Da aber hiermit einfach die Syntax für eine Funktionen-Definition gezeigt werden kann wurde es hier gezeigt. Außerdem wird in den meisten anderen Programmiersprachen das main() Programm als Einstieg verlangt und somit haben Sie ein solches Programm dann schon einmal gesehen. Einige Beispiele wären (nur zur Illustration):</p>
+<div class="tip dropdown admonition">
+<p class="admonition-title">Das main()-Programm in Python</p>
+<p>Es ist nicht notwendig in Python mit dem main() Programm zu starten. Deshalb wird es bald nicht mehr genutzt werden. Da aber hiermit einfach die Syntax für eine Funktionen-Definition gezeigt werden kann wurde es hier gezeigt. Außerdem wird in den meisten anderen Programmiersprachen das main() Programm als Einstieg verlangt und somit haben Sie ein solches Programm dann schon einmal gesehen. Einige Beispiele wären (nur zur Illustration):</p>
 <div class="sd-tab-set docutils">
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
 </input><label class="sd-tab-label" for="sd-tab-item-0">
@@ -452,7 +448,7 @@ Rust</label><div class="sd-tab-content docutils">
 </div>
 </div>
 </div>
-</details><section id="das-hello-world-programm-improved">
+<section id="das-hello-world-programm-improved">
 <h2>Das Hello World! - Programm Improved<a class="headerlink" href="#das-hello-world-programm-improved" title="Permalink to this heading">#</a></h2>
 <p>Zum Beispiel betrachten wir folgendes Prgramm:</p>
 <div class="cell docutils container">
@@ -526,7 +522,7 @@ Hello World!
 </ul>
 </li>
 </ul>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">myRange</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">inc</span><span class="p">):</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_range</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">inc</span><span class="p">):</span>
     <span class="c1"># wir müssen uns alle berechneten Zahlen merken. Dies kann man in Python in einer sogenannten </span>
     <span class="c1"># Liste machen. Später mehr dazu.</span>
     <span class="n">range_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
@@ -542,6 +538,46 @@ Hello World!
     <span class="k">return</span> <span class="n">range_list</span>
 </pre></div>
 </div>
+<p>Die Schleife aus dem letzten Code-Schnipsel ist eine sogenannte <code class="docutils literal notranslate"><span class="pre">While</span></code>-Schleife. <code class="docutils literal notranslate"><span class="pre">While</span></code>-Schleifen führen einen Code-Abschnitt genauso lange aus, wie eine Bedingung gilt (also in unserem Beispiel solange <code class="docutils literal notranslate"><span class="pre">start</span> <span class="pre">&lt;</span> <span class="pre">end</span></code>).</p>
+<p><strong>Jedoch Vorsicht mit <code class="docutils literal notranslate"><span class="pre">While</span></code>-Schleifen</strong>. Betrachten wir das folgende kleine Programm:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_never_ending_loop</span><span class="p">():</span>
+    <span class="c1"># &#39;==&#39; steht für den Test auf Gleichheit; wir testen also, ob 1 gleich 1 ist</span>
+    <span class="k">while</span> <span class="mi">1</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="n">myvar</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<p>Es sollte ziemlich offensichtlich sein, dass diese Schleife niemals enden wird. Deswegen werden wir in den meisten Fällen eher selten <code class="docutils literal notranslate"><span class="pre">While</span></code>-Schleifen zu Gesicht bekommen und beschränken uns hauptsächlich auf <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleifen. Nur damit haben Sie schon einmal eine <code class="docutils literal notranslate"><span class="pre">While</span></code>-Schleife gesehen, und sind nicht komplett hilflos, falls Sie eine einmal sehen sollten.</p>
+</section>
+<section id="die-if-else-anweisung">
+<h3>Die <code class="docutils literal notranslate"><span class="pre">if-else</span></code> - Anweisung<a class="headerlink" href="#die-if-else-anweisung" title="Permalink to this heading">#</a></h3>
+<p>Wir schauen uns noch eine weitere Erweiterung des Hello World! - Programmes an. Zum Beispiel möchte man an allen Tagen außer Montag <code class="docutils literal notranslate"><span class="pre">Hello</span> <span class="pre">beautiful</span> <span class="pre">World!</span></code> ausgeben, und montags <code class="docutils literal notranslate"><span class="pre">hello</span> <span class="pre">world</span></code>. Eine mögliche Implementierung wäre die Folgende:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">is_monday</span> <span class="o">=</span> <span class="kc">False</span>
+    
+    <span class="k">if</span> <span class="n">is_monday</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;hello world&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello beautiful World!&quot;</span><span class="p">)</span>
+        
+<span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello beautiful World!
+</pre></div>
+</div>
+</div>
+</div>
+<p>Das einzige wirklich neue/nicht direkt sich selbst erklärende Schlüsselwort sollte <code class="docutils literal notranslate"><span class="pre">False</span></code> sein. <code class="docutils literal notranslate"><span class="pre">False</span></code> ist englisch und steht einfach nur für <em>Falsch</em>. Ist also eine Bedinung <em>Falsch</em>, so wird in einer if - Anweisung der <code class="docutils literal notranslate"><span class="pre">else</span></code>-Zweig ausgeführt. Das Gegenstück zu <code class="docutils literal notranslate"><span class="pre">False</span></code> ist <code class="docutils literal notranslate"><span class="pre">True</span></code> (= wahr). Wäre, um in unserem Beispiel zu bleiben, heute Montag, so bekämen wir <code class="docutils literal notranslate"><span class="pre">Hello</span> <span class="pre">beautiful</span> <span class="pre">World!</span></code> als Ausgabe. Insgesamt wird dies unter dem Begriff der booleschen Algebra zusammengefasst.</p>
+<div class="tip admonition">
+<p class="admonition-title">Boolesche Algebra</p>
+<p>Boolesche Algebra steht im Übrigen auch hinter der Bedingung in der <code class="docutils literal notranslate"><span class="pre">While</span></code>-Schleife! Denn solange die Bedingung der Schleife wahr ist (also zu <code class="docutils literal notranslate"><span class="pre">True</span></code> auswertet), wird der Schleifenrumpf ausgeführt. Sobald die Bedingung nicht mehr wahr ist (also zu <code class="docutils literal notranslate"><span class="pre">False</span></code> auswertet), wird die Schleife abgebrochen, und das restliche Programm nach der Schleife (welches auch leer sein kann) wird ausgeführt.</p>
+</div>
+<hr class="docutils" />
+<p><em><strong>Damit ist unsere grundlegende Einleitung in Python abgeschlossen!</strong></em> In den nächsten Kapiteln werden die hier erlernten Fähigkeiten dann für Probleme mit physikalischem Hintergrund genutzt werden. Ebenso werden wir ab jetzt das eigentlich unnötige <code class="docutils literal notranslate"><span class="pre">main()</span></code>-Programm in Python nicht mehr benutzen und es darf damit wegelassen werden.</p>
 </section>
 </section>
 </section>
@@ -600,6 +636,7 @@ Hello World!
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#das-hello-world-programm-improved">Das Hello World! - Programm Improved</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#schleifen-engl-loops">Schleifen (engl. Loops)</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#die-if-else-anweisung">Die <code class="docutils literal notranslate"><span class="pre">if-else</span></code> - Anweisung</a></li>
 </ul>
 </li>
 </ul>

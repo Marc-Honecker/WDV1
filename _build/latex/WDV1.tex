@@ -84,7 +84,7 @@
         
 
 \title{WDV1}
-\date{Apr 13, 2023}
+\date{Apr 17, 2023}
 \release{}
 \author{Chrsitian Müller, Marc Johannes Honecker und Martin H.\@{} Müser}
 \newcommand{\sphinxlogo}{\vbox{}}
@@ -206,7 +206,8 @@ Einer \sphinxstylestrong{Funktionendefinition:} Damit man Funktionen nutzen kann
 Einem \sphinxstylestrong{Funktionenaufruf:} Streng genommen sind hier zwei Aufrufe. Der erste in Zeile 3 und der zweite in Zeile 5. Der Aufruf an print() schreibt den Inhalt (hier: “Hello World!”) raus. Der Aufruf an main() startet das Programm und gibt dann “Hello World!” aus. Außerdem wird dem aufmerksamen Leser aufgefallen sein, dass wir \sphinxcode{\sphinxupquote{print()}} nicht definiert hatten, obwohl doch eigentlich jede Funktion vorher definert sein müsste. Hier ist es allerdings ein wenig anders. Python liefert direkt die \sphinxcode{\sphinxupquote{print()}}\sphinxhyphen{}Funktion mit aus, und sie damit einfach verfügbar. Es gibt noch weitere solcher Funktionen, die bei gegebener Zeit noch eingeführt werden.
 
 \end{enumerate}
-\subsubsection*{Das main()\sphinxhyphen{}Programm in Python}
+
+\begin{sphinxadmonition}{note}{Das main()\sphinxhyphen{}Programm in Python}
 
 \sphinxAtStartPar
 Es ist nicht notwendig in Python mit dem main() Programm zu starten. Deshalb wird es bald nicht mehr genutzt werden. Da aber hiermit einfach die Syntax für eine Funktionen\sphinxhyphen{}Definition gezeigt werden kann wurde es hier gezeigt. Außerdem wird in den meisten anderen Programmiersprachen das main() Programm als Einstieg verlangt und somit haben Sie ein solches Programm dann schon einmal gesehen. Einige Beispiele wären (nur zur Illustration):
@@ -264,7 +265,8 @@ Es ist nicht notwendig in Python mit dem main() Programm zu starten. Deshalb wir
 
 \end{sphinxuseclass}
 \end{sphinxuseclass}
-\end{sphinxuseclass}
+\end{sphinxuseclass}\end{sphinxadmonition}
+
 
 \section{Das Hello World! \sphinxhyphen{} Programm Improved}
 \label{\detokenize{Notebooks/Hello World!:das-hello-world-programm-improved}}
@@ -385,7 +387,7 @@ Die Syntax ist im wesentlichen immer die wie oben gezeigt. Die beiden auffällig
 \end{itemize}
 
 \begin{sphinxVerbatim}[commandchars=\\\{\}]
-\PYG{k}{def} \PYG{n+nf}{myRange}\PYG{p}{(}\PYG{n}{start}\PYG{p}{,} \PYG{n}{end}\PYG{p}{,} \PYG{n}{inc}\PYG{p}{)}\PYG{p}{:}
+\PYG{k}{def} \PYG{n+nf}{my\PYGZus{}range}\PYG{p}{(}\PYG{n}{start}\PYG{p}{,} \PYG{n}{end}\PYG{p}{,} \PYG{n}{inc}\PYG{p}{)}\PYG{p}{:}
     \PYG{c+c1}{\PYGZsh{} wir müssen uns alle berechneten Zahlen merken. Dies kann man in Python in einer sogenannten }
     \PYG{c+c1}{\PYGZsh{} Liste machen. Später mehr dazu.}
     \PYG{n}{range\PYGZus{}list} \PYG{o}{=} \PYG{n+nb}{list}\PYG{p}{(}\PYG{p}{)}
@@ -400,6 +402,63 @@ Die Syntax ist im wesentlichen immer die wie oben gezeigt. Die beiden auffällig
     \PYG{c+c1}{\PYGZsh{} jetzt geben wir die Liste zurück}
     \PYG{k}{return} \PYG{n}{range\PYGZus{}list}
 \end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Die Schleife aus dem letzten Code\sphinxhyphen{}Schnipsel ist eine sogenannte \sphinxcode{\sphinxupquote{While}}\sphinxhyphen{}Schleife. \sphinxcode{\sphinxupquote{While}}\sphinxhyphen{}Schleifen führen einen Code\sphinxhyphen{}Abschnitt genauso lange aus, wie eine Bedingung gilt (also in unserem Beispiel solange \sphinxcode{\sphinxupquote{start < end}}).
+
+\sphinxAtStartPar
+\sphinxstylestrong{Jedoch Vorsicht mit \sphinxcode{\sphinxupquote{While}}\sphinxhyphen{}Schleifen}. Betrachten wir das folgende kleine Programm:
+
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{my\PYGZus{}never\PYGZus{}ending\PYGZus{}loop}\PYG{p}{(}\PYG{p}{)}\PYG{p}{:}
+    \PYG{c+c1}{\PYGZsh{} \PYGZsq{}==\PYGZsq{} steht für den Test auf Gleichheit; wir testen also, ob 1 gleich 1 ist}
+    \PYG{k}{while} \PYG{l+m+mi}{1} \PYG{o}{==} \PYG{l+m+mi}{1}\PYG{p}{:}
+        \PYG{n}{myvar} \PYG{o}{=} \PYG{l+m+mi}{1}
+\end{sphinxVerbatim}
+
+\sphinxAtStartPar
+Es sollte ziemlich offensichtlich sein, dass diese Schleife niemals enden wird. Deswegen werden wir in den meisten Fällen eher selten \sphinxcode{\sphinxupquote{While}}\sphinxhyphen{}Schleifen zu Gesicht bekommen und beschränken uns hauptsächlich auf \sphinxcode{\sphinxupquote{for}}\sphinxhyphen{}Schleifen. Nur damit haben Sie schon einmal eine \sphinxcode{\sphinxupquote{While}}\sphinxhyphen{}Schleife gesehen, und sind nicht komplett hilflos, falls Sie eine einmal sehen sollten.
+
+
+\subsection{Die \sphinxstyleliteralintitle{\sphinxupquote{if\sphinxhyphen{}else}} \sphinxhyphen{} Anweisung}
+\label{\detokenize{Notebooks/Hello World!:die-if-else-anweisung}}
+\sphinxAtStartPar
+Wir schauen uns noch eine weitere Erweiterung des Hello World! \sphinxhyphen{} Programmes an. Zum Beispiel möchte man an allen Tagen außer Montag \sphinxcode{\sphinxupquote{Hello beautiful World!}} ausgeben, und montags \sphinxcode{\sphinxupquote{hello world}}. Eine mögliche Implementierung wäre die Folgende:
+
+\begin{sphinxuseclass}{cell}\begin{sphinxVerbatimInput}
+
+\begin{sphinxuseclass}{cell_input}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+\PYG{k}{def} \PYG{n+nf}{main}\PYG{p}{(}\PYG{p}{)}\PYG{p}{:}
+    \PYG{n}{is\PYGZus{}monday} \PYG{o}{=} \PYG{k+kc}{False}
+    
+    \PYG{k}{if} \PYG{n}{is\PYGZus{}monday}\PYG{p}{:}
+        \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{hello world}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+    \PYG{k}{else}\PYG{p}{:}
+        \PYG{n+nb}{print}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}}\PYG{l+s+s2}{Hello beautiful World!}\PYG{l+s+s2}{\PYGZdq{}}\PYG{p}{)}
+        
+\PYG{n}{main}\PYG{p}{(}\PYG{p}{)}
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimInput}
+\begin{sphinxVerbatimOutput}
+
+\begin{sphinxuseclass}{cell_output}
+\begin{sphinxVerbatim}[commandchars=\\\{\}]
+Hello beautiful World!
+\end{sphinxVerbatim}
+
+\end{sphinxuseclass}\end{sphinxVerbatimOutput}
+
+\end{sphinxuseclass}
+\sphinxAtStartPar
+Das einzige wirklich neue/nicht direkt sich selbst erklärende Schlüsselwort sollte \sphinxcode{\sphinxupquote{False}} sein. \sphinxcode{\sphinxupquote{False}} ist englisch und steht einfach nur für \sphinxstyleemphasis{Falsch}. Ist also eine Bedinung \sphinxstyleemphasis{Falsch}, so wird in einer if \sphinxhyphen{} Anweisung der \sphinxcode{\sphinxupquote{else}}\sphinxhyphen{}Zweig ausgeführt. Das Gegenstück zu \sphinxcode{\sphinxupquote{False}} ist \sphinxcode{\sphinxupquote{True}} (= wahr). Wäre, um in unserem Beispiel zu bleiben, heute Montag, so bekämen wir \sphinxcode{\sphinxupquote{Hello beautiful World!}} als Ausgabe. Insgesamt wird dies unter dem Begriff der booleschen Algebra zusammengefasst.
+
+\begin{sphinxadmonition}{note}{Boolesche Algebra}
+
+\sphinxAtStartPar
+Boolesche Algebra steht im Übrigen auch hinter der Bedingung in der \sphinxcode{\sphinxupquote{While}}\sphinxhyphen{}Schleife! Denn solange die Bedingung der Schleife wahr ist (also zu \sphinxcode{\sphinxupquote{True}} auswertet), wird der Schleifenrumpf ausgeführt. Sobald die Bedingung nicht mehr wahr ist (also zu \sphinxcode{\sphinxupquote{False}} auswertet), wird die Schleife abgebrochen, und das restliche Programm nach der Schleife (welches auch leer sein kann) wird ausgeführt.
+\end{sphinxadmonition}
 
 
 
