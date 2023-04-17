@@ -61,6 +61,8 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
     <script>DOCUMENTATION_OPTIONS.pagename = 'Notebooks/Hello World!';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
@@ -375,8 +377,10 @@ Deshalb wird dieses besondere Programm auch in diesem Kurs der Startpunkt für P
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hier beginnt das Hello World! - Programm</span>
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="c1"># wir geben &quot;Hello World!&quot; aus</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello World!&quot;</span><span class="p">)</span>
-    
+
+<span class="c1"># wir starten das Programm</span>
 <span class="n">main</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -391,7 +395,7 @@ Deshalb wird dieses besondere Programm auch in diesem Kurs der Startpunkt für P
 <ol class="arabic simple">
 <li><p>Einem <strong>Kommentar:</strong> Hierbei handelt es sich um eine Notiz des Programmieres. Eingeleitet wird dies durch das ‘#’-Symbol. Alles was hinter diesem Sybmol geschrieben steht, wird komplett bei der Übersetzung des Programms ignoriert.</p></li>
 <li><p>Einer <strong>Funktionendefinition:</strong> Damit man Funktionen nutzen kann, muss man diese vorher definieren. Danach kann man diese beliebig oft benutzen. Man muss noch erwähnen, dass das main()-Programm ein besonderes Programm ist. Dieses dient im Allgemeinen als Startpunkt für die Übersetzung. Die Syntax ist hier immer die gleiche. Zuerst das Schlüsselwort <code class="docutils literal notranslate"><span class="pre">def</span></code>, danach der Name der Funktion, gefolgt von einem Doppelpunkt.</p></li>
-<li><p>Einem <strong>Funktionenaufruf:</strong> Streng genommen sind hier zwei Aufrufe. Der erste in Zeile 3 und der zweite in Zeile 5. Der Aufruf an print() schreibt den Inhalt (hier: “Hello World!”) raus. Der Aufruf an main() startet das Programm und gibt dann “Hello World!” aus.</p></li>
+<li><p>Einem <strong>Funktionenaufruf:</strong> Streng genommen sind hier zwei Aufrufe. Der erste in Zeile 3 und der zweite in Zeile 5. Der Aufruf an print() schreibt den Inhalt (hier: “Hello World!”) raus. Der Aufruf an main() startet das Programm und gibt dann “Hello World!” aus. Außerdem wird dem aufmerksamen Leser aufgefallen sein, dass wir <code class="docutils literal notranslate"><span class="pre">print()</span></code> nicht definiert hatten, obwohl doch eigentlich jede Funktion vorher definert sein müsste. Hier ist es allerdings ein wenig anders. Python liefert direkt die <code class="docutils literal notranslate"><span class="pre">print()</span></code>-Funktion mit aus, und sie damit einfach verfügbar. Es gibt noch weitere solcher Funktionen, die bei gegebener Zeit noch eingeführt werden.</p></li>
 </ol>
 <details class="sd-sphinx-override sd-dropdown sd-card sd-mb-3">
 <summary class="sd-summary-title sd-card-header">
@@ -511,7 +515,33 @@ Hello World!
 </div>
 </div>
 </div>
-<p>Dies ist eine sogenannte <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleife. <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleifen sind bei weitem die meist genutzten Schleifen in Python. Es gibt noch eine weitere Art von Schleifen, die <code class="docutils literal notranslate"><span class="pre">while</span></code>-Schleife, aber diese werden erst bei Bedarf eingeführt.</p>
+<p>Dies ist eine sogenannte <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleife. <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleifen sind bei weitem die meist genutzten Schleifen in Python.</p>
+<p>Die Syntax ist im wesentlichen immer die wie oben gezeigt. Die beiden auffälligen Komponenten werden noch hier einzeln erläutert:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">range()</span></code>: Diese Funktion gibt eine Reihe oder Folge (engl. range) von (Ganz-)Zahlen zurück. Hierbei gibt es insgsamt drei verschiedene Fälle:</p>
+<ul>
+<li><p><code class="docutils literal notranslate"><span class="pre">range(n)</span></code>: Hier wird eine Reihe von Zahlen beginnend bei 0 und endend bei <strong>n-1</strong> (also insgesamt n Zahlen) erzeugt</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">range(a,b)</span></code>: Hier wird eine Reihe von Zahlen beginnend bei <code class="docutils literal notranslate"><span class="pre">a</span></code> und endend bei <strong>b-1</strong> erzeugt.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">range(a,b,inc)</span></code>: Hier wird eine Reihe von Zahlen erzeugt, die bei <code class="docutils literal notranslate"><span class="pre">a</span></code> startet, wobei immer um <code class="docutils literal notranslate"><span class="pre">inc</span></code> hochgezählt wird. Wenn das letzte Ergbnis <span class="math notranslate nohighlight">\(&gt; b-1\)</span> ist, so wird die letzt mögliche Zahl, für die gilt, dass sie kleiner als <code class="docutils literal notranslate"><span class="pre">b-1</span></code> zurückgegeben. In Code sieht dies vereinfacht wie folgt aus:</p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">myRange</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">end</span><span class="p">,</span> <span class="n">inc</span><span class="p">):</span>
+    <span class="c1"># wir müssen uns alle berechneten Zahlen merken. Dies kann man in Python in einer sogenannten </span>
+    <span class="c1"># Liste machen. Später mehr dazu.</span>
+    <span class="n">range_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+    
+    <span class="c1"># while-Schleifen brauchen uns im Moment nicht wirklich zu interessieren. Diese Art Schleife </span>
+    <span class="c1"># führt solange einen bestimmten Programmteil immer und immer wieder aus, bis eine bestimmte </span>
+    <span class="c1"># Bedingung NICHT MEHR erfüllt ist (hier also: sobald start &gt; end ist, brechen wir ab)</span>
+    <span class="k">while</span> <span class="n">start</span> <span class="o">&lt;</span> <span class="n">end</span><span class="p">:</span>
+        <span class="n">range_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">start</span><span class="p">)</span>
+        <span class="n">start</span> <span class="o">+=</span> <span class="n">inc</span>
+        
+    <span class="c1"># jetzt geben wir die Liste zurück</span>
+    <span class="k">return</span> <span class="n">range_list</span>
+</pre></div>
+</div>
 </section>
 </section>
 </section>
