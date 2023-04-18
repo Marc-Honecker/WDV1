@@ -4,4 +4,4 @@
 format: jb-book
 root: intro
 chapters:
-- file: Notebooks/Hello World!
+- file: Notebooks/HelloWorld

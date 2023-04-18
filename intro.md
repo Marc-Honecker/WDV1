@@ -8,21 +8,21 @@ Deshalb ist im Moment ein Ende seines Siegeszuges noch nicht absehbar.
 Für den Kurs haben wir einen "ganzheitlichen" Ansatz gewählt, der von üblichen Programmierkursen abweicht. Sie lernen also im 
 übertragenen Sinne zunächst ganze Sätze ohne mit vielen grammatikalischen Begriffen konfrontiert zu werden. Damit sollen Sie
 schnell in die Lage versetzt werden kontinuierlich durch das Skript an Funktionen verschiedener Bibliotheken herangefürht zu 
-werden. Damit werdne an einigen Beispielen auch Hitergrund z.B. zu Numerik oder Statistik formlos gelehrt oder es wird aufgezeigt,
-wie die Probleme mit herkömmlichen Programmen, allerdings in Python Syntax gelöst würden. Am Ende von WDV-1 sollten Sie dann in 
-der Lage sein, echte Python Bücher (quer) zu lesen, aber auch schnell andere Programmiersprachen wie z.B. C++ zu erlernen.
+werden. Damit werden an einigen Beispielen auch Hintergrund z.B. zu Numerik oder Statistik formlos gelehrt oder es wird aufgezeigt,
+wie die Probleme mit herkömmlichen Programmen (üblicherweise in Python Syntax) gelöst würden. Am Ende von WDV-1 sollten Sie dann in 
+der Lage sein, echte Python Bücher (quer) zu lesen, aber auch schnell andere Programmiersprachen zu erlernen, wie z.B. C++.
 
 In den Hausaufgaben wird es zwei Testate geben, deren Bestehen Ihnen erlaubt an der finalen Leistungkontrolle, der Klausur,
 teilzunehmen. Weder bei Testaten, noch Klausuren sind Computer erlaubt. Das klingt paradox, aber es wäre sonst zu einfach zu 
 mogeln. Leistungkontrollen werden vermutlich aus zwei, manchmal drei Teilen bestehen:
 
 1. Ein Teil, in dem Ihnen der Code gegeben wird und Sie vorhersagen müssen, was bei dei dessen Ausführung passiert.
-2. Ein Teil, in dem Sie selbst Python Code schreiben.
+2. Ein Teil, in dem Sie selbst Python Code (oder Pseudo-Code) schreiben.
 3. Unter Umständen werden Sie noch aufgefordert, Fehler in einem gegebenen Code zu markieren/verbessern.
 
-**Dieses Skript ist kein Lehrbuch.** Details zur Syntax und andere Regeln werdne in der Vorlesung und den Übungen erklärt oder 
+**Dieses Skript ist kein Lehrbuch.** Details zur Syntax und andere Regeln werden in der Vorlesung und den Übungen erklärt oder 
 können in den angegebenen Referenzen nachgeschlagen werden. Dieses Skript ist eher eine Ansammlung von kleinen kommentierten 
-Code-Schnipsel.
+Code-Schnipseln.
 
 
 ## Ablauf einer Lehreinheit
