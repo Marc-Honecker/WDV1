@@ -2,10 +2,10 @@
 2. Lektion: Lesen und Schreiben von Dateien			numbers, variables
 3. Lektion: Plotten (gnuplot & python)	Bsp. aus Elektor, Dipole S. 338			tupels, lists
 4. Lektion: Mittelwert, Varianz, Histogramme			functions
-5. Lektion: Integrieren und Differenzieren
-6. Lektion: Kurvendiskussion, Optimierung, Root-Finding
 7. Lektion: Vektorrechnung, Gleichhungssysteme [Fachwerk,..]
+5. Lektion: Integrieren und Differenzieren
 8. Lektion: Lösen von gew. Differentialgl. 
+6. Lektion: Kurvendiskussion, Optimierung, Root-Finding
 9. Lektion: Regression
 10. Lektion: numerische+bool: (Grund-)rechenarten incl. Complex, ==
 11. Lektion: Stringoperation
