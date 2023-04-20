@@ -1,0 +1,5 @@
+\selectlanguage *{english}
+\contentsline {chapter}{\numberline {1}Hello World!}{3}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Das Hello World! \sphinxhyphen {} Programm Improved}{4}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Schleifen (engl. Loops)}{5}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}Die \sphinxstyleliteralintitle {\sphinxupquote {if\sphinxhyphen {}else}} \sphinxhyphen {} Anweisung}{6}{subsection.1.1.2}%
