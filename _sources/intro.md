@@ -10,7 +10,7 @@ Für den Kurs haben wir einen "ganzheitlichen" Ansatz gewählt, der von übliche
 schnell in die Lage versetzt werden kontinuierlich durch das Skript an Funktionen verschiedener Bibliotheken herangefürht zu 
 werden. Damit werden an einigen Beispielen auch Hintergrund z.B. zu Numerik oder Statistik formlos gelehrt oder es wird aufgezeigt,
 wie die Probleme mit herkömmlichen Programmen (üblicherweise in Python Syntax) gelöst würden. Am Ende von WDV-1 sollten Sie dann in 
-der Lage sein, echte Python Bücher (quer) zu lesen, aber auch schnell andere Programmiersprachen zu erlernen, wie z.B. C++.
+der Lage sein, echte Python Bücher (quer) zu lesen, aber auch schnell andere Programmiersprachen zu erlernen, wie z.B. C/C++.
 
 In den Hausaufgaben wird es zwei Testate geben, deren Bestehen Ihnen erlaubt an der finalen Leistungkontrolle, der Klausur,
 teilzunehmen. Weder bei Testaten, noch Klausuren sind Computer erlaubt. Das klingt paradox, aber es wäre sonst zu einfach zu 
@@ -32,11 +32,29 @@ neue Inhalte vermittelt und die 3. Stunde dient dazu, dass Studierende mit der L
 Unklarheiten oder andere Schwierigkeiten an die anwesenden HiWis stellen können.
 
 
+## Literaturempfehlungen
+
+Die kostenlosen Online-Kurse [W3](https://www.w3schools.com/python/) und [InventWithPython](https://inventwithpython.com) bieten einen guten allgemeinen Überblick über die Programmiersprache Python.
+Speziell auf die wissenschaftliche Anwendung spezialisiert ist das Handbuch von Christian Hill sehr zu empfehlen {cite}`Hill2015`.
+Aufgrund der Popularität von Python finden Sie aber auch für alle erdenklichen Probleme jederzeit Hilfe mit einer kurzen Google-Suche oder einer Frage an [ChatGPT](https://chat.openai.com).
+
+
+## Installation von Python
+
+Sie benötigen zur Bearbeitung der Übungsaufgaben eine funktionierende Installation von Python3 inklusive einigen Zusatzpaketen für die wissenschaftliche Datenverarbeitung.
+Wir empfehlen Ihnen hierfür die Installation der Scientific Python Distribution [Anaconda](https://www.anaconda.com/download).
+Laden Sie die entsprechende Version für Ihr System herunter und installieren Sie sie.
+In Anaconda ist bereits alles enthalten, was Sie für diesen Kurs brauchen (und noch viel mehr).
+
+
+## Inhaltsverzeichnis
 
 ```{tableofcontents}
 ```
 
-
+```{bibliography}
+:style: unsrt
+```
 
 
 

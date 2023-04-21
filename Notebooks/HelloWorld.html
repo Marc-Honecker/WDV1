@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Für Programmieranfänger &#8212; WDV1</title>
+    <title>Erste Schritte in Python &#8212; WDV1</title>
   
   
   
@@ -156,7 +156,7 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Für Programmieranfänger</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Erste Schritte in Python</a></li>
 </ul>
 
     </div>
@@ -340,7 +340,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Für Programmieranfänger</h1>
+    <h1>Erste Schritte in Python</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -366,8 +366,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="fur-programmieranfanger">
-<h1>Für Programmieranfänger<a class="headerlink" href="#fur-programmieranfanger" title="Permalink to this headline">#</a></h1>
+  <div class="tex2jax_ignore mathjax_ignore section" id="erste-schritte-in-python">
+<h1>Erste Schritte in Python<a class="headerlink" href="#erste-schritte-in-python" title="Permalink to this headline">#</a></h1>
 <p>Traditionell ist “Hello World!” das erste Programm, welches man in einer neuen Programmiersprache schreibt.
 Dieses Programm tut nichts anderes als den Text “Hello World!” auszugeben.
 Diese Aufgabe ist in Python jedoch so simpel, dass wir sie etwas anpassen werden um Sie mit den Strukturen vertraut machen, die sie in Ihren Computerprogrammen brauchen werden.
@@ -512,12 +512,12 @@ Hello Julia
 <ol class="arabic simple">
 <li><p>Ein <strong>Kommentar:</strong> Hierbei handelt es sich um eine Notiz des Programmieres. Alles was hinter einem <code class="docutils literal notranslate"><span class="pre">#</span></code>-Symbol steht, wird vom Computer beim Ausführen des Programms ignoriert und dient lediglich als Hinweis für den Menschen, der den Code liest.</p></li>
 <li><p>Die Definition einer sogenannten <strong>Variable</strong> namens <code class="docutils literal notranslate"><span class="pre">student</span></code>, der wir eine Liste zuordnen. Falls Sie noch nie programmiert haben, wundern Sie sich an dieser Stelle vielleicht, dass das Gleichheitszeichen nicht genau im mathematischen Sinne verwendet wird, sondern als Zuordnungssymbol. Diese Konvention teilen sich fast alle Programmiersprachen.</p></li>
-<li><p>Eine <strong>Liste:</strong> Dies ist eine Art von <strong>Container</strong> (dt. Behälter), der in Python mit eckigen Klammern <code class="docutils literal notranslate"><span class="pre">[]</span></code> gekennzeichnet wird und beliebige Einträge enthalten kann. Die in dieser Liste enthaltenen Text-Objekte werden in Programmiersprachen auch <strong>Strings</strong> genannt. Für Zahlen gibt es allerdings bessere Container-Varianten als die einfache Liste, was Sie in den folgenden Kapiteln merken werden.</p></li>
+<li><p>Eine <strong>Liste:</strong> Dies ist ein <strong>Container</strong> (dt. Behälter), der in Python mit eckigen Klammern <code class="docutils literal notranslate"><span class="pre">[]</span></code> gekennzeichnet wird und beliebige Einträge enthalten kann. Die in dieser Liste enthaltenen Text-Objekte werden in Programmiersprachen auch <strong>Strings</strong> genannt. Für Zahlen gibt es allerdings bessere Container-Varianten als die einfache Liste, was Sie in den folgenden Kapiteln merken werden.</p></li>
 <li><p>Der Zugriff auf die Elemente eines Containers mit eckigen Klammern <code class="docutils literal notranslate"><span class="pre">[]</span></code>: Hierbei sollten Sie sich vor allem merken, dass die Elemente von geordneten Containern in Python immer beginnend mit dem Index <code class="docutils literal notranslate"><span class="pre">0</span></code> nummeriert werden. Auch diese Konvention teilt sich Python mit vielen anderen Programmiersprachen.</p></li>
 <li><p>Das Zusammenfügen von zwei Strings zu einem längeren String mit dem <code class="docutils literal notranslate"><span class="pre">+</span></code>-Operator.</p></li>
 </ol>
-<p>Sie können sich nun hoffentlich vorstellen, dass die obige Methode zur Begrüßung aller Studenten sehr schreibaufwendig wird, wenn die Liste eine große Anzahl an Namen enthält.
-Deshalb bieten Programmiersprachen eine Lösung für sich ständig wiederholende Abläufe bereit: <em><strong>Schleifen</strong></em>.</p>
+<p>Sie können sich wahrscheinlich vorstellen, dass die obige Methode zur Begrüßung aller Studenten mühsamer wird, je länger die Liste ist.
+Aus diesem Grund bieten Programmiersprachen eine einfache Lösung für sich ständig wiederholende Abläufe: <em><strong>Schleifen</strong></em>.</p>
 <div class="section" id="schleifen-engl-loops">
 <h3>Schleifen (engl. Loops)<a class="headerlink" href="#schleifen-engl-loops" title="Permalink to this headline">#</a></h3>
 <p>Also schreiben wir unser letztes Programm ein wenig um.</p>
@@ -543,10 +543,10 @@ Hello Julia
 <p>Wir halten fest:</p>
 <ol class="arabic simple">
 <li><p>Der <code class="docutils literal notranslate"><span class="pre">for</span></code>-Loop ist der meist-genutzte Typ von Schleifen in Python, welcher die eingerückten Zeilen für verschiedene Werte von <code class="docutils literal notranslate"><span class="pre">i</span></code> wiederholt. Dabei nennt man <code class="docutils literal notranslate"><span class="pre">i</span></code> eine <strong>Laufvariable</strong> und jede Wiederholung eine <strong>Iteration</strong>.</p></li>
-<li><p>Die <code class="docutils literal notranslate"><span class="pre">range()</span></code>-Funktion beschreibt das Intervall von Zahlen, die im Loop für <code class="docutils literal notranslate"><span class="pre">i</span></code> eingesetzt werden.</p></li>
-<li><p>Die in Python vordefinierte <code class="docutils literal notranslate"><span class="pre">len()</span></code>-Funktion nimmt einen Container als Argument und gibt die Anzahl an Elementen in diesem Container zurück.</p></li>
+<li><p>Die <code class="docutils literal notranslate"><span class="pre">range()</span></code>-Funktion beschreibt welche Zahlen für <code class="docutils literal notranslate"><span class="pre">i</span></code> in der Schleife eingesetzt werden.</p></li>
+<li><p>Die <code class="docutils literal notranslate"><span class="pre">len()</span></code>-Funktion (kurz für length, dt. Länge) nimmt einen Container als Argument und gibt die Anzahl an Elementen in diesem Container zurück.</p></li>
 </ol>
-<p>Die Syntax von Schleifen ist im Wesentlichen immer wie oben gezeigt. Die häufig auftretende <code class="docutils literal notranslate"><span class="pre">range()</span></code>-Funktion soll aufgrund ihrer häufigen Anwendung hier noch etwas genauer erläutert werden.
+<p>Die Syntax von Schleifen ist im Wesentlichen immer wie oben gezeigt. Die <code class="docutils literal notranslate"><span class="pre">range()</span></code>-Funktion soll aufgrund ihrer häufigen Anwendung hier noch etwas genauer erläutert werden.
 Sie gibt eine Reihe oder Folge (engl. range) von (ganzen) Zahlen zurück. Hierbei gibt es insgsamt drei verschiedene Fälle:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">range(n)</span></code>: Hier wird eine Reihe von Zahlen beginnend bei 0 und endend bei <strong>n-1</strong> (also insgesamt <strong>n</strong> Zahlen) erzeugt</p></li>
@@ -556,7 +556,7 @@ Sie gibt eine Reihe oder Folge (engl. range) von (ganzen) Zahlen zurück. Hierbe
 <p><code class="docutils literal notranslate"><span class="pre">range()</span></code> stellt ein Beispiel dafür da, dass die selbe Funktion verschiedene Anzahlen von Argumenten nehmen kann.
 Definitionen von Python-Funktionen haben sehr oft eine Vielzahl von Argumenten, von denen die meisten optional sind, bzw. einen “default” Wert haben.
 Mehr dazu später.</p>
-<p><code class="docutils literal notranslate"><span class="pre">len()</span></code> stellt ein Beispiel für eine Funktion dar, die einen Wert zurückgibt (engl. <strong>return</strong>) an das Programm, das sie aufruft.
+<p><code class="docutils literal notranslate"><span class="pre">len()</span></code> stellt ein Beispiel für eine Funktion dar, die (im Gegensatz zu <code class="docutils literal notranslate"><span class="pre">print()</span></code>) einen Wert zurückgibt (engl. <strong>return</strong>) an das Programm, das sie aufruft.
 Dieser Wert ist in diesem Fall eine Zahl, kann im Allgemeinen aber auch etwas anderes sein.</p>
 <p>Die obige Lösung zur Begrüßung der Studenten ist bereits viel besser als die Variante ohne <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleife, ist aber immer noch bestenfalls als altmodisch zu bezeichnen.
 Sogenannte “höhere” Programmiersprachen unterscheiden sich von “maschinennahen” Programmiersprachen dadurch, dass sie bereits relativ nah an der menschlichen Sprache sind.
@@ -593,15 +593,15 @@ Hello Julia
 </div>
 <p>Dieses Beispiel soll Ihnen zwei Dinge aufzeigen:</p>
 <ol class="arabic simple">
-<li><p>Der <strong>Vergleich</strong> von Objekten mit den Operatoren <code class="docutils literal notranslate"><span class="pre">==</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;</span></code> funktioniert für Zahlen wie in der Mathematik. Da <code class="docutils literal notranslate"><span class="pre">=</span></code> bereits als Zuordnungssymbol vergeben ist, nutzt man in Programmiersprachen stattdessen <code class="docutils literal notranslate"><span class="pre">==</span></code> zur Prüfung auf Gleichheit. Ist die gegebene (Un)Gleichung erfüllt, gibt der Ausdruck <code class="docutils literal notranslate"><span class="pre">True</span></code> (dt. wahr) zurück und ansonsten <code class="docutils literal notranslate"><span class="pre">False</span></code> (dt. falsch).</p></li>
-<li><p>Der Computer macht genau das was sie ihm anweisen und mit großer Macht kommt große Verantwortung. Es sollte offensichtlich sein, dass das Programm mit der obigen Schleife niemals enden würde! Falls Ihnen ein solcher Fehler passiert, können Sie die Ausführung üblicherweise abbrechen mit der Tastenkombination <strong>Strg+C</strong>.</p></li>
+<li><p>Der <strong>Vergleich</strong> von Objekten mit den Operatoren <code class="docutils literal notranslate"><span class="pre">==</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;=</span></code>, <code class="docutils literal notranslate"><span class="pre">&gt;</span></code>, <code class="docutils literal notranslate"><span class="pre">&lt;</span></code> funktioniert für Zahlen wie in der Mathematik. Da <code class="docutils literal notranslate"><span class="pre">=</span></code> bereits als Zuordnungssymbol vergeben ist, nutzt man in Programmiersprachen stattdessen <code class="docutils literal notranslate"><span class="pre">==</span></code> zur Prüfung auf Gleichheit. Ist die gegebene (Un-)Gleichung erfüllt, gibt der Ausdruck <code class="docutils literal notranslate"><span class="pre">True</span></code> (dt. wahr) zurück und ansonsten <code class="docutils literal notranslate"><span class="pre">False</span></code> (dt. falsch).</p></li>
+<li><p>Der Computer macht genau das was sie ihm anweisen. Und mit großer Macht kommt große Verantwortung. Es sollte offensichtlich sein, dass das Programm mit der obigen Schleife niemals enden würde! Falls Ihnen ein solcher Fehler passiert, können Sie die Ausführung dennoch abbrechen mit der Tastenkombination <strong>Strg+C</strong>.</p></li>
 </ol>
 <p>Auch wenn Sie <code class="docutils literal notranslate"><span class="pre">while</span></code>-Schleifen in diesem Kurs nicht unbedingt nutzen werden, sind Sie nun zumindest vorbereitet, wenn sie Ihnen mal begegnen.</p>
 </div>
 <div class="section" id="die-if-else-fallunterscheidung">
 <h3>Die <code class="docutils literal notranslate"><span class="pre">if-else</span></code> Fallunterscheidung<a class="headerlink" href="#die-if-else-fallunterscheidung" title="Permalink to this headline">#</a></h3>
 <p>Basierend auf dem zuletzt eingeführten Konzept von <code class="docutils literal notranslate"><span class="pre">True</span></code> und <code class="docutils literal notranslate"><span class="pre">False</span></code>, können wir auch eine Fallunterscheidung realisieren.
-Vielleicht möchte man die Welt z.B. an allen Wochentagen mit einem freundlichen <code class="docutils literal notranslate"><span class="pre">Hello</span> <span class="pre">beautiful</span> <span class="pre">World!</span></code> begrüßen, außer natürlich montags.
+Vielleicht möchte man die Welt z.B. an allen Wochentagen mit einem freundlichen <code class="docutils literal notranslate"><span class="pre">Hello</span> <span class="pre">Beautiful</span> <span class="pre">World!</span></code> begrüßen, außer montags.
 Eine mögliche Implementierung wäre die Folgende:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -627,6 +627,7 @@ Eine mögliche Implementierung wäre die Folgende:</p>
 <p>Dieser Code zeigt Ihnen:</p>
 <ol class="arabic simple">
 <li><p>Die <code class="docutils literal notranslate"><span class="pre">import</span></code>-Funktion von Python, mit der Sie zusätzliche Inhalte aus Modulen importieren können. Module enthalten im Wesentlichen weitere vordefinierte Funktionen zusätzlich zur Python-Basissprache. Sie können entweder in der Python-Umgebung (engl. Environment) installiert sein oder in einer ‘.py’-Datei im aktuellen Arbeitsverzeichnis zu finden sein. Tatsächlich ist das hervorragende Angebot an Modulen der große Pluspunkt, der Python seit Jahren zu einer der populärsten Programmiersprachen macht.</p></li>
+<li><p>Den Aufruf einer <strong>Member-Funktion</strong> (dt. Mitgliedsfunktion): Python nutz hierfür die Syntax mit dem <code class="docutils literal notranslate"><span class="pre">.</span></code> zwischen Objekt-/Modulname und Funktionsname. Sie müssen an dieser Stelle nicht wissen, warum das <code class="docutils literal notranslate"><span class="pre">datetime</span></code>-Modul ein Objekt mit dem gleichen Namen und das wiederum eine Funktion <code class="docutils literal notranslate"><span class="pre">today()</span></code> hat, die wiederum ein Objekt zurückgibt, das die Funktion <code class="docutils literal notranslate"><span class="pre">weekday()</span></code> besitzt. Dies sind Elemente des sogenannten <strong>Objekt-orientierten Programmierens</strong>, welches ein besonders hohes Abstraktionsniveau bietet, aber am Anfang wahrscheinlich eher verwirrend wirkt. An dieser Stelle können Sie sich einfach merken, dass das gute Angebot von Modulen leider eben auch erfordert, dass man sich zusätzlich zur Python-Basissprache auch noch mit den Inhalten einiger Module vertraut machen muss.</p></li>
 <li><p>Eine <code class="docutils literal notranslate"><span class="pre">if</span></code>-<code class="docutils literal notranslate"><span class="pre">else</span></code>-Fallunterscheidung: Der eingerückte Block hinter <code class="docutils literal notranslate"><span class="pre">if</span> <span class="pre">___:</span></code> wird nur ausgeführt, wenn die Bedingung <code class="docutils literal notranslate"><span class="pre">___</span></code> als <code class="docutils literal notranslate"><span class="pre">True</span></code> ausgewertet wird. Andernfalls wird nur der <code class="docutils literal notranslate"><span class="pre">else</span></code>-Zweig ausgeführt.
 Wird also als Ergebnis des obigen Code-Blocks bei Ihnen “Hello World.” angezeigt, können Sie sicher sein, dass der Inhalt dieses Dokuments zuletzt an einem Montag aktualisiert wurde.</p></li>
 </ol>
