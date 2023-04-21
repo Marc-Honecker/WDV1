@@ -584,7 +584,7 @@ Hello Julia
 </div>
 </div>
 </div>
-<p>Etwas weniger häufig als die <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleife ist die sogenannte <code class="docutils literal notranslate"><span class="pre">while</span></code>-Schleife. <code class="docutils literal notranslate"><span class="pre">while</span></code>-Schleifen führen einen Code-Abschnitt genau so lange aus, wie eine Bedingung gilt (also in unserem Beispiel solange <code class="docutils literal notranslate"><span class="pre">start</span> <span class="pre">&lt;</span> <span class="pre">end</span></code>).</p>
+<p>Etwas weniger häufig als die <code class="docutils literal notranslate"><span class="pre">for</span></code>-Schleife ist die sogenannte <code class="docutils literal notranslate"><span class="pre">while</span></code>-Schleife. <code class="docutils literal notranslate"><span class="pre">while</span></code>-Schleifen führen einen Code-Abschnitt genau so lange aus, wie eine Bedingung gilt.</p>
 <p><strong>Jedoch Vorsicht mit <code class="docutils literal notranslate"><span class="pre">while</span></code>-Schleifen</strong>. Betrachten wir das folgende kleine Programm:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_never_ending_loop</span><span class="p">():</span>
     <span class="k">while</span> <span class="mi">1</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
@@ -610,7 +610,7 @@ Eine mögliche Implementierung wäre die Folgende:</p>
 <span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
     <span class="c1"># weekday() gibt Zahlen von 0-6 zurück, 0 steht für Montag; 6 für Sonntag</span>
     <span class="k">if</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">.</span><span class="n">weekday</span><span class="p">()</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;hello World.&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello World.&quot;</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Hello Beautiful World!&quot;</span><span class="p">)</span>
         
@@ -635,7 +635,7 @@ Unter der Haube macht Digitaltechnik nichts anderes als ausschließlich boolesch
 Da dies allerdings keine Informatik-Veranstaltung ist, sollte Ihnen das hier vermittelte Verständnis von booleschen Variablen zunächst ausreichen.</p>
 <div class="tip admonition">
 <p class="admonition-title">Boolesche Algebra</p>
-<p>Boolesche Algebra steht im Übrigen auch hinter der Bedingung in der <code class="docutils literal notranslate"><span class="pre">While</span></code>-Schleife! Denn solange die Bedingung der Schleife wahr ist (also zu <code class="docutils literal notranslate"><span class="pre">True</span></code> auswertet), wird der Schleifenrumpf ausgeführt. Sobald die Bedingung nicht mehr wahr ist (also zu <code class="docutils literal notranslate"><span class="pre">False</span></code> auswertet), wird die Schleife abgebrochen, und es geht dahinter weiter.</p>
+<p>Boolesche Algebra steht im Übrigen auch hinter der Bedingung in der <code class="docutils literal notranslate"><span class="pre">while</span></code>-Schleife! Denn solange die Bedingung der Schleife wahr ist (also zu <code class="docutils literal notranslate"><span class="pre">True</span></code> auswertet), wird der Schleifenrumpf ausgeführt. Sobald die Bedingung nicht mehr wahr ist (also zu <code class="docutils literal notranslate"><span class="pre">False</span></code> auswertet), wird die Schleife abgebrochen, und es geht dahinter weiter.</p>
 </div>
 <hr class="docutils" />
 <p><em><strong>Damit ist unsere grundlegende Einleitung in Python abgeschlossen!</strong></em> In den nächsten Kapiteln werden die hier erlernten Fähigkeiten dann für Probleme mit physikalischem Hintergrund genutzt werden. Ebenso werden wir ab jetzt das eigentlich unnötige <code class="docutils literal notranslate"><span class="pre">main()</span></code>-Programm in Python nicht mehr benutzen und es darf damit wegelassen werden.</p>
