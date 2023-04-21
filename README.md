@@ -1,7 +1,9 @@
 # WDV1
 Skript zur Vorlesung Wissenschaftliche Datenverarbeitung 1 von Prof. Dr. Martin H. Müser an der Universität des Saarlandes.
+Der Inhalt befindet sich noch in Bearbeitung. 
+Die Vorlesung wird zum ersten Mal im Sommersemester 2024 stattfinden.
 
-Hier klicken für die kompilierte [Web-Version](https://marc-honecker.github.io/WDV1/intro.html).
+[Hier klicken](https://marc-honecker.github.io/WDV1/intro.html) für die kompilierte Web-Version.
 
 ## Anweisungen für Mitarbeiter
 
@@ -23,6 +25,8 @@ Kompilieren der HTML-Version: `jb build .`
 Kompilieren der PDF-Version: `jb build . --builder pdflatex`  
 Öffnen der PDF-Version: `open _build/latex/WDV1.pdf`  
 Aktualisieren der Web-Verison: `ghp-import -n -p -f _build/html` (auf dem main branch)  
+
+Der branch `gh-pages` wird automatisch generiert und darf nicht manuell verändert werden!
 
 ### Konventionen
 
