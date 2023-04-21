@@ -137,8 +137,8 @@ const thebe_selector_output = ".output, .cell_output"
       
     
     
-    <img src="_static/logo.png" class="logo__image only-light" alt="Logo image"/>
-    <script>document.write(`<img src="_static/logo.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+    <img src="_static/logo.jpg" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="_static/logo.jpg" class="logo__image only-dark" alt="Logo image"/>`);</script>
   
   
 </a></div>
@@ -153,7 +153,7 @@ const thebe_selector_output = ".output, .cell_output"
             </li>
         </ul>
         <ul class="nav bd-sidenav">
-<li class="toctree-l1"><a class="reference internal" href="Notebooks/HelloWorld.html">Erste Schritte</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Notebooks/HelloWorld.html">Für Programmieranfänger</a></li>
 </ul>
 
     </div>
@@ -366,18 +366,25 @@ document.write(`
   <div class="tex2jax_ignore mathjax_ignore section" id="wdv1">
 <h1>WDV1<a class="headerlink" href="#wdv1" title="Permalink to this headline">#</a></h1>
 <p>Skript zur Vorlesung Wissenschaftliche Datenverarbeitung 1 von Prof. Dr. Martin H. Müser an der Universität des Saarlandes.</p>
+<p>Hier klicken für die kompilierte <a class="reference external" href="https://marc-honecker.github.io/WDV1/intro.html">Web-Version</a>.</p>
 <div class="section" id="anweisungen-fur-mitarbeiter">
 <h2>Anweisungen für Mitarbeiter<a class="headerlink" href="#anweisungen-fur-mitarbeiter" title="Permalink to this headline">#</a></h2>
 <div class="section" id="arbeiten-mit-dem-skript">
 <h3>Arbeiten mit dem Skript<a class="headerlink" href="#arbeiten-mit-dem-skript" title="Permalink to this headline">#</a></h3>
 <p>Installation von jupyter-book mit Anaconda:<br />
 <code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">jupyter-book</span></code><br />
-<code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">pyppeteer</span></code></p>
+<code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">pyppeteer</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">conda</span> <span class="pre">install</span> <span class="pre">-c</span> <span class="pre">conda-forge</span> <span class="pre">ghp-import</span></code></p>
+<p>Installation von jupyter-book mit Python ohne Anaconda:<br />
+<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">jupyter-book</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">pyppeteer</span></code><br />
+<code class="docutils literal notranslate"><span class="pre">pip</span> <span class="pre">install</span> <span class="pre">ghp-import</span></code></p>
 <p>Öffnen des Source Codes in Jupyter: <code class="docutils literal notranslate"><span class="pre">jupyter-notebook</span></code> (öffnet Jupyter im Browser)<br />
 Kompilieren der HTML-Version: <code class="docutils literal notranslate"><span class="pre">jb</span> <span class="pre">build</span> <span class="pre">.</span></code><br />
 Öffnen der HTML-Version: <code class="docutils literal notranslate"><span class="pre">open</span> <span class="pre">_build/html/index.html</span></code><br />
 Kompilieren der PDF-Version: <code class="docutils literal notranslate"><span class="pre">jb</span> <span class="pre">build</span> <span class="pre">.</span> <span class="pre">--builder</span> <span class="pre">pdflatex</span></code><br />
-Öffnen der PDF-Version: <code class="docutils literal notranslate"><span class="pre">open</span> <span class="pre">_build/latex/WDV1.pdf</span></code></p>
+Öffnen der PDF-Version: <code class="docutils literal notranslate"><span class="pre">open</span> <span class="pre">_build/latex/WDV1.pdf</span></code><br />
+Aktualisieren der Web-Verison: <code class="docutils literal notranslate"><span class="pre">ghp-import</span> <span class="pre">-n</span> <span class="pre">-p</span> <span class="pre">-f</span> <span class="pre">_build/html</span></code> (auf dem main branch)</p>
 </div>
 <div class="section" id="konventionen">
 <h3>Konventionen<a class="headerlink" href="#konventionen" title="Permalink to this headline">#</a></h3>
