@@ -3,11 +3,12 @@
 <!DOCTYPE html>
 
 
-<html >
+<html lang="en" >
 
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>Erste Schritte in Python &#8212; WDV1</title>
   
   
@@ -18,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -37,12 +38,13 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -64,9 +66,10 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'Notebooks/HelloWorld';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Lesen und Schreiben von Dateien" href="IO.html" />
     <link rel="prev" title="Vorbemerkungen zu Kurs und Skript" href="../intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="None"/>
+  <meta name="docsearch:language" content="en"/>
   </head>
   
   
@@ -157,6 +160,7 @@ const thebe_selector_output = ".output, .cell_output"
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Erste Schritte in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IO.html">Lesen und Schreiben von Dateien</a></li>
 </ul>
 
     </div>
@@ -366,8 +370,8 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="erste-schritte-in-python">
-<h1>Erste Schritte in Python<a class="headerlink" href="#erste-schritte-in-python" title="Permalink to this headline">#</a></h1>
+  <section class="tex2jax_ignore mathjax_ignore" id="erste-schritte-in-python">
+<h1>Erste Schritte in Python<a class="headerlink" href="#erste-schritte-in-python" title="Permalink to this heading">#</a></h1>
 <p>Traditionell ist “Hello World!” das erste Programm, welches man in einer neuen Programmiersprache schreibt.
 Dieses Programm tut nichts anderes als den Text “Hello World!” auszugeben.
 Diese Aufgabe ist in Python jedoch so simpel, dass wir sie etwas anpassen werden um Sie mit den Strukturen vertraut machen, die sie in Ihren Computerprogrammen brauchen werden.
@@ -420,34 +424,34 @@ Einige Beispiele wären (nur zur Illustration):</p>
 <input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
 </input><label class="sd-tab-label" for="sd-tab-item-0">
 C</label><div class="sd-tab-content docutils">
-<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#</span><span class="w"> </span><span class="cp">include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span><span class="cp"></span>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#</span><span class="w"> </span><span class="cp">include</span><span class="w"> </span><span class="cpf">&lt;stdio.h&gt;</span>
 
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello World!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello World!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
 <input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
 </input><label class="sd-tab-label" for="sd-tab-item-1">
 C++</label><div class="sd-tab-content docutils">
-<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span><span class="cp"></span>
+<div class="highlight-c++ notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span><span class="w"> </span><span class="cpf">&lt;iostream&gt;</span>
 
-<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello World!&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span><span class="w"></span>
-<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<span class="kt">int</span><span class="w"> </span><span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="n">std</span><span class="o">::</span><span class="n">cout</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="s">&quot;Hello World!&quot;</span><span class="w"> </span><span class="o">&lt;&lt;</span><span class="w"> </span><span class="n">std</span><span class="o">::</span><span class="n">endl</span><span class="p">;</span>
+<span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="mi">0</span><span class="p">;</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
 <input id="sd-tab-item-2" name="sd-tab-set-0" type="radio">
 </input><label class="sd-tab-label" for="sd-tab-item-2">
 Java</label><div class="sd-tab-content docutils">
-<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Main</span> <span class="p">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
-        <span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Hello World!&quot;</span><span class="p">);</span>
-    <span class="p">}</span>
+<div class="highlight-java notranslate"><div class="highlight"><pre><span></span><span class="kd">class</span> <span class="nc">Main</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="kd">public</span><span class="w"> </span><span class="kd">static</span><span class="w"> </span><span class="kt">void</span><span class="w"> </span><span class="nf">main</span><span class="p">(</span><span class="n">String</span><span class="o">[]</span><span class="w"> </span><span class="n">args</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+<span class="w">        </span><span class="n">System</span><span class="p">.</span><span class="na">out</span><span class="p">.</span><span class="na">println</span><span class="p">(</span><span class="s">&quot;Hello World!&quot;</span><span class="p">);</span>
+<span class="w">    </span><span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -455,9 +459,9 @@ Java</label><div class="sd-tab-content docutils">
 <input id="sd-tab-item-3" name="sd-tab-set-0" type="radio">
 </input><label class="sd-tab-label" for="sd-tab-item-3">
 Rust</label><div class="sd-tab-content docutils">
-<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span><span class="w"></span>
-<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;Hello World!&quot;</span><span class="p">);</span><span class="w"></span>
-<span class="p">}</span><span class="w"></span>
+<div class="highlight-rust notranslate"><div class="highlight"><pre><span></span><span class="k">fn</span> <span class="nf">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+<span class="w">    </span><span class="fm">println!</span><span class="p">(</span><span class="s">&quot;Hello World!&quot;</span><span class="p">);</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -483,8 +487,8 @@ Wir empfinden die Verarbeitung von Eingaben des Nutzers allerdings als unwichtig
 </div>
 </div>
 </div>
-<div class="section" id="das-verbesserte-hello-world-programm">
-<h2>Das verbesserte Hello World! - Programm<a class="headerlink" href="#das-verbesserte-hello-world-programm" title="Permalink to this headline">#</a></h2>
+<section id="das-verbesserte-hello-world-programm">
+<h2>Das verbesserte Hello World! - Programm<a class="headerlink" href="#das-verbesserte-hello-world-programm" title="Permalink to this heading">#</a></h2>
 <p>Wir wollen die Aufgabe unseres “Hello World!”-Programms nun etwas erweitern, sodass es nicht nur die Welt, sondern auch Personen begrüßen kann, und zwar beliebig oft und mit Wochentag-abhängiger Freundlichkeit.
 (Letzteres bedeutet nicht, dass wir ein Programm mit Gefühlen entwickeln, sondern lediglich, dass es <strong>Fallunterscheidungen</strong> macht.)</p>
 <div class="cell docutils container">
@@ -518,8 +522,8 @@ Hello Julia
 </ol>
 <p>Sie können sich wahrscheinlich vorstellen, dass die obige Methode zur Begrüßung aller Studenten mühsamer wird, je länger die Liste ist.
 Aus diesem Grund bieten Programmiersprachen eine einfache Lösung für sich ständig wiederholende Abläufe: <em><strong>Schleifen</strong></em>.</p>
-<div class="section" id="schleifen-engl-loops">
-<h3>Schleifen (engl. Loops)<a class="headerlink" href="#schleifen-engl-loops" title="Permalink to this headline">#</a></h3>
+<section id="schleifen-engl-loops">
+<h3>Schleifen (engl. Loops)<a class="headerlink" href="#schleifen-engl-loops" title="Permalink to this heading">#</a></h3>
 <p>Also schreiben wir unser letztes Programm ein wenig um.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -597,9 +601,9 @@ Hello Julia
 <li><p>Der Computer macht genau das was sie ihm anweisen. Und mit großer Macht kommt große Verantwortung. Es sollte offensichtlich sein, dass das Programm mit der obigen Schleife niemals enden würde! Falls Ihnen ein solcher Fehler passiert, können Sie die Ausführung dennoch abbrechen mit der Tastenkombination <strong>Strg+C</strong>.</p></li>
 </ol>
 <p>Auch wenn Sie <code class="docutils literal notranslate"><span class="pre">while</span></code>-Schleifen in diesem Kurs nicht unbedingt nutzen werden, sind Sie nun zumindest vorbereitet, wenn sie Ihnen mal begegnen.</p>
-</div>
-<div class="section" id="die-if-else-fallunterscheidung">
-<h3>Die <code class="docutils literal notranslate"><span class="pre">if-else</span></code> Fallunterscheidung<a class="headerlink" href="#die-if-else-fallunterscheidung" title="Permalink to this headline">#</a></h3>
+</section>
+<section id="die-if-else-fallunterscheidung">
+<h3>Die <code class="docutils literal notranslate"><span class="pre">if-else</span></code> Fallunterscheidung<a class="headerlink" href="#die-if-else-fallunterscheidung" title="Permalink to this heading">#</a></h3>
 <p>Basierend auf dem zuletzt eingeführten Konzept von <code class="docutils literal notranslate"><span class="pre">True</span></code> und <code class="docutils literal notranslate"><span class="pre">False</span></code>, können wir auch eine Fallunterscheidung realisieren.
 Vielleicht möchte man die Welt z.B. an allen Wochentagen mit einem freundlichen <code class="docutils literal notranslate"><span class="pre">Hello</span> <span class="pre">Beautiful</span> <span class="pre">World!</span></code> begrüßen, außer montags.
 Eine mögliche Implementierung wäre die Folgende:</p>
@@ -640,9 +644,9 @@ Da dies allerdings keine Informatik-Veranstaltung ist, sollte Ihnen das hier ver
 </div>
 <hr class="docutils" />
 <p><em><strong>Damit ist unsere grundlegende Einleitung in Python abgeschlossen!</strong></em> In den nächsten Kapiteln werden die hier erlernten Fähigkeiten dann für Probleme mit physikalischem Hintergrund genutzt werden. Ebenso werden wir ab jetzt das eigentlich unnötige <code class="docutils literal notranslate"><span class="pre">main()</span></code>-Programm in Python nicht mehr benutzen und es darf damit wegelassen werden.</p>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
     <script type="text/x-thebe-config">
     {
@@ -670,10 +674,7 @@ Da dies allerdings keine Informatik-Veranstaltung ist, sollte Ihnen das hier ver
               
               
                 <footer class="bd-footer-article">
-                  
-<div class="footer-article-items footer-article__inner">
-  
-    <div class="footer-article-item"><!-- Previous / next buttons -->
+                  <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="../intro.html"
@@ -684,10 +685,16 @@ Da dies allerdings keine Informatik-Veranstaltung ist, sollte Ihnen das hier ver
         <p class="prev-next-title">Vorbemerkungen zu Kurs und Skript</p>
       </div>
     </a>
-</div></div>
-  
+    <a class="right-next"
+       href="IO.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lesen und Schreiben von Dateien</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
 </div>
-
                 </footer>
               
             </div>
@@ -715,7 +722,7 @@ Da dies allerdings keine Informatik-Veranstaltung ist, sollte Ihnen das hier ver
             
           </div>
           <footer class="bd-footer-content">
-            
+            <div class="bd-footer-content__inner">
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
@@ -745,7 +752,7 @@ By Chrsitian Müller, Marc Johannes Honecker und Martin H. Müser
     
   </div>
   
-</div>
+</div></div>
           </footer>
         
 
@@ -754,8 +761,8 @@ By Chrsitian Müller, Marc Johannes Honecker und Martin H. Müser
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
 
   <footer class="bd-footer">
   </footer>

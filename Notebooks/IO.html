@@ -1,0 +1,729 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+    <title>Lesen und Schreiben von Dateien &#8212; WDV1</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Notebooks/IO';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="Erste Schritte in Python" href="HelloWorld.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.jpg" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.jpg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Vorbemerkungen zu Kurs und Skript
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="HelloWorld.html">Erste Schritte in Python</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Lesen und Schreiben von Dateien</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FNotebooks/IO.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Notebooks/IO.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lesen und Schreiben von Dateien</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pfade">Pfade</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#absolute-pfade">Absolute Pfade</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relative-pfade">Relative Pfade</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#einlesen-der-ersten-datei">Einlesen der ersten Datei</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="lesen-und-schreiben-von-dateien">
+<h1>Lesen und Schreiben von Dateien<a class="headerlink" href="#lesen-und-schreiben-von-dateien" title="Permalink to this heading">#</a></h1>
+<p>Ein wichtiger Bestandteil bei der wissenschaftlichen Datenverarbeitung ist ohne Zweifel das Lesen und Schreiben von Dateien.
+In diesem Kurs werden wir uns auf quantitative (also messbare Daten) und qualitative Daten (also beschreibende Daten) beschränken.</p>
+<p>Grundsätzlich müssen <strong>alle</strong> Daten von unserer Festplatte in den sog. Hauptspeicher (engl. memory) geladen werden. Von
+dort aus kann man dann auf den Daten seine Berechnungen ausführen. Jedoch stellt sich die Frage, wie man von einem
+Programm aus überhaupt auf Dateien zugreifen kann (also insbesondere <em>ohne</em> ein graphisches Dateiverwaltungsprogramm).
+An dieser Stelle kommen dann sogenannte <strong>Pfade</strong> ins Spiel und um diese werden wir uns im Folgenden kurz kümmern.</p>
+<section id="pfade">
+<h2>Pfade<a class="headerlink" href="#pfade" title="Permalink to this heading">#</a></h2>
+<p>Jedes Dateisystem (sei es Windows, MacOS, Linux, …) besteht aus Dateien und Ordnern (was für die Meisten nichts neues
+sein dürfte). Hierbei stellt man fest, dass Ordner und Dateien in einer Hierarchie angeordnet sind, welche man (zumindest
+graphisch) “von Oben nach Unten” durchlaufen kann. Eine hypothetische Ordnerstruktur könnte wie folgt aussehen:</p>
+<figure class="align-default" id="datei-system">
+<img alt="../_images/Datei_System.png" src="../_images/Datei_System.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Ein Beispiel einer kleinen Ordner Hierarchie</span><a class="headerlink" href="#datei-system" title="Permalink to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Hierbei (und auch in unseren Programmen) sind zwei Begriffe von besonderer Bedeutung: <strong>absolute</strong> und <strong>relative</strong> Pfade.</p>
+<section id="absolute-pfade">
+<h3>Absolute Pfade<a class="headerlink" href="#absolute-pfade" title="Permalink to this heading">#</a></h3>
+<p>Bei diesen Pfaden gibt man den kompletten Pfad an. Schauen wir uns ein Beispiel an:</p>
+<p>Angegnommen, unser gesamtes Dateisystem besteht aus der Hierarchie von <a class="reference internal" href="#datei-system"><span class="std std-ref">oben</span></a>. Nehmen wir weiter an, dass
+wir uns im Moment in <code class="docutils literal notranslate"><span class="pre">Ordner</span> <span class="pre">B</span></code> befinden und wir möchten den Pfad von <code class="docutils literal notranslate"><span class="pre">Ordner</span> <span class="pre">D</span></code> angeben. Der absolute Pfad lautet dann
+wie folgt:</p>
+<p><code class="docutils literal notranslate"><span class="pre">Ordner</span> <span class="pre">A/Ordner</span> <span class="pre">B/Ordner</span> <span class="pre">D</span></code>.</p>
+<p>Die ‘/’ Zeichen sind lediglich Trennzeichen zwischen den Ordner und in diesem Kurs wird dem auch nicht weiter Beachtung
+geschenkt (auch wenn dies im realen Leben nicht immer der Fall ist). Wie man an diesem Beispiel sieht, muss man wirklich
+immer den <strong>gesamten</strong> Pfad angeben, egal wo man sich befindet. Eine Lösung für dieses sehr normale Problem, bieten
+<strong>relative Pfade</strong>.</p>
+</section>
+<section id="relative-pfade">
+<h3>Relative Pfade<a class="headerlink" href="#relative-pfade" title="Permalink to this heading">#</a></h3>
+<p>Nehmen wir wieder an, dass wir uns in <code class="docutils literal notranslate"><span class="pre">Ordner</span> <span class="pre">B</span></code> befinden und wir den Pfad von <code class="docutils literal notranslate"><span class="pre">Ordner</span> <span class="pre">D</span></code> angeben wollen. Sehen wir
+uns den folgenden (wohl definierten) Pfad an:</p>
+<p><code class="docutils literal notranslate"><span class="pre">./Ordner</span> <span class="pre">D</span></code></p>
+<p>Zunächst fällt auf, dass dieser Pfad wesentlich kürzer ist als der vorherige. Dies liegt an dem neuen Element in dem Pfad,
+nämlich <code class="docutils literal notranslate"><span class="pre">.</span></code>. Dieser einfache Punkt steht nämlich tatsächlich einen Pfad!</p>
+<p>Betrachen wir jetzt einmal den umgekehrten Fall: Wir befinden uns in <code class="docutils literal notranslate"><span class="pre">Ordner</span> <span class="pre">D</span></code> und möchten zurück in <code class="docutils literal notranslate"><span class="pre">Ordner</span> <span class="pre">B</span></code>. Dies ist
+mit einem relativen Pfad sogar noch einfacher zu realisieren als das vorherige Beispiel! Denn <code class="docutils literal notranslate"><span class="pre">../</span></code> reicht dafür völlig aus.</p>
+<div class="tip admonition">
+<p class="admonition-title">Die Pfade . und ..</p>
+<p>Hier schauen wir uns diese beiden besonderen “Pfade” etwas genauer an, um besser zu verstehen, wie man sie einsetzen kann
+und wie sie (viel) Arbeit abnehmen können.</p>
+<div class="sd-tab-set docutils">
+<input checked="checked" id="sd-tab-item-0" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-0">
+Der Pfad .</label><div class="sd-tab-content docutils">
+<p>Dieser “Pfad” ist kein Pfad im klassischen Sinn. Es viel mehr ein Programm (mit einem etwas seltsamen Namen), welches
+immer den <strong>momentanen absoluten Pfad</strong> zurück gibt. Man sieht also, dass <code class="docutils literal notranslate"><span class="pre">.</span></code> in <code class="docutils literal notranslate"><span class="pre">./Ordner</span> <span class="pre">D</span></code> also einfach nur den
+restlichen Pfad einblendet.</p>
+</div>
+<input id="sd-tab-item-1" name="sd-tab-set-0" type="radio">
+</input><label class="sd-tab-label" for="sd-tab-item-1">
+Der Pfad ..</label><div class="sd-tab-content docutils">
+<p>Dieser “Pfad” verhält sich im Wesentlichen ähnlich wie der Vorherige. Nur dieser gibt den Pfad des Eltern-Ordners (engl.
+parent directory) zurück (was man von dem Beispiel auch schon vermuten konnte).</p>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="einlesen-der-ersten-datei">
+<h2>Einlesen der ersten Datei<a class="headerlink" href="#einlesen-der-ersten-datei" title="Permalink to this heading">#</a></h2>
+<p>Das Einlesen von Dateien ist etwas derart alltägliches, dass viele sogenannte <em>Bibliotheken</em> Funktionalität zum Einlesen
+von Dateien bereitstellen. Bibliotheken sind im Allgemeinen Sammlungen von Funktionen, welche man in Programmen nutzen
+kann. Da Python aber eine riesige Anzahl von Biliotheken hat, sind diese Funktionen nicht direkt verfügbar (im Gegensatz
+zu <code class="docutils literal notranslate"><span class="pre">print()</span></code> aus dem vorherigen Kapitel). Um eine solche Bibliothek dem Python-Code bekannt zu machen, gibt es den Befehl
+<code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">&lt;Bibliotheken-Name&gt;</span></code>. Zunächst werden wir uns hier mit der Bibliothek <a class="reference external" href="https://numpy.org/">numpy</a> beschäftigen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hier importieren wir numpy.</span>
+<span class="c1"># Mit &#39;as&#39; kann man der Bibliothek einen neuen (optionalen) Namen geben.</span>
+<span class="c1"># Im Fall von numpy ist &#39;np&#39; üblich.</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Die Funktion np.loadtxt übernimmt hier das Einlesen der Datei.</span>
+<span class="c1"># -fnmae: dies ist der Pfad zu der Datei, die wir öffnen wollen</span>
+<span class="c1"># -delimiter: dieser Paramter gibt das Trennzeichen zwischen den </span>
+<span class="c1">#             einzelnen Zahlen an</span>
+<span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">fname</span><span class="o">=</span><span class="s2">&quot;../Data/test_data.csv&quot;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+<span class="n">mat</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1.,  2.,  3.,  4.],
+       [ 5.,  6.,  7.,  8.],
+       [ 9., 10., 11., 12.]])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="info admonition">
+<p class="admonition-title">csv-Dateien</p>
+<p><code class="docutils literal notranslate"><span class="pre">.csv</span></code> kommt aus dem Englischen und steht für <strong>C</strong>omma <strong>S</strong>eparated <strong>V</strong>alue. Somit werden die Daten in solchen Dateien
+einfach durch Kommata getrennt abgespeichert. Eine Erweiterung dessen sind sogenannte <code class="docutils literal notranslate"><span class="pre">*.dsv*</span></code>-Dateien. Dies steht für
+<strong>D</strong>elimiter <strong>S</strong>perated **V*alue. D.h., dass die Daten in den Dateien auch durch andere Zeichen voneinander getrennt
+werden können, z.B. *, -, &amp; oder auch beispielsweise 🍎, 🐕, oder 🐧. Auch Whitespaces können dafür
+genutzt werden. Allerdings ist die Unterscheidung zwischen <code class="docutils literal notranslate"><span class="pre">.csv</span></code> und <code class="docutils literal notranslate"><span class="pre">.dsv</span></code> heute nicht mehr unbedingt üblich. Deshalb findet sich heute auch in <code class="docutils literal notranslate"><span class="pre">.csv</span></code> Dateien andere Trennzeichen als <code class="docutils literal notranslate"><span class="pre">,</span></code>. Beispielsweise nutzt Excel zum Abespeichern
+von <code class="docutils literal notranslate"><span class="pre">.csv</span></code> Dateien <code class="docutils literal notranslate"><span class="pre">;</span></code> als Trenner und nicht <code class="docutils literal notranslate"><span class="pre">,</span></code>.</p>
+</div>
+<p>Nachdem wir jetzt die Daten eingelesen haben, können wir sie auch nutzen. Z.B. können wir die Matrix mit einem Vektor
+multiplizieren.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definition eines Vektors</span>
+<span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
+
+<span class="c1"># um das Skalarprodukt zu berechnen, müssen wir die np.dot Funktion benutzen</span>
+<span class="c1"># leider berechnet mat * a das elementweise Produkt und nicht wie man</span>
+<span class="c1"># erwarten könnte das Skalarprodukt</span>
+<span class="n">mat_a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">mat</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">mat_a</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[10. 26. 42.]
+</pre></div>
+</div>
+</div>
+</div>
+<p>Jetzt können wir die Daten auch wieder schreiben. Angenommen wir möchten den gerade erzeugten Vektor in die Datei
+<code class="docutils literal notranslate"><span class="pre">test_vector.csv</span></code> schreiben. Dies sieht mit <code class="docutils literal notranslate"><span class="pre">numpy</span></code> wie folgt aus:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">savetxt</span><span class="p">(</span><span class="n">fname</span><span class="o">=</span><span class="s1">&#39;../Data/test_vector.csv&#39;</span><span class="p">,</span> <span class="n">X</span><span class="o">=</span><span class="n">mat_a</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Damit ist der Vektor in die Datei geschrieben und wir können ihn zu einem späteren Zeitpunkt wieder laden und eventuell
+mit dem Vektor weiterrechenen.</p>
+<p>Möchte man aber oft und viele Dateien Lesen und Schreiben kann es sinnvoll sein, dass man
+<a class="reference external" href="https://pandas.pydata.org/">pandas</a> hierfür benutzt, da die Stärken von <code class="docutils literal notranslate"><span class="pre">numpy</span></code> eher in der effizienten Berechnung liegen
+und die Stärken von <code class="docutils literal notranslate"><span class="pre">pandas</span></code> im Bereich Lesen, Schreiben und Aufbereiten von Daten liegen. Schauen wir uns an, wie wir
+eine Datei hiermit öffnen können.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">filepath_or_buffer</span><span class="o">=</span><span class="s2">&quot;../Data/test_data_with_header.csv&quot;</span><span class="p">)</span>
+<span class="n">data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>A</th>
+      <th>B</th>
+      <th>C</th>
+      <th>D</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>2</td>
+      <td>3</td>
+      <td>4</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>5</td>
+      <td>6</td>
+      <td>7</td>
+      <td>8</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>9</td>
+      <td>10</td>
+      <td>11</td>
+      <td>12</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<p>Wir sehen direkt, dass wir eine Tabelle anstelle einer Matrix zurück bekommen. Man mag sich jetzt fragen, warum so etwas
+praktisch sein kann. Diese Möglichkeit zahlt sich dann aus, wenn wir z.B. Daten haben, die nach bestimmten Kriterien
+geordnet sind. Beispielsweise könnte in der ersten Spalte die Zeit, in der zweiten der Weg, in der dritten die
+Geschwindigkeit und in der letzten Spalte die zugehörige Beschleunigung eingetragen sein. In aller Regel ist es dann
+einfacher sich auf die entsprechenden Namen zu beziehen, anstelle sich die genaue Spaltennummer zu merken. Des Weiteren
+kann man ein pandas <code class="docutils literal notranslate"><span class="pre">Dataframe</span></code> einfach in ein numpy array umwandeln</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np_data</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+<span class="n">np_data</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[ 1,  2,  3,  4],
+       [ 5,  6,  7,  8],
+       [ 9, 10, 11, 12]])
+</pre></div>
+</div>
+</div>
+</div>
+<p>Damit kann man dann genauso wie zuvor mit den Daten in numpy arbeiten. Anschließend kann man das numpy array auch
+wieder in ein pandas Dataframe wieder zurück konvertieren.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">np_data</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">path_or_buf</span><span class="o">=</span><span class="s1">&#39;../Data/test_dataframe.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   0   1   2   3
+0  1   2   3   4
+1  5   6   7   8
+2  9  10  11  12
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dies erleichtert dann wiederum das Schreiben der entstandenen Datei. Ein weiterer großer Vorteil von pandas ist, dass
+man auch einfach die Daten analysieren kann. Ein Beispiel ist z.B., dass man ganz einfach den Erwartungswert und die
+Varianz damit <strong>pro Spalte</strong> berechnen kann. Aber dazu später mehr.</p>
+<p>Insgesamt kann man sagen, dass es Geschmackssache ist, welches Framework man bevorzugt. Und damit ist das Kapitel zum
+Lesen und Schreiben von Dateien auch schon zu Ende.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="HelloWorld.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Erste Schritte in Python</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pfade">Pfade</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#absolute-pfade">Absolute Pfade</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#relative-pfade">Relative Pfade</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#einlesen-der-ersten-datei">Einlesen der ersten Datei</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Chrsitian Müller, Marc Johannes Honecker und Martin H. Müser
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
