@@ -6,3 +6,4 @@ root: intro
 chapters:
 - file: Notebooks/HelloWorld
 - file: Notebooks/IO
+- file: Notebooks/Int_and_Diff
