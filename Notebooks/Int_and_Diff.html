@@ -404,7 +404,7 @@ unsere Funktion <span class="math notranslate nohighlight">\(f: \mathbb{R} \righ
 <span class="c1"># plotten der Funktion</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ab</span><span class="p">,</span> <span class="n">fx</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">ab</span><span class="p">,</span> <span class="n">fx</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">vlines</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">fv</span><span class="p">,</span> <span class="s2">&quot;black&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">vlines</span><span class="p">(</span><span class="n">vlines</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">fv</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">vlines</span><span class="p">,</span> <span class="n">fv</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">&quot;red&quot;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
@@ -519,6 +519,7 @@ In Python Code sieht das dann wie folgt aus:</p>
 
 <span class="c1"># die analytische Lösung</span>
 <span class="n">df</span> <span class="o">=</span> <span class="mi">2</span><span class="o">*</span><span class="n">x</span>
+<span class="n">df</span>
 </pre></div>
 </div>
 </div>
@@ -526,14 +527,18 @@ In Python Code sieht das dann wie folgt aus:</p>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9.999999999621423
 </pre></div>
 </div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
+</pre></div>
+</div>
 </div>
 </div>
 <div class="tip dropdown admonition">
 <p class="admonition-title"><span class="math notranslate nohighlight">\(h\)</span> vs <span class="math notranslate nohighlight">\(2h\)</span></p>
 <p>Man benutzt bei der numerischen Differentation <span class="math notranslate nohighlight">\(2h\)</span> und die damit resultierenden Verschiebungen in
-x-Richtung, weil man dadurch einen quadratischen Fehler bekommt, als wenn man die normale Defintion nutzt.
-Interessierte können <a class="reference external" href="https://de.wikipedia.org/wiki/Numerische_Differentiation">hier</a> und <a class="reference external" href="http://www.tm-mathe.de/Themen/html/funnumdiff.html">hier</a>
-mehr über das Thema erfahren. Selbstverständlich ist dies aber nicht Klausur relevant.</p>
+x-Richtung, weil man dadurch einen quadratischen Fehler in <span class="math notranslate nohighlight">\(h\)</span> bekommt. Benutzt man aber die herkömmliche Definition,
+so erhält man einen Fehler in <span class="math notranslate nohighlight">\(O(h)\)</span>, was für ein <span class="math notranslate nohighlight">\(h&lt;1\)</span> in einem größeren Fehler resultiert, als die von uns
+benutzte Methode. Interessierte können <a class="reference external" href="https://de.wikipedia.org/wiki/Numerische_Differentiation">hier</a> und <a class="reference external" href="http://www.tm-mathe.de/Themen/html/funnumdiff.html">hier</a> mehr über das Thema erfahren. Selbstverständlich ist dies aber nicht für die
+Klausur relevant.</p>
 </div>
 </section>
 
