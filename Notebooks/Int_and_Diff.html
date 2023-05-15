@@ -377,7 +377,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="numerisches-integrieren-und-differenzieren">
 <h1>Numerisches Integrieren und Differenzieren<a class="headerlink" href="#numerisches-integrieren-und-differenzieren" title="Permalink to this heading">#</a></h1>
-<p>In diesem Kapitel wollen wir uns dem numerische Integrieren und Differenzieren widmen. Hierbei handelt es
+<p>In diesem Kapitel wollen wir uns dem numerischen Integrieren und Differenzieren widmen. Hierbei handelt es
 sich um Techniken zur näherungsweisen Berechnung von bestimmten Integralen und Ableitungen. Vorallem
 findet dies dann Anwendung, wenn man das Problem analytisch nur schwer lösen kann oder es zu ineffizient
 ist, um das Problem analytisch zu lösen.</p>
@@ -391,16 +391,20 @@ unsere Funktion <span class="math notranslate nohighlight">\(f: \mathbb{R} \righ
 <p>Visualisieren wir uns die Funktion.</p>
 <div class="cell tag_hide_input docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># importieren der benötigten Bibliotheken</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="c1"># Grenzen der Integration</span>
 <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">b</span> <span class="o">=</span> <span class="mi">10</span>
 
-<span class="c1"># wir berechnen die Funktion f(x) = x^2</span>
+<span class="c1"># anlegen der x-Werte in unterschiedlicher </span>
+<span class="c1"># Auflösung</span>
 <span class="n">ab</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
 <span class="n">vlines</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+
+<span class="c1"># wir berechnen die Funktion f(x) = x^2</span>
 <span class="n">fv</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">vlines</span><span class="p">]</span>
 <span class="n">fx</span> <span class="o">=</span> <span class="p">[</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">ab</span><span class="p">]</span>
 
@@ -418,14 +422,14 @@ unsere Funktion <span class="math notranslate nohighlight">\(f: \mathbb{R} \righ
 </div>
 </div>
 <p>Wie immer ist das Ziel beim Integrieren einer Funktion die Fläche unter dem Graph (möglichst genau) zu
-berechnen. Und dies ist auch unser Ziel beim numerischen Integrieren.</p>
+berechnen. Und dies ist natürlich auch unser Ziel beim numerischen Integrieren.</p>
 <p>Wie man hier gut erkennen kann, ist es möglich eine Funktion mit linearen Abschnitten zu approximieren
-(die roten Abschnitte sind die linearen Approximationen). Man bekommt also eine (mehr oder weniger)
-gute Representierung durch Trapeze. Damit kann man dann die Fläche unter der Funktion approximieren
+(die roten Abschnitte sind die linearen Approximationen). Man bekommt damit also eine (mehr oder weniger)
+gute Representierung durch Trapeze. Somit kann man dann die Fläche unter der Funktion approximieren
 mit der Formel:</p>
 <div class="math notranslate nohighlight">
 \[
-\int\limits_a^b f(x) \approx \sum_a^b \frac{f(x) + f(x+\Delta x)}{2} \cdot \Delta x
+\int\limits_a^b f(x) dx \approx \sum_a^b \frac{f(x) + f(x+\Delta x)}{2} \cdot \Delta x
 \]</div>
 <p>Damit haben wir eine Berechnungsformel zur approximativen Berechnung des Integrals einer Funktion.
 Und diese Formel können wir auch direkt schon in Python übersetzen! Dies sieht wie folgt aus:</p>
@@ -475,12 +479,14 @@ Und diese Formel können wir auch direkt schon in Python übersetzen! Dies sieht
 </div>
 </div>
 <p>Wir sehen also, dass wir mit dieser (ziemlich einfachen) Berechnungsmethode sehr nahe an die
-tatsächliche Lösung kommen! Natürlich hängt die Qualität des Ergebnisses signifikant von der Wahl
+tatsächliche Lösung kommen (Größenordnung <span class="math notranslate nohighlight">\(10^{-4}\)</span>)! Natürlich hängt die Qualität des Ergebnisses signifikant von der Wahl
 des <span class="math notranslate nohighlight">\(\Delta x\)</span> ab. Wählen wir dieses zu groß, approximieren wir die Funktion über einen relative
 großen Bereich und damit reduziert sich auch die Genauigkeit ziemlich drastig. Als Daumenregel kann
 man hier sagen, dass man <span class="math notranslate nohighlight">\(\Delta x\)</span> lieber ein wenig kleiner wählt als zu groß. Bei den heutigen
 Prozessoren merkt in aller Regel auch keinen Unterschied, ob man die Funktion in 100 Bereiche
-oder in 1000 diskretisiert.</p>
+oder in 1000 diskretisiert. Leider kann man aber die Genauigkeit nicht unendlich verbessern, da man in einem Computer
+nur endlich kleine Werte darstellen kann. Aber Schrittweiten von 0.01 sind auf jeden Fall nicht zu klein und in aller
+Regel auch nicht zu groß.</p>
 <div class="tip dropdown admonition">
 <p class="admonition-title">Intuition numerische Integration</p>
 <p>Der Algorithmus zur Berechnung des numerischen Integrals ist im Endeffekt eine direkte Anwendung des
@@ -501,7 +507,7 @@ Schule bereits bekannt sein sollte:</p>
 \[
 f'(x) := \frac{f(x+h) - f(x-h)}{2h}; \;h \rightarrow 0
 \]</div>
-<p>Diese Formel kann man jetzt auch schon direkt wieder nutzen, um die Ableitung numerisch zu berechenen.
+<p>Diese Formel kann man jetzt auch schon direkt wieder nutzen, um die Ableitung numerisch in einem Punkt zu berechenen.
 In Python Code sieht das dann wie folgt aus:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -535,7 +541,7 @@ In Python Code sieht das dann wie folgt aus:</p>
 </div>
 </div>
 </div>
-<div class="tip dropdown admonition">
+<div class="tip admonition">
 <p class="admonition-title"><span class="math notranslate nohighlight">\(h\)</span> vs <span class="math notranslate nohighlight">\(2h\)</span></p>
 <p>Man benutzt bei der numerischen Differentation <span class="math notranslate nohighlight">\(2h\)</span> und die damit resultierenden Verschiebungen in
 x-Richtung, weil man dadurch einen quadratischen Fehler in <span class="math notranslate nohighlight">\(h\)</span> bekommt. Benutzt man aber die herkömmliche Definition,

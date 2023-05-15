@@ -379,7 +379,7 @@ document.write(`
 In diesem Kurs werden wir uns auf quantitative (also messbare Daten) und qualitative Daten (also beschreibende Daten) beschränken.</p>
 <p>Grundsätzlich müssen <strong>alle</strong> Daten von unserer Festplatte in den sog. Hauptspeicher (engl. memory) geladen werden. Von
 dort aus kann man dann auf den Daten seine Berechnungen ausführen. Jedoch stellt sich die Frage, wie man von einem
-Programm aus überhaupt auf Dateien zugreifen kann (also insbesondere <em>ohne</em> ein graphisches Dateiverwaltungsprogramm).
+Programm aus überhaupt auf Dateien zugreifen kann (also insbesondere <em><strong>ohne</strong></em> ein graphisches Dateiverwaltungsprogramm).
 An dieser Stelle kommen dann sogenannte <strong>Pfade</strong> ins Spiel und um diese werden wir uns im Folgenden kurz kümmern.</p>
 <section id="pfade">
 <h2>Pfade<a class="headerlink" href="#pfade" title="Permalink to this heading">#</a></h2>
@@ -392,7 +392,7 @@ graphisch) “von Oben nach Unten” durchlaufen kann. Eine hypothetische Ordner
 <p><span class="caption-number">Fig. 1 </span><span class="caption-text">Ein Beispiel einer kleinen Ordner Hierarchie</span><a class="headerlink" href="#datei-system" title="Permalink to this image">#</a></p>
 </figcaption>
 </figure>
-<p>Hierbei (und auch in unseren Programmen) sind zwei Begriffe von besonderer Bedeutung: <strong>absolute</strong> und <strong>relative</strong> Pfade.</p>
+<p>Hierbei (und auch in unseren Programmen) sind zwei Begriffe von zentraler Bedeutung: <strong>absolute</strong> und <strong>relative</strong> Pfade.</p>
 <section id="absolute-pfade">
 <h3>Absolute Pfade<a class="headerlink" href="#absolute-pfade" title="Permalink to this heading">#</a></h3>
 <p>Bei diesen Pfaden gibt man den kompletten Pfad an. Schauen wir uns ein Beispiel an:</p>
@@ -401,7 +401,7 @@ wir uns im Moment in <code class="docutils literal notranslate"><span class="pre
 wie folgt:</p>
 <p><code class="docutils literal notranslate"><span class="pre">Ordner</span> <span class="pre">A/Ordner</span> <span class="pre">B/Ordner</span> <span class="pre">D</span></code>.</p>
 <p>Die ‘/’ Zeichen sind lediglich Trennzeichen zwischen den Ordner und in diesem Kurs wird dem auch nicht weiter Beachtung
-geschenkt (auch wenn dies im realen Leben nicht immer der Fall ist). Wie man an diesem Beispiel sieht, muss man wirklich
+geschenkt (auch wenn dies im realen Leben nicht immer der Fall ist!). Wie man an diesem Beispiel sieht, muss man wirklich
 immer den <strong>gesamten</strong> Pfad angeben, egal wo man sich befindet. Eine Lösung für dieses sehr normale Problem, bieten
 <strong>relative Pfade</strong>.</p>
 </section>
@@ -451,9 +451,9 @@ zu <code class="docutils literal notranslate"><span class="pre">print()</span></
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="c1"># Die Funktion np.loadtxt übernimmt hier das Einlesen der Datei.</span>
-<span class="c1"># -fnmae: dies ist der Pfad zu der Datei, die wir öffnen wollen</span>
+<span class="c1"># -fname: dies ist der Pfad zu der Datei, die wir öffnen wollen</span>
 <span class="c1"># -delimiter: dieser Paramter gibt das Trennzeichen zwischen den </span>
-<span class="c1">#             einzelnen Zahlen an</span>
+<span class="c1">#             einzelnen Zeichen an</span>
 <span class="n">mat</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">loadtxt</span><span class="p">(</span><span class="n">fname</span><span class="o">=</span><span class="s2">&quot;../Data/test_data.csv&quot;</span><span class="p">,</span> <span class="n">delimiter</span><span class="o">=</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
 <span class="n">mat</span>
 </pre></div>
@@ -469,12 +469,11 @@ zu <code class="docutils literal notranslate"><span class="pre">print()</span></
 </div>
 <div class="info admonition">
 <p class="admonition-title">csv-Dateien</p>
-<p><code class="docutils literal notranslate"><span class="pre">.csv</span></code> kommt aus dem Englischen und steht für <strong>C</strong>omma <strong>S</strong>eparated <strong>V</strong>alue. Somit werden die Daten in solchen Dateien
-einfach durch Kommata getrennt abgespeichert. Eine Erweiterung dessen sind sogenannte <code class="docutils literal notranslate"><span class="pre">*.dsv*</span></code>-Dateien. Dies steht für
-<strong>D</strong>elimiter <strong>S</strong>perated **V*alue. D.h., dass die Daten in den Dateien auch durch andere Zeichen voneinander getrennt
-werden können, z.B. *, -, &amp; oder auch beispielsweise 🍎, 🐕, oder 🐧. Auch Whitespaces können dafür
-genutzt werden. Allerdings ist die Unterscheidung zwischen <code class="docutils literal notranslate"><span class="pre">.csv</span></code> und <code class="docutils literal notranslate"><span class="pre">.dsv</span></code> heute nicht mehr unbedingt üblich. Deshalb findet sich heute auch in <code class="docutils literal notranslate"><span class="pre">.csv</span></code> Dateien andere Trennzeichen als <code class="docutils literal notranslate"><span class="pre">,</span></code>. Beispielsweise nutzt Excel zum Abespeichern
-von <code class="docutils literal notranslate"><span class="pre">.csv</span></code> Dateien <code class="docutils literal notranslate"><span class="pre">;</span></code> als Trenner und nicht <code class="docutils literal notranslate"><span class="pre">,</span></code>.</p>
+<p><code class="docutils literal notranslate"><span class="pre">.csv</span></code> kommt aus dem Englischen und steht für <em><strong>C</strong></em>omma <em><strong>S</strong></em>eparated <em><strong>V</strong></em>alue. Somit werden die Daten in solchen Dateien einfach durch Kommata getrennt abgespeichert. Eine Erweiterung dessen sind sogenannte <code class="docutils literal notranslate"><span class="pre">*.dsv*</span></code>-Dateien.
+Dies steht für <em><strong>D</strong></em>elimiter <em><strong>S</strong></em>perated <em><strong>V</strong></em>alue. D.h., dass die Daten in den Dateien auch durch andere Zeichen voneinander getrennt werden können, z.B. *, -, &amp; oder auch beispielsweise 🍎, 🐕, oder 🐧.
+Auch Whitespaces können dafür genutzt werden. Allerdings ist die Unterscheidung zwischen <code class="docutils literal notranslate"><span class="pre">.csv</span></code> und <code class="docutils literal notranslate"><span class="pre">.dsv</span></code> heute nicht mehr
+so streng. Deshalb findet sich heute auch in <code class="docutils literal notranslate"><span class="pre">.csv</span></code> Dateien andere Trennzeichen als <code class="docutils literal notranslate"><span class="pre">,</span></code>. Beispielsweise nutzt Excel zum
+Abespeichern von <code class="docutils literal notranslate"><span class="pre">.csv</span></code> Dateien <code class="docutils literal notranslate"><span class="pre">;</span></code> als Trenner und nicht <code class="docutils literal notranslate"><span class="pre">,</span></code>.</p>
 </div>
 <p>Nachdem wir jetzt die Daten eingelesen haben, können wir sie auch nutzen. Z.B. können wir die Matrix mit einem Vektor
 multiplizieren.</p>
@@ -483,8 +482,8 @@ multiplizieren.</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Definition eines Vektors</span>
 <span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">])</span>
 
-<span class="c1"># um das Skalarprodukt zu berechnen, müssen wir die np.dot Funktion benutzen</span>
-<span class="c1"># leider berechnet mat * a das elementweise Produkt und nicht wie man</span>
+<span class="c1"># um das Skalarprodukt zu berechnen, müssen wir die np.dot Funktion benutzen,</span>
+<span class="c1"># denn leider berechnet mat * a das elementweise Produkt und nicht wie man</span>
 <span class="c1"># erwarten könnte das Skalarprodukt</span>
 <span class="n">mat_a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dot</span><span class="p">(</span><span class="n">mat</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">mat_a</span><span class="p">)</span>
@@ -576,7 +575,7 @@ eine Datei hiermit öffnen können.</p>
 praktisch sein kann. Diese Möglichkeit zahlt sich dann aus, wenn wir z.B. Daten haben, die nach bestimmten Kriterien
 geordnet sind. Beispielsweise könnte in der ersten Spalte die Zeit, in der zweiten der Weg, in der dritten die
 Geschwindigkeit und in der letzten Spalte die zugehörige Beschleunigung eingetragen sein. In aller Regel ist es dann
-einfacher sich auf die entsprechenden Namen zu beziehen, anstelle sich die genaue Spaltennummer zu merken. Des Weiteren
+einfacher sich auf die entsprechenden Namen zu beziehen, anstelle sich die genauen Spaltennummern zu merken. Des Weiteren
 kann man ein pandas <code class="docutils literal notranslate"><span class="pre">Dataframe</span></code> einfach in ein numpy array umwandeln</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -612,9 +611,9 @@ wieder in ein pandas Dataframe wieder zurück konvertieren.</p>
 </div>
 </div>
 </div>
-<p>Dies erleichtert dann wiederum das Schreiben der entstandenen Datei. Ein weiterer großer Vorteil von pandas ist, dass
-man auch einfach die Daten analysieren kann. Ein Beispiel ist z.B., dass man ganz einfach den Erwartungswert und die
-Varianz damit <strong>pro Spalte</strong> berechnen kann. Aber dazu später mehr.</p>
+<p>Dies erleichtert dann wiederum das Schreiben der entstandenen Datei (insbesondere mit entsprechenden Überschriften). Ein
+weiterer großer Vorteil von pandas ist, dass man auch einfach die Daten analysieren kann. Ein Beispiel ist z.B.,
+dass man ganz einfach den Erwartungswert und die Varianz damit <strong>pro Spalte</strong> berechnen kann. Aber dazu später mehr.</p>
 <p>Insgesamt kann man sagen, dass es Geschmackssache ist, welches Framework man bevorzugt. Und damit ist das Kapitel zum
 Lesen und Schreiben von Dateien auch schon zu Ende.</p>
 </section>
