@@ -8,3 +8,4 @@ chapters:
 - file: Notebooks/IO
 - file: Notebooks/Int_and_Diff
 - file: Notebooks/ODEs
+- file: Notebooks/CurveSketching
