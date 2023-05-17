@@ -163,8 +163,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="HelloWorld.html">Erste Schritte in Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="IO.html">Lesen und Schreiben von Dateien</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Numerisches Integrieren und Differenzieren</a></li>
-
 <li class="toctree-l1"><a class="reference internal" href="ODEs.html">Gewöhnliche Differential Gleichungen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CurveSketching.html">Kurvendiskussion und Optimierung</a></li>
 </ul>
 
     </div>
@@ -358,13 +358,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Numerisches Integrieren und Differenzieren</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numerisches-integrieren">Numerisches Integrieren</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numerisches-differenzieren">Numerisches Differenzieren</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ableitungen-1-ordnung">Ableitungen 1. Ordnung</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ableitungen-hoherer-ordnung">Ableitungen höherer Ordnung</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#numerisches-differenzieren">Numerisches Differenzieren</a></li>
 </ul>
-
             </nav>
         </div>
     </div>
@@ -498,9 +498,10 @@ hier Trapeze) breiter machen und bekommen damit nur eine (mehr oder weniger gena
 viele kleine Bereiche unterteilen.</p>
 </div>
 </section>
-</section>
-<section class="tex2jax_ignore mathjax_ignore" id="numerisches-differenzieren">
-<h1>Numerisches Differenzieren<a class="headerlink" href="#numerisches-differenzieren" title="Permalink to this heading">#</a></h1>
+<section id="numerisches-differenzieren">
+<h2>Numerisches Differenzieren<a class="headerlink" href="#numerisches-differenzieren" title="Permalink to this heading">#</a></h2>
+<section id="ableitungen-1-ordnung">
+<h3>Ableitungen 1. Ordnung<a class="headerlink" href="#ableitungen-1-ordnung" title="Permalink to this heading">#</a></h3>
 <p>Schauen wir uns eine Definition der Ableitung an, die ein wenig anders aussieht als die, die aus der
 Schule bereits bekannt sein sollte:</p>
 <div class="math notranslate nohighlight">
@@ -519,7 +520,7 @@ In Python Code sieht das dann wie folgt aus:</p>
     <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
 
 <span class="c1"># unser h</span>
-<span class="n">h</span> <span class="o">=</span> <span class="mf">1e-5</span>
+<span class="n">h</span> <span class="o">=</span> <span class="mf">1e-6</span>
 
 <span class="c1"># die numerische Ableitung</span>
 <span class="n">df</span> <span class="o">=</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">h</span><span class="p">)</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">h</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">h</span><span class="p">)</span>
@@ -533,7 +534,7 @@ In Python Code sieht das dann wie folgt aus:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9.999999999621423
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10.00000000139778
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10
@@ -549,6 +550,80 @@ so erhält man einen Fehler in <span class="math notranslate nohighlight">\(O(h)
 benutzte Methode. Interessierte können <a class="reference external" href="https://de.wikipedia.org/wiki/Numerische_Differentiation">hier</a> und <a class="reference external" href="http://www.tm-mathe.de/Themen/html/funnumdiff.html">hier</a> mehr über das Thema erfahren. Selbstverständlich ist dies aber nicht für die
 Klausur relevant.</p>
 </div>
+<p>Möchte man Ableitung der Funktion über ein komplettes Intervall <span class="math notranslate nohighlight">\([a,b]\)</span> berechenen, so können wir obigen Code
+ganz leicht erweitern um eine Schleife über das komplette Intervall, anstelle eines einzigen Punktes. Konkret
+sieht dies dann ganz ähnlich zur Integration aus:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># unser Intervall</span>
+<span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="c1"># wir diskretisieren die Funktion wieder in </span>
+<span class="c1"># 1000 Bereiche</span>
+<span class="n">dx</span> <span class="o">=</span> <span class="p">(</span><span class="n">b</span> <span class="o">-</span> <span class="n">a</span><span class="p">)</span><span class="o">/</span><span class="mi">1000</span>
+
+<span class="c1"># die x Werte</span>
+<span class="n">x_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="n">dx</span><span class="p">)</span>
+
+<span class="c1"># unsere Funktion</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+
+<span class="c1"># unser h</span>
+<span class="n">h</span> <span class="o">=</span> <span class="mf">1e-6</span>
+
+<span class="c1"># die numerische Ableitung</span>
+<span class="k">def</span> <span class="nf">df</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">h</span><span class="p">)</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">h</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">h</span><span class="p">)</span>
+
+<span class="c1"># Berechnung der Funktionswerte (nur zur Visualisierung)</span>
+<span class="n">f_vals</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">x_vals</span><span class="p">]</span>
+<span class="c1"># Berechnung der Ableitungen an allen Punkten</span>
+<span class="n">df_vals</span> <span class="o">=</span> <span class="p">[</span><span class="n">df</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">x_vals</span><span class="p">]</span>
+
+<span class="c1"># schauen wir uns die Ableitung an</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_vals</span><span class="p">,</span> <span class="n">df_vals</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_vals</span><span class="p">,</span> <span class="n">f_vals</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/9c0c6a15ef89d51b3df437a7445012802da5a54920f6087784414cdc9420dd71.png" src="../_images/9c0c6a15ef89d51b3df437a7445012802da5a54920f6087784414cdc9420dd71.png" />
+</div>
+</div>
+<p>Wie man leicht sieht, entspricht das Ergebnis exakt unseren Erwartungen.</p>
+</section>
+<section id="ableitungen-hoherer-ordnung">
+<h3>Ableitungen höherer Ordnung<a class="headerlink" href="#ableitungen-hoherer-ordnung" title="Permalink to this heading">#</a></h3>
+<p>Wenn wir im späteren Verlauf der Vorlesung Kurvendiskussionen besprechen möchten, brauchen wir natürlich auch Ableitungen
+höherer Ordnung. Für unsere Anwendungen reichen Ableitung 2. Ordnung völlig aus, weswegen wir Ableitungen höherer Ordnung
+nicht betrachten werden. Für die Ableitung 2. Ordnung erhalten wir dann:</p>
+<div class="math notranslate nohighlight">
+\[
+f''(x) \approx \frac{f(x+h) + f(x-h) - 2f(x)}{h^2}; \; h \rightarrow 0
+\]</div>
+<p>Diese Formel erhält man, indem man um den Punkt <span class="math notranslate nohighlight">\(x\)</span> zwei Taylor-Entwicklungen durchführt. Dies sieht wie folgt aus:</p>
+<div class="math notranslate nohighlight">
+\[\begin{split}
+f(x+h) = f(x) + hf'(x) + \frac{h^2 f''(x)}{2} + \frac{h^3f'''(x)}{6} + O(h^4) \\
+f(x-h) = f(x) -  hf'(x) + \frac{h^2 f''(x)}{2} - \frac{h^3f'''(x)}{6} + O(h^4) \\
+\end{split}\]</div>
+<p>Addiert man diese beiden Gleichungen zusammen, so erhält man:</p>
+<div class="math notranslate nohighlight">
+\[
+f(x+h) + f(x-h) = 2f(x) + h^2 f''(x) + O(h^4)
+\]</div>
+<p>Stellen wir diese Gleichung nach <span class="math notranslate nohighlight">\(f''(x)\)</span> um, so erhalten wir:</p>
+<div class="math notranslate nohighlight">
+\[
+f''(x) = \frac{f(x+h) + f(x-h) - 2f(x)}{h^2} + O(h^4)
+\]</div>
+<p>Da <span class="math notranslate nohighlight">\(h\rightarrow 0\)</span>, bekommen wir mit einem Fehler der Größenordnung von <span class="math notranslate nohighlight">\(O(h^4)\)</span> eine gut Approximation. Die konkrete
+Implementierung ist genau analog zur obigen Implementierung und wird deshalb dem Leser überlassen.</p>
+</section>
+</section>
 </section>
 
     <script type="text/x-thebe-config">
@@ -612,13 +687,13 @@ Klausur relevant.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Numerisches Integrieren und Differenzieren</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numerisches-integrieren">Numerisches Integrieren</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#numerisches-differenzieren">Numerisches Differenzieren</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ableitungen-1-ordnung">Ableitungen 1. Ordnung</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ableitungen-hoherer-ordnung">Ableitungen höherer Ordnung</a></li>
 </ul>
 </li>
-<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#numerisches-differenzieren">Numerisches Differenzieren</a></li>
 </ul>
-
   </nav></div>
 
 </div></div>

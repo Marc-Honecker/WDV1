@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Gewöhnliche Differential Gleichungen &#8212; WDV1</title>
+    <title>Kurvendiskussion und Optimierung &#8212; WDV1</title>
   
   
   
@@ -64,11 +64,10 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
     <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Notebooks/ODEs';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Notebooks/CurveSketching';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Kurvendiskussion und Optimierung" href="CurveSketching.html" />
-    <link rel="prev" title="Numerisches Integrieren und Differenzieren" href="Int_and_Diff.html" />
+    <link rel="prev" title="Gewöhnliche Differential Gleichungen" href="ODEs.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -163,9 +162,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="HelloWorld.html">Erste Schritte in Python</a></li>
 <li class="toctree-l1"><a class="reference internal" href="IO.html">Lesen und Schreiben von Dateien</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Int_and_Diff.html">Numerisches Integrieren und Differenzieren</a></li>
-
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Gewöhnliche Differential Gleichungen</a></li>
-<li class="toctree-l1"><a class="reference internal" href="CurveSketching.html">Kurvendiskussion und Optimierung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ODEs.html">Gewöhnliche Differential Gleichungen</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Kurvendiskussion und Optimierung</a></li>
 </ul>
 
     </div>
@@ -237,7 +235,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FNotebooks/ODEs.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FNotebooks/CurveSketching.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -267,7 +265,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/Notebooks/ODEs.ipynb" target="_blank"
+      <li><a href="../_sources/Notebooks/CurveSketching.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -349,7 +347,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Gewöhnliche Differential Gleichungen</h1>
+    <h1>Kurvendiskussion und Optimierung</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -359,7 +357,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#herleitung">Herleitung</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#das-newton-verfahren">Das Newton-Verfahren</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kurvendiskussion">Kurvendiskussion</a></li>
 </ul>
             </nav>
         </div>
@@ -371,71 +370,98 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="gewohnliche-differential-gleichungen">
-<h1>Gewöhnliche Differential Gleichungen<a class="headerlink" href="#gewohnliche-differential-gleichungen" title="Permalink to this heading">#</a></h1>
-<p>Zum Lösen gewöhnlicher DGLs werden wir den <a class="reference external" href="https://en.wikipedia.org/wiki/Verlet_integration">Verlet-Algorithmus</a>
-benutzen. Dieser wurde, wie der Name bereits vermuten lässt, von Jean Baptiste Joseph Delambre Ende
-des 18. Jahrhunderts entwickelt. Später wurde er dann unabhängig mehrfach von anderen Wissenschaftlern
-entwickelt, unter anderem auch dem Namensgeber Loup Verlet in den 1960er Jahren. Dieser Algorithmus
-löst DGLs 2. Ordnung.</p>
-<section id="herleitung">
-<h2>Herleitung<a class="headerlink" href="#herleitung" title="Permalink to this heading">#</a></h2>
-<p>Stellen wir uns vor, wir möchten den Weg/Flugbahn eines Köpers anhand seiner Position,
-Beschleunigung und seiner Beschleunigungsänderung berechnen. Schauen wir uns die Taylor-Entwicklung
-dritten Grades über <span class="math notranslate nohighlight">\(t\)</span> dafür an:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="kurvendiskussion-und-optimierung">
+<h1>Kurvendiskussion und Optimierung<a class="headerlink" href="#kurvendiskussion-und-optimierung" title="Permalink to this heading">#</a></h1>
+<p>In diesem Kapitel werden wir uns darum kümmern, wie man Kurvendiskussionen mit einem Computer realisieren kann. Integrieren
+und noch wichtiger Differnezieren haben wir bereits in den vorangegangenen Kapiteln behandelt. Jetzt fehlt uns nur noch
+die Fähigkeit, um Nullstellen zu finden. Dazu werden wir das vielleicht schon bekannte <a class="reference external" href="https://de.wikipedia.org/wiki/Newtonverfahren">Newton-Verfahren</a>
+nutzen.</p>
+<section id="das-newton-verfahren">
+<h2>Das Newton-Verfahren<a class="headerlink" href="#das-newton-verfahren" title="Permalink to this heading">#</a></h2>
+<p>Das Newton-Verfahren dient, wie bereits angedeutet zum numerischen Finden von Nullstellen einer Funktion. Dabei versuchen
+wir eine möglichst genaue Approximation der Lage zu finden. Insgesamt ist dieses Verfahren verhältnismäßig einfach, weshalb
+es ein paar Dinge zu beachten gibt. Dies wird aber zu gegebener Zeit eingeführt. Aber zunächst zur Intuition. Sei
+unsere Funktion <span class="math notranslate nohighlight">\(f: \mathbb{R} \rightarrow \mathbb{R}\)</span> gegeben durch:</p>
 <div class="math notranslate nohighlight">
 \[
-x(t+\Delta t) = x(t) + v(t)\cdot\Delta t + \frac{a(t)\cdot\Delta t^2}{2} + \frac{\dot a(t)\cdot t^3}{6} + O(t^4)
+f(x) = x^2 - 1
 \]</div>
-<p>Mit dieser Formel erhalten wir offensichtlich einen Fehler der Größenordnung <span class="math notranslate nohighlight">\(O(t^4)\)</span>. Der einzige Haken
-hierbei ist aber, dass wir <span class="math notranslate nohighlight">\(v(t)\)</span> und <span class="math notranslate nohighlight">\(\dot a(t)\)</span> brauchen, was nach unserer Annahme nicht gegeben ist.
-Was aber bei einem solche iterativen Algorithmus aber immer gegeben ist, ist die Position <strong>vor</strong> der
-momentanen Position, also <span class="math notranslate nohighlight">\(x(t-\Delta t)\)</span>. Schauen wir uns die entsprechende Taylor Entwicklung hierzu
-an:</p>
+<p>Von dieser Funktion wissen wir natürlich die genauen Nullstellen. Grundidee des Newton-Verfahrens ist, dass man dem Verlauf
+der Funktion in Richtung einer Nullstelle von einem gegebenem Punkt folgt. Um “dem Verlauf einer Funktion zu folgen”,
+brauchen wir natürlich wieder die Ableitung an unserem Anfangspunkt. Schauen wir uns dies einmal genauer für den Punkt
+<span class="math notranslate nohighlight">\(x_0=2\)</span> mit der dazugehörigen Tangente an.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Die Grenzen</span>
+<span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">4</span>
+
+<span class="c1"># unser Anfangspunkt</span>
+<span class="n">x_0</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="c1"># das `h` zum Differenzieren</span>
+<span class="n">h</span> <span class="o">=</span> <span class="mf">1e-6</span>
+
+<span class="c1"># unsere Funktion</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span>
+
+<span class="c1"># Ableitung an der Stelle x</span>
+<span class="k">def</span> <span class="nf">df</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">h</span><span class="p">)</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">h</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">h</span><span class="p">)</span>
+
+<span class="c1"># wir teilen den Bereich in 1000 Teile</span>
+<span class="n">x_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+<span class="c1"># wir berechnen unsere Funktionswerte</span>
+<span class="n">f_vals</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">x_vals</span><span class="p">]</span>
+<span class="c1"># die Tangente</span>
+<span class="n">df_vals</span> <span class="o">=</span> <span class="p">[</span><span class="n">df</span><span class="p">(</span><span class="n">x_0</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">x</span> <span class="o">-</span> <span class="n">x_0</span><span class="p">)</span> <span class="o">+</span> <span class="n">f</span><span class="p">(</span><span class="n">x_0</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">x_vals</span><span class="p">]</span>
+<span class="c1"># die x-Achse</span>
+<span class="n">x_axis</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">x_vals</span><span class="p">]</span>
+
+<span class="c1"># wir plotten die Funktion</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_vals</span><span class="p">,</span> <span class="n">f_vals</span><span class="p">)</span>
+<span class="c1"># Funktion an der Stelle x=2</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_0</span><span class="p">,</span> <span class="n">f</span><span class="p">(</span><span class="n">x_0</span><span class="p">),</span> <span class="s1">&#39;o&#39;</span><span class="p">)</span>
+<span class="c1"># die Tangente</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_vals</span><span class="p">,</span> <span class="n">df_vals</span><span class="p">)</span>
+<span class="c1"># die x-Achse</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_vals</span><span class="p">,</span> <span class="n">x_axis</span><span class="p">,</span> <span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/7ba3a5830d591903eefcc4ec668acbd204b811ce608fc98bc5a7ae70e325088a.png" src="../_images/7ba3a5830d591903eefcc4ec668acbd204b811ce608fc98bc5a7ae70e325088a.png" />
+</div>
+</div>
+<p>Wie wir sehen können, ist die Nullstelle unserer Tangente schon relativ dicht an der gesuchten Nullstelle. Im nächsten
+Schritt können wir dann von der Nullstelle unserer Tangente starten, und von dortaus weiterrechnen. Und hiermit
+haben wir (informell) das Newton Verfahren hergeleitet. In einer Formel ausgedrückt sieht dies dann wie folgt aus:</p>
 <div class="math notranslate nohighlight">
 \[
-x(t-\Delta t) = x(t) - v(t)\cdot\Delta t + \frac{a(t)\cdot\Delta t^2}{2} - \frac{\dot a(t)\cdot t^3}{6} + O(t^4)
+x_{n+1} := x_n - \frac{f(x_n)}{f'(x_n)}
 \]</div>
-<p>Addieren wir nun unsere beiden Ergbnisse auf, so erhalten wir:</p>
-<div class="math notranslate nohighlight">
-\[
-x(t-\Delta t) + x(t+\Delta t) = 2x(t) + a(t)\Delta t^2 + O(t^4)
-\]</div>
-<p>Dies können wir noch umschreiben zu:</p>
-<div class="math notranslate nohighlight">
-\[
-x(t+\Delta t) = 2x(t) - x(t-\Delta t) + a(t)\Delta t^2 + O(t^4)
-\]</div>
-<p>Damit haben wir den Verlet-Algorithmus hergeleitet! In Pseudo-Code sieht dies wie folgt aus:</p>
-<div class="proof algorithm text admonition" id="Verlet">
-<p class="admonition-title"><span class="caption-number">Algorithm 1 </span> (Verlet-Algorithmus)</p>
-<section class="algorithm-content" id="proof-content">
-<p><strong>Eingabe:</strong> <span class="math notranslate nohighlight">\(\Delta t, x(0), x(\Delta t)\)</span> und <span class="math notranslate nohighlight">\(a(\Delta t)\)</span> sowie ein Endpunkt <span class="math notranslate nohighlight">\(t_{Ende}\)</span></p>
-<p><strong>Ausgabe:</strong> Sequenz der berechneten <span class="math notranslate nohighlight">\(x(t)\)</span> Werte</p>
-<ol class="arabic simple">
-<li><p>Initialisiere Liste <span class="math notranslate nohighlight">\(x_{vals}\)</span></p></li>
-<li><p>Setze:</p>
-<ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(x_{vor}\)</span> auf <span class="math notranslate nohighlight">\(x(0)\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(x_{jetzt}\)</span> auf <span class="math notranslate nohighlight">\(x(\Delta t)\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(a\)</span> auf <span class="math notranslate nohighlight">\(a(\Delta t)\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(t\)</span> auf <span class="math notranslate nohighlight">\(\Delta t\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(dt_{squared}\)</span> auf <span class="math notranslate nohighlight">\(\Delta t^2\)</span></p></li>
-</ul>
-</li>
-<li><p>Solange t <span class="math notranslate nohighlight">\(\ne\)</span> t_{Ende}:</p>
-<ol class="arabic simple" start="4">
-<li><p><span class="math notranslate nohighlight">\(x_{vals}(t) \leftarrow\)</span> <span class="math notranslate nohighlight">\(2 \cdot x_{jetzt} - x_{vor} + a\cdot dt_{squared}\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(x_{vor} \leftarrow x_{jetzt}\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(x_{jetzt} \leftarrow x_{vals}(t)\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(t \leftarrow t + \Delta t\)</span></p></li>
-</ol>
-</li>
-<li><p>Gib <span class="math notranslate nohighlight">\(x_{vals}\)</span> zurück</p></li>
-</ol>
+<p>für ein gegebenes <span class="math notranslate nohighlight">\(x_0\)</span>. Der daraus resultierende Code sieht ähnlich zu dem von Oben aus und die nötigen Erweiterungen
+sollte mittlerweile jeder selbst vornehmen können (mit gegebener Abbruch Bedingung). Damit ist das Newton-Verfahren
+auch schon abgeschlossen</p>
+<div class="tip admonition">
+<p class="admonition-title">Das Problem des Newton-Verfahrens</p>
+<p>Wie man bereits vermuten kann, findet dieses Verfahren höchstens eine Nullstelle. Um die andere Nullstelle in unserem
+Beispiel zu finden, müssten wir den Algorithmus auf der anderen Seite wieder starten, bis er die nächste Nullstelle
+gefunden hat.</p>
+<p>Ein weiteres Problem dieses Verfahrens ist das folgende. Stellen wir uns zum Beispiel vor, dass wir den Algorithmus
+in obiger Funktion an der Stelle <span class="math notranslate nohighlight">\(x_0 = 0\)</span> starten. Es sollte offensichtlich sein, dass wir dann ein Problem haben.
+Um solche und noch weitere Probleme in Praxis zu umgehen, plottet man zuerst die Funktion, bei der man die Nullstelle(n)
+finden möchte und initialisiert den Algorithmus dann nah an einer Nullstelle.</p>
+</div>
 </section>
-</div><p>Hieraus lässt sich selbstverständlich auch ganz einfach der dazugehörige Python-Code schreiben. Dies wird aber in diesem
-Fall Ihnen überlassen. Damit ist auch das Kapitel über DGLs abegeschlossen.</p>
+<section id="kurvendiskussion">
+<h2>Kurvendiskussion<a class="headerlink" href="#kurvendiskussion" title="Permalink to this heading">#</a></h2>
+<p>Nun haben wir alle benötigten Kenntnisse, damit wir eine Kurvendiskussion durchspielen können. Der Einfachheit halber nehmen
+wir wieder unsere Funktion <span class="math notranslate nohighlight">\(f\)</span> von obigen Beispiel, da wir dort unsere Nullstellen bereits bestimmt haben.</p>
 </section>
 </section>
 
@@ -468,22 +494,13 @@ Fall Ihnen überlassen. Damit ist auch das Kapitel über DGLs abegeschlossen.</p
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="Int_and_Diff.html"
+       href="ODEs.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Numerisches Integrieren und Differenzieren</p>
+        <p class="prev-next-title">Gewöhnliche Differential Gleichungen</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="CurveSketching.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Kurvendiskussion und Optimierung</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -500,7 +517,8 @@ Fall Ihnen überlassen. Damit ist auch das Kapitel über DGLs abegeschlossen.</p
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#herleitung">Herleitung</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#das-newton-verfahren">Das Newton-Verfahren</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kurvendiskussion">Kurvendiskussion</a></li>
 </ul>
   </nav></div>
 
