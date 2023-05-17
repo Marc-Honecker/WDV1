@@ -474,11 +474,8 @@ zunächst die erste Ableitung und plotten diese:</p>
 <span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5</span>
 <span class="n">b</span> <span class="o">=</span> <span class="mi">5</span>
 
-<span class="c1"># Wir unterteilen hier in sehr viele Bereiche,</span>
-<span class="c1"># weil wir dann von hier aus einfach weiterrechnen</span>
-<span class="c1"># können, ohne Ableitungen 3. Ordnung betrachten zu</span>
-<span class="c1"># müssen.</span>
-<span class="n">x_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="mi">100_000</span><span class="p">)</span>
+<span class="c1"># Diskretisierung</span>
+<span class="n">x_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="mi">1_000</span><span class="p">)</span>
 <span class="n">h</span> <span class="o">=</span> <span class="mf">1e-6</span>
 
 <span class="c1"># unsere Funktion</span>
@@ -502,7 +499,7 @@ zunächst die erste Ableitung und plotten diese:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/82616fae20bf523c4836ddf02c9a8c6027bd0e7bf2991dda0fb6d1014d7084cd.png" src="../_images/82616fae20bf523c4836ddf02c9a8c6027bd0e7bf2991dda0fb6d1014d7084cd.png" />
+<img alt="../_images/7ae3a839449549f3ff34862ff0803d2bec9142434ead4dd3bd44353198c4238c.png" src="../_images/7ae3a839449549f3ff34862ff0803d2bec9142434ead4dd3bd44353198c4238c.png" />
 </div>
 </div>
 <p>Jetzt berechenen wir die Nullstellen der ersten Ableitung aus den gerade berechenten Werten der Ableitung.</p>
