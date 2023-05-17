@@ -397,7 +397,7 @@ brauchen wir natürlich wieder die Ableitung an unserem Anfangspunkt. Schauen wi
 
 <span class="c1"># Die Grenzen</span>
 <span class="n">a</span> <span class="o">=</span> <span class="mi">0</span>
-<span class="n">b</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">3</span>
 
 <span class="c1"># unser Anfangspunkt</span>
 <span class="n">x_0</span> <span class="o">=</span> <span class="mi">2</span>
@@ -434,7 +434,7 @@ brauchen wir natürlich wieder die Ableitung an unserem Anfangspunkt. Schauen wi
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/7ba3a5830d591903eefcc4ec668acbd204b811ce608fc98bc5a7ae70e325088a.png" src="../_images/7ba3a5830d591903eefcc4ec668acbd204b811ce608fc98bc5a7ae70e325088a.png" />
+<img alt="../_images/e0d3cc4248b90e8988a4a88e17b52f263ecc835de6ad8aecc499f9bf2e504432.png" src="../_images/e0d3cc4248b90e8988a4a88e17b52f263ecc835de6ad8aecc499f9bf2e504432.png" />
 </div>
 </div>
 <p>Wie wir sehen können, ist die Nullstelle unserer Tangente schon relativ dicht an der gesuchten Nullstelle. Im nächsten
@@ -447,6 +447,11 @@ x_{n+1} := x_n - \frac{f(x_n)}{f'(x_n)}
 <p>für ein gegebenes <span class="math notranslate nohighlight">\(x_0\)</span>. Der daraus resultierende Code sieht ähnlich zu dem von Oben aus und die nötigen Erweiterungen
 sollte mittlerweile jeder selbst vornehmen können (mit gegebener Abbruch Bedingung). Damit ist das Newton-Verfahren
 auch schon abgeschlossen</p>
+<p><strong>Kurze Anmerkung:</strong> In dem zuletzt gezeigten Code haben wir zur Berechnung der Tangente immer und immer wieder
+f(x_0) und df(x_0) berechnet. Dies ist natürlich beliebig ineffizient und man würde in einer realen Implementierung
+dies im Voraus berechnen. Für unser kleines Beispiel hier (und auch für die Hausaufgaben) ist diese Implementierung völlig
+ausreichend. Wer dies aber dennoch implementieren möchte, kann dies natürlich gerne tun, sollte aber bedenken, dass
+der Code schnell unleserlicher wird.</p>
 <div class="tip admonition">
 <p class="admonition-title">Das Problem des Newton-Verfahrens</p>
 <p>Wie man bereits vermuten kann, findet dieses Verfahren höchstens eine Nullstelle. Um die andere Nullstelle in unserem
@@ -461,7 +466,86 @@ finden möchte und initialisiert den Algorithmus dann nah an einer Nullstelle.</
 <section id="kurvendiskussion">
 <h2>Kurvendiskussion<a class="headerlink" href="#kurvendiskussion" title="Permalink to this heading">#</a></h2>
 <p>Nun haben wir alle benötigten Kenntnisse, damit wir eine Kurvendiskussion durchspielen können. Der Einfachheit halber nehmen
-wir wieder unsere Funktion <span class="math notranslate nohighlight">\(f\)</span> von obigen Beispiel, da wir dort unsere Nullstellen bereits bestimmt haben.</p>
+wir wieder unsere Funktion <span class="math notranslate nohighlight">\(f\)</span> von obigen Beispiel, da wir dort unsere Nullstellen bereits bestimmt haben. Berechnen wir
+zunächst die erste Ableitung und plotten diese:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># wie immer unsere Grenzen</span>
+<span class="n">a</span> <span class="o">=</span> <span class="o">-</span><span class="mi">5</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">5</span>
+
+<span class="c1"># Wir unterteilen hier in sehr viele Bereiche,</span>
+<span class="c1"># weil wir dann von hier aus einfach weiterrechnen</span>
+<span class="c1"># können, ohne Ableitungen 3. Ordnung betrachten zu</span>
+<span class="c1"># müssen.</span>
+<span class="n">x_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">,</span> <span class="mi">100_000</span><span class="p">)</span>
+<span class="n">h</span> <span class="o">=</span> <span class="mf">1e-6</span>
+
+<span class="c1"># unsere Funktion</span>
+<span class="k">def</span> <span class="nf">f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">1</span>
+
+<span class="c1"># die numerische Ableitung an der Stelle x</span>
+<span class="k">def</span> <span class="nf">df</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">h</span><span class="p">)</span> <span class="o">-</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">h</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">h</span><span class="p">)</span>
+
+<span class="c1"># die Werte der Funktion</span>
+<span class="n">f_vals</span> <span class="o">=</span> <span class="p">[</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">x_vals</span><span class="p">]</span>
+<span class="c1"># die Werte der Ableitung</span>
+<span class="n">df_vals</span> <span class="o">=</span> <span class="p">[</span><span class="n">df</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">x_vals</span><span class="p">]</span>
+
+<span class="c1"># plotten</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_vals</span><span class="p">,</span> <span class="n">df_vals</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_vals</span><span class="p">,</span> <span class="n">f_vals</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/82616fae20bf523c4836ddf02c9a8c6027bd0e7bf2991dda0fb6d1014d7084cd.png" src="../_images/82616fae20bf523c4836ddf02c9a8c6027bd0e7bf2991dda0fb6d1014d7084cd.png" />
+</div>
+</div>
+<p>Jetzt berechenen wir die Nullstellen der ersten Ableitung aus den gerade berechenten Werten der Ableitung.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># wir setzen hier einfach fest, dass wir nach 1_000</span>
+<span class="c1"># Iterationen die Nullstellen suche abbrechen</span>
+<span class="n">n</span> <span class="o">=</span> <span class="mi">1_000</span>
+<span class="n">xn</span> <span class="o">=</span> <span class="mf">0.1</span>
+
+<span class="k">def</span> <span class="nf">d2f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">h</span><span class="p">)</span> <span class="o">+</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">h</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="n">h</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+    <span class="n">xn</span> <span class="o">=</span> <span class="n">xn</span> <span class="o">-</span> <span class="n">df</span><span class="p">(</span><span class="n">xn</span><span class="p">)</span> <span class="o">/</span> <span class="n">d2f</span><span class="p">(</span><span class="n">xn</span><span class="p">)</span>
+
+<span class="n">xn</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9.486665689219777e-18
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wir bekommen hier sogar die (quasi) exakte Lösung! Jetzt müssen wir nur noch die Art der Extremstelle berechnen und
+dann sind wir fertig.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">d2f</span><span class="p">(</span><span class="n">xn</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.999955756559757
+</pre></div>
+</div>
+</div>
+</div>
+<p>Wie erwartet sehen wir, dass hier ein <strong>lokales</strong> Minimum vorliegt, und da wir offensichtlich nur eine Extremstelle haben,
+ist diese auch das <strong>globale</strong> Minimum. Und hiermit haben wir unsere erste numerische Kurvendiskussion durchgeführt. Hiermit
+ist dieses Kapitel abgeschlossen.</p>
 </section>
 </section>
 
