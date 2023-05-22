@@ -513,6 +513,9 @@ zunächst die erste Ableitung und plotten diese:</p>
 <span class="k">def</span> <span class="nf">d2f</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">h</span><span class="p">)</span> <span class="o">+</span> <span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">h</span><span class="p">)</span> <span class="o">-</span> <span class="mi">2</span><span class="o">*</span><span class="n">f</span><span class="p">(</span><span class="n">x</span><span class="p">))</span> <span class="o">/</span> <span class="p">(</span><span class="n">h</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 
+<span class="c1"># `_` ist das sog. Wildcard Symbol.</span>
+<span class="c1"># Damit verwirft man hier einfach die </span>
+<span class="c1"># Schleifenvariable.</span>
 <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
     <span class="n">xn</span> <span class="o">=</span> <span class="n">xn</span> <span class="o">-</span> <span class="n">df</span><span class="p">(</span><span class="n">xn</span><span class="p">)</span> <span class="o">/</span> <span class="n">d2f</span><span class="p">(</span><span class="n">xn</span><span class="p">)</span>
 

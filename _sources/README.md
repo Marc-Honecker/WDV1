@@ -18,6 +18,13 @@ Installation von jupyter-book mit Python ohne Anaconda:
 `pip install jupyter-book`  
 `pip install pyppeteer`  
 `pip install ghp-import`  
+`pip install sphinx-proof`
+`pip install docutils==0.17.1`
+
+Alternativ kann man auch einfach folgenden Befehl ausführen:
+`pip install -r /path/to/requirements.txt`
+
+`requirements.txt` liegt im root-Verzeichnis.
 
 Öffnen des Source Codes in Jupyter: `jupyter-notebook` (öffnet Jupyter im Browser)  
 Kompilieren der HTML-Version: `jb build .`  
