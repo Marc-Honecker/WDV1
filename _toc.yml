@@ -9,3 +9,4 @@ chapters:
 - file: Notebooks/Int_and_Diff
 - file: Notebooks/ODEs
 - file: Notebooks/CurveSketching
+- file: Notebooks/Regression
