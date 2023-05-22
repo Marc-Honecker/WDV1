@@ -1,3 +1,7 @@
 jupyter-book
 matplotlib
 numpy
+pyppeteer
+ghp-import
+sphinx-proof
+docutils==0.17.1
