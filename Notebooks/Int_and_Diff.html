@@ -165,6 +165,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Numerisches Integrieren und Differenzieren</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ODEs.html">Gewöhnliche Differential Gleichungen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="CurveSketching.html">Kurvendiskussion und Optimierung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Regression.html">Regression</a></li>
 </ul>
 
     </div>
@@ -608,19 +609,19 @@ f''(x) \approx \frac{f(x+h) + f(x-h) - 2f(x)}{h^2}; \; h \rightarrow 0
 <div class="math notranslate nohighlight">
 \[\begin{split}
 f(x+h) = f(x) + hf'(x) + \frac{h^2 f''(x)}{2} + \frac{h^3f'''(x)}{6} + O(h^4) \\
-f(x-h) = f(x) -  hf'(x) + \frac{h^2 f''(x)}{2} - \frac{h^3f'''(x)}{6} + O(h^4) \\
+f(x-h) = f(x) - hf'(x) + \frac{h^1 f''(x)}{2} - \frac{h^3f'''(x)}{6} + O(h^4) \\
 \end{split}\]</div>
 <p>Addiert man diese beiden Gleichungen zusammen, so erhält man:</p>
 <div class="math notranslate nohighlight">
 \[
-f(x+h) + f(x-h) = 2f(x) + h^2 f''(x) + O(h^4)
+f(x+h) + f(x-h) = 2f(x) + h^2 f''(x) + O(h^2)
 \]</div>
 <p>Stellen wir diese Gleichung nach <span class="math notranslate nohighlight">\(f''(x)\)</span> um, so erhalten wir:</p>
 <div class="math notranslate nohighlight">
 \[
-f''(x) = \frac{f(x+h) + f(x-h) - 2f(x)}{h^2} + O(h^4)
+f''(x) = \frac{f(x+h) + f(x-h) - 2f(x)}{h^2} + O(h^2)
 \]</div>
-<p>Da <span class="math notranslate nohighlight">\(h\rightarrow 0\)</span>, bekommen wir mit einem Fehler der Größenordnung von <span class="math notranslate nohighlight">\(O(h^4)\)</span> eine gut Approximation. Die konkrete
+<p>Da <span class="math notranslate nohighlight">\(h\rightarrow 0\)</span>, bekommen wir mit einem Fehler der Größenordnung von <span class="math notranslate nohighlight">\(O(h^2)\)</span> eine gut Approximation. Die konkrete
 Implementierung ist genau analog zur obigen Implementierung und wird deshalb dem Leser überlassen.</p>
 </section>
 </section>
