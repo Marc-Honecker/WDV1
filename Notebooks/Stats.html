@@ -1,0 +1,710 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+    <title>Mittelwert, Varianz und Histogramme &#8212; WDV1</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/proof.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Notebooks/Stats';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Numerisches Integrieren und Differenzieren" href="Int_and_Diff.html" />
+    <link rel="prev" title="Lesen und Schreiben von Dateien" href="IO.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.jpg" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/logo.jpg" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Vorbemerkungen zu Kurs und Skript
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="HelloWorld.html">Erste Schritte in Python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="IO.html">Lesen und Schreiben von Dateien</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Mittelwert, Varianz und Histogramme</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Int_and_Diff.html">Numerisches Integrieren und Differenzieren</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ODEs.html">Gewöhnliche Differential Gleichungen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="CurveSketching.html">Kurvendiskussion und Optimierung</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Regression.html">Regression</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FNotebooks/Stats.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/Notebooks/Stats.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Mittelwert, Varianz und Histogramme</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#der-mittelwert">Der Mittelwert</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#varianz-und-streuung">Varianz und Streuung</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#histogramme">Histogramme</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="mittelwert-varianz-und-histogramme">
+<h1>Mittelwert, Varianz und Histogramme<a class="headerlink" href="#mittelwert-varianz-und-histogramme" title="Permalink to this heading">#</a></h1>
+<p>In diesem Kapitel werden wir uns um das Berechnen von Mittelwert, Varianz und Streuung kümmern, sowie dem Plotten von
+Histogrammen.</p>
+<section id="der-mittelwert">
+<h2>Der Mittelwert<a class="headerlink" href="#der-mittelwert" title="Permalink to this heading">#</a></h2>
+<p>Der Mittelwert, oder auch arithmetisches Mittel (engl. sample mean), dürfte bereits aus der Schule bekannt sein. Dennoch
+werden wir die Definition hier noch einmal einführen, damit die hier verwendete Notation jedem bekannt ist. Es gilt:</p>
+<div class="math notranslate nohighlight">
+\[
+\bar{x} = \frac{1}{N} \sum_{i=1}^N x_i
+\]</div>
+<p>Wollen wir dies in Python implementieren, so gibt es verschiedene Möglichkeiten. Die erste und wahrscheinlich
+offensichtlichste ist:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_mean</span><span class="p">(</span><span class="n">ls</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="c1"># speichert die Summe der Einträge</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="mf">0.</span>
+    <span class="c1"># speichert die Länge der Liste</span>
+    <span class="n">l</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ls</span><span class="p">)</span>
+
+    <span class="c1"># aufsummieren der Einträge</span>
+    <span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">ls</span><span class="p">:</span>
+        <span class="n">s</span> <span class="o">+=</span> <span class="n">elem</span>
+    
+    <span class="c1"># wir teilen die Summe mit der Länge</span>
+    <span class="c1"># der Liste und geben das Ergebnis zurück</span>
+    <span class="k">return</span> <span class="n">s</span><span class="o">/</span><span class="n">l</span>
+
+<span class="n">my_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">11</span><span class="p">))</span>
+
+<span class="n">my_mean</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dieses Programm ist leicht zu lesen und man sieht genau, was passiert, aber es ist nicht unbedingt die Version, die man in Python bevorzugen sollte. Da das Berechnen einer Summe über ein Liste von Werten etwas sehr alltägliches ist,
+stellt Python dafür eine eingebaute Funktion zur Verfügung. Außerdem sieht man in obigem Programm leicht, dass wir dort
+zwei unnötige Variablen genutzt haben. Implementiert man alle gerade besprochenen Änderungen, so erhält man:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_simpler_mean</span><span class="p">(</span><span class="n">ls</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">ls</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">ls</span><span class="p">)</span>
+
+<span class="n">my_simpler_mean</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Dieser Code ist eindeutig wesentlich aufgeräumter! Man kann dies aber sogar noch einfacher (und schneller) implementieren.
+Dafür nutzt man einfach <code class="docutils literal notranslate"><span class="pre">numpy</span></code>. Mit <code class="docutils literal notranslate"><span class="pre">numpy</span></code> sieht dies dann wie folgt aus:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="info dropdown admonition">
+<p class="admonition-title">Eingabe- und Rückgabetypen von Funktionen</p>
+<p>In unseren hier vorgestellten Code-Beispielen haben wir erstmals konkrete Typ-Annotationen genutzt. Diese sagen im
+Wesentlichen aus, welche Arten von Parametern an die Funktion übergeben werden sollen und was man als Rückgabe
+erwarten darf. Diese dienen (in Python) aber mehr als Dokumentation, da die tatsächlichen Typen <strong>nicht</strong> beachtet werden.
+Dennoch ist es sinnvoll, dass man die Typ-Annotationen nutzt, da man dann leichter den Überblick behält.</p>
+</div>
+</section>
+<section id="varianz-und-streuung">
+<h2>Varianz und Streuung<a class="headerlink" href="#varianz-und-streuung" title="Permalink to this heading">#</a></h2>
+<p>Die Definition der empirischen Varianz lautet:</p>
+<div class="math notranslate nohighlight">
+\[
+s^2 = \frac{1}{n-1} \sum_{i=1}^N (x_i - \bar{x})^2
+\]</div>
+<p>Die Streuung ist lediglich die Wurzel der Varianz, also einfach <span class="math notranslate nohighlight">\(s\)</span>. Auch hier werden wir wieder die offensichtliche
+Implementierung angeben und dann die <code class="docutils literal notranslate"><span class="pre">numpy</span></code> “Implementierung”. Dies sieht dann wie folgt aus:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_var</span><span class="p">(</span><span class="n">ls</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="c1"># wir brauchen zunächst den Mittelwert</span>
+    <span class="n">x_bar</span> <span class="o">=</span> <span class="n">my_mean</span><span class="p">(</span><span class="n">ls</span><span class="p">)</span>
+
+    <span class="c1"># zum speichern der Summe</span>
+    <span class="n">s_squared</span> <span class="o">=</span> <span class="mf">0.</span>
+
+    <span class="c1"># naive Schleife</span>
+    <span class="k">for</span> <span class="n">x_i</span> <span class="ow">in</span> <span class="n">ls</span><span class="p">:</span>
+        <span class="n">s_squared</span> <span class="o">+=</span> <span class="p">(</span><span class="n">x_i</span> <span class="o">-</span> <span class="n">x_bar</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+
+    <span class="c1"># zurückgeben des Ergebnisses</span>
+    <span class="k">return</span> <span class="n">s_squared</span> <span class="o">/</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ls</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Diese Implementierung ist wieder sehr ähnlich zu der naiven Implementierung des Mittelwertes. Allerdings können wir
+nicht direkt die verbesserte Version angeben. Denn <code class="docutils literal notranslate"><span class="pre">sum()</span></code> liefert nur die einfache Summe über die Einträge zurück
+nicht die quadritische Summe. Allerdings kann man dies einfach umgehen.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_simpler_var</span><span class="p">(</span><span class="n">ls</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+    <span class="c1"># wie vorher</span>
+    <span class="n">x_bar</span> <span class="o">=</span> <span class="n">my_mean</span><span class="p">(</span><span class="n">ls</span><span class="p">)</span>
+
+    <span class="c1"># bessere Implementierung mit list comprehension</span>
+    <span class="n">s_squared</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([(</span><span class="n">x_i</span> <span class="o">-</span> <span class="n">x_bar</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x_i</span> <span class="ow">in</span> <span class="n">ls</span><span class="p">])</span>
+
+    <span class="c1"># Rückgabe des Ergebnisses</span>
+    <span class="k">return</span> <span class="n">s_squared</span> <span class="o">/</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ls</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># testen beider Funktionen</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_var</span><span class="p">(</span><span class="n">my_list</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_simpler_var</span><span class="p">(</span><span class="n">my_list</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11.0
+11.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>In dieser Implementierung haben wir eine sogenannte <code class="docutils literal notranslate"><span class="pre">list</span> <span class="pre">comprehension</span></code> genutzt. Dieses Tool ermöglicht es, dass man
+aus einer bereits gegebenen Liste eine neue Liste erstellt und gleichzeitig Operationen auf den Elementen ausführt.
+Dies haben wir in obigem Beispiel ausgenutzt und haben als Elemente der neuen Liste die <span class="math notranslate nohighlight">\((x_i - \bar{x})^2\)</span> abgespeichert.
+Anschließend haben wir dann diese Liste direkt in die Summen Funktion gesteckt und dieses Ergebnis (wie vorher) in
+<code class="docutils literal notranslate"><span class="pre">s_squared</span></code> gespeichert. Dadurch konnten wir wieder die Implementierung wesentlich kürzer gestalten. Interessierte können
+<a class="reference external" href="https://www.w3schools.com/python/python_lists_comprehension.asp">hier</a> mehr über die <code class="docutils literal notranslate"><span class="pre">list</span> <span class="pre">comprehension</span></code> erfahren.</p>
+<p>Die kürzeste Implementierung erfolgt aber natürlich wieder durch <code class="docutils literal notranslate"><span class="pre">numpy</span></code>. Hier erhalten wir:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">my_list</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11.0
+</pre></div>
+</div>
+</div>
+</div>
+<p>Man muss allerdings beachten, dass der Default von <code class="docutils literal notranslate"><span class="pre">numpy.var()</span></code> <strong>keine</strong> Korrektur vornimmt. Deshalb übergeben wir
+den Parameter <code class="docutils literal notranslate"><span class="pre">ddof=1</span></code>.</p>
+<div class="info admonition">
+<p class="admonition-title">Korrektur der Varianz</p>
+<p>In unseren Beispielen haben wir die Varianz mit <span class="math notranslate nohighlight">\(\frac{1}{N-1}\)</span> normalisiert. Dies wird üblicherweise gemacht, weil die
+Normalisierung mit <span class="math notranslate nohighlight">\(\frac{1}{N}\)</span> die Varianz ‘unterschätzt’. Wirkliche Auswirkungen hat dies aber natürlich nur für
+kleine <span class="math notranslate nohighlight">\(N\)</span>, weil <span class="math notranslate nohighlight">\(\frac{1}{N} \approx \frac{1}{N-1}\)</span>, für <span class="math notranslate nohighlight">\(N \rightarrow \infty\)</span>. Dennoch ist es formal richtiger mit
+<span class="math notranslate nohighlight">\(\frac{1}{N-1}\)</span> zu normalisieren.</p>
+</div>
+</section>
+<section id="histogramme">
+<h2>Histogramme<a class="headerlink" href="#histogramme" title="Permalink to this heading">#</a></h2>
+<p>Histogramme dienen der graphischen Darstellung einer Häufigkeitsverteilung eines Datensatzes. Somit bekommt man einen
+Eindruck davon, welche Werte in einem Datensatz dominant sind. Eine mögliche Anwendung ist z.B. die Visualisierung von
+Spektren. Ein Beispiel (mit artifiziellen Daten) sieht in Python wie folgt aus:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="c1"># Generierung unserer Daten</span>
+<span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">seed</span><span class="p">(</span><span class="mi">25763946</span><span class="p">)</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">10000</span><span class="p">)</span>
+
+<span class="c1"># Plotten der Daten als Histogramm</span>
+<span class="n">num_bins</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">num_bins</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/8261c727a81a69c527db20fefe747efe71e393a87c0e85d5d1efca1bf473eedd.png" src="../_images/8261c727a81a69c527db20fefe747efe71e393a87c0e85d5d1efca1bf473eedd.png" />
+</div>
+</div>
+<p>Als Datensatz haben wir 10.000 normalverteilte Zufallszahlen generiert. Neu ist hierbei, dass wir einen sogenannten <code class="docutils literal notranslate"><span class="pre">Seed</span></code>
+benutzt haben. Dieser erlaubt es, dass die Berechnung deterministisch, also reproduzierbar wird.</p>
+<p>Im zweiten Teil des Codes haben wir dann festgelegt, wieviele <code class="docutils literal notranslate"><span class="pre">bins</span></code> wir benutzen möchten. Mit <code class="docutils literal notranslate"><span class="pre">bin</span></code> meint man einfach nur
+einen Balken im Histogramm. Somit sagt dann die Anzahl der <code class="docutils literal notranslate"><span class="pre">bins</span></code> aus, wieviele solcher Balken in dem Intervall der Daten
+genutzt werden sollen. Zusätzlich haben wir noch das Histogramm normalisiert, sodass die Fläche unter dem Histogramm (also
+das Integral) 1 wird und man damit das Histogramm als Verteilung ansehen kann.</p>
+<div class="info dropdown admonition">
+<p class="admonition-title">Zufallszahlen in Computern</p>
+<p>Beim Arbeiten mit Zufallszahlen mit Computern muss man immer eine Sache im Hinterkopf behalten: auch wenn immer von
+<em>Zufallszahlen</em> gesprochen wird, sind diese <strong>nie</strong> wirklich zufällig, weshalb es richtiger ist von
+<em>Pseudo</em>-Zufallszahlen zu sprechen.</p>
+<p>Denn man muss hierbei beachten, dass <strong>alle</strong> Vorgänge in einem Computer (sofern man von potenziellen Hardware Bugs
+absieht) immer und zu jedem Zeitpunkt völlig deterministisch sind. Ebenso sind Zufallszahlen-Generatoren determinsitisch
+und produzieren nur <em>scheinbar</em> zufällige Zahlen.</p>
+<p>Mit diesem Hintergrund wird auch klar, weshalb der oben genannte <code class="docutils literal notranslate"><span class="pre">Seed</span></code> die Berechnung reproduzierbar macht. Denn mit
+dieser Zahl initialisieren wir den Zufallszahlen-Genereator bei jedem Aufruf exakt gleich und erhalten damit bei jeder
+Ausführung das gleiche Ergebnis.</p>
+</div>
+<p>Damit ist dieses Kapitel abgeschlossen.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./Notebooks"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  <!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="IO.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lesen und Schreiben von Dateien</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Int_and_Diff.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Numerisches Integrieren und Differenzieren</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#der-mittelwert">Der Mittelwert</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#varianz-und-streuung">Varianz und Streuung</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#histogramme">Histogramme</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            <div class="bd-footer-content__inner">
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Chrsitian Müller, Marc Johannes Honecker und Martin H. Müser
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div></div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
