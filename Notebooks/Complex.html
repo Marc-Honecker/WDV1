@@ -9,7 +9,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
 
-    <title>Regression &#8212; WDV1</title>
+    <title>Komplexe Zahlen und Rechenregeln mit Gleitkomma-Zahlen &#8212; WDV1</title>
   
   
   
@@ -62,11 +62,10 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'Notebooks/Regression';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Notebooks/Complex';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Komplexe Zahlen und Rechenregeln mit Gleitkomma-Zahlen" href="Complex.html" />
-    <link rel="prev" title="Kurvendiskussion und Optimierung" href="CurveSketching.html" />
+    <link rel="prev" title="Regression" href="Regression.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -164,8 +163,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="Int_and_Diff.html">Numerisches Integrieren und Differenzieren</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ODEs.html">Gewöhnliche Differential Gleichungen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="CurveSketching.html">Kurvendiskussion und Optimierung</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Regression</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Complex.html">Komplexe Zahlen und Rechenregeln mit Gleitkomma-Zahlen</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Regression.html">Regression</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Komplexe Zahlen und Rechenregeln mit Gleitkomma-Zahlen</a></li>
 </ul>
 
     </div>
@@ -220,7 +219,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/Notebooks/Regression.ipynb" target="_blank"
+      <li><a href="../_sources/Notebooks/Complex.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -302,7 +301,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Regression</h1>
+    <h1>Komplexe Zahlen und Rechenregeln mit Gleitkomma-Zahlen</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -312,7 +311,8 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methode-der-kleinsten-quadrate">Methode der kleinsten Quadrate</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#komplexe-zahlen">Komplexe Zahlen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rechenregeln-mit-gleitkommazahlen">Rechenregeln mit Gleitkommazahlen</a></li>
 </ul>
             </nav>
         </div>
@@ -324,94 +324,131 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <section class="tex2jax_ignore mathjax_ignore" id="regression">
-<h1>Regression<a class="headerlink" href="#regression" title="Permalink to this heading">#</a></h1>
-<p>In diesem Kapitel werden wir uns der (linearen) Regression widmen. Dies wird es uns erlauben, dass wir Trends in
-Daten besser analysieren können.</p>
-<section id="methode-der-kleinsten-quadrate">
-<h2>Methode der kleinsten Quadrate<a class="headerlink" href="#methode-der-kleinsten-quadrate" title="Permalink to this heading">#</a></h2>
-<p>Die Methode der kleinsten Quadrate (engl. Linear Least Squares) geht auf
-<a class="reference external" href="https://de.wikipedia.org/wiki/Carl_Friedrich_Gau%C3%9F">Carl Friedrich Gauss</a> zurück. Ziel ist es bei dieser Methode,
-dass man die Funktion findet, welche im quadratischen Mittel am dichtesten an allen Punkten liegt. Visuell sieht dies
-wie folgt aus:</p>
-<figure class="align-default" id="lls">
-<img alt="../_images/Linear_least_squares_example2.png" src="../_images/Linear_least_squares_example2.png" />
-<figcaption>
-<p><span class="caption-number">Fig. 2 </span><span class="caption-text">Ein Beispiel für die Methode der kleinsten Quadrate. <a class="reference external" href="https://en.wikipedia.org/wiki/Linear_least_squares">Quelle</a></span><a class="headerlink" href="#lls" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-<p>Allerdings muss diese Methode keineswegs auf lineare Funktionen einschränken. Die gleiche Idee überträgt sich
-eins zu eins auf Funktionen höherer Ordnung. Einziger Nachteil ist, dass man die (ungefähre) Ordnung der Funktion kennen
-muss. Allerdings reicht es in aller Regel aus die Funktion zu plotten, damit man eine gute Näherung der Ordnung der
-Funktion erhält. In Python kann man dies z.B. wie folgt implementieren:</p>
+  <section class="tex2jax_ignore mathjax_ignore" id="komplexe-zahlen-und-rechenregeln-mit-gleitkomma-zahlen">
+<h1>Komplexe Zahlen und Rechenregeln mit Gleitkomma-Zahlen<a class="headerlink" href="#komplexe-zahlen-und-rechenregeln-mit-gleitkomma-zahlen" title="Permalink to this heading">#</a></h1>
+<p>Im ersten Teil diesen Kapitels werden wir uns um das Rechenen mit komplexen Zahlen mit Python kümmern. Im zweiten Teil von
+diesem Kapitel schauen wir uns dann noch Probleme an, die beim Rechnen mit Gleitkomma-Zahlen entstehen.</p>
+<section id="komplexe-zahlen">
+<h2>Komplexe Zahlen<a class="headerlink" href="#komplexe-zahlen" title="Permalink to this heading">#</a></h2>
+<p>Schauen wir uns am besten zuerst an, wie man eine komplexe Zahl in Python erstellt:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># `seaborn` ist ein weiteres tool zum plotten </span>
-<span class="c1"># und ist im Prinzip eine Weiterentwicklung zu</span>
-<span class="c1"># pyplot. So können wir ganz einfach gefittete</span>
-<span class="c1"># Funktion und die Datenpunkte zusammen plotten.</span>
-<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sb</span>
-<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">complex_num</span> <span class="o">=</span> <span class="mf">2.5</span> <span class="o">+</span> <span class="mi">4</span><span class="n">j</span>
 
-<span class="c1"># generieren verrauschter Daten</span>
-<span class="k">def</span> <span class="nf">gen_noisy_data</span><span class="p">(</span><span class="n">x_vals</span><span class="p">):</span>
-    <span class="n">f_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros_like</span><span class="p">(</span><span class="n">x_vals</span><span class="p">)</span>
-
-    <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">x_vals</span><span class="p">):</span>
-        <span class="n">noise</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">random</span><span class="o">.</span><span class="n">normal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-        <span class="n">f_vals</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.1</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="o">+</span> <span class="mf">0.2</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">noise</span>
-
-    <span class="k">return</span> <span class="n">f_vals</span>
-
-<span class="n">x_vals</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">gen_noisy_data</span><span class="p">(</span><span class="n">x_vals</span><span class="p">)</span>
-
-<span class="c1"># transformieren der Daten</span>
-<span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;x-axis&quot;</span><span class="p">:</span> <span class="n">x_vals</span><span class="p">,</span> <span class="s2">&quot;f(x)&quot;</span><span class="p">:</span> <span class="n">data</span><span class="p">}</span>
-<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-
-<span class="c1"># plotten der Daten mit gefitteter Funktion;</span>
-<span class="c1"># wir wissen hier natürlich die Ordnung der Funktion</span>
-<span class="c1"># und können direkt den richtigen `Guess` einsetzen.</span>
-<span class="n">sb</span><span class="o">.</span><span class="n">lmplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;x-axis&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;f(x)&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">order</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+<span class="n">complex_num</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/03bc8d80e6b45c60ceb78f5f63d67b1b7a24be15f3e0c9227768ff4f19303dfa.png" src="../_images/03bc8d80e6b45c60ceb78f5f63d67b1b7a24be15f3e0c9227768ff4f19303dfa.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(2.5+4j)
+</pre></div>
 </div>
 </div>
+</div>
+<p>Das erste, was sehr stark ins Auge fällt, ist mit Sicherheit, dass das Symbol der <strong>imaginären Einheit i</strong> in Python
+durch ein <strong>j</strong> dargestellt wird. Die Gründe hierfür ist total praktischer Natur:</p>
+<ul class="simple">
+<li><p>Der Buchstabe <strong>i</strong> wird oft als Laufindex in einer Schleife genutzt und dies würde dann zu Konfusion führen.</p></li>
+<li><p>Zusätzlich kann man <strong>i</strong> sehr leicht mit dem Buchstaben <strong>l</strong> oder <strong>1</strong> verwechseln.</p></li>
+</ul>
+<p>Außerdem fällt auf, dass wir komplexe Zahlen ohne irgenwelche imports benutzen können. Rechnen kann man mit komplexen
+Zahlen, wie man es erwarten würde:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;../Data/data.dat&#39;</span><span class="p">,</span> <span class="n">sep</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\t</span><span class="s1">&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mf">2.5</span> <span class="o">+</span> <span class="mi">3</span><span class="n">j</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="mf">2.5</span><span class="n">j</span>
+
+<span class="c1"># Addition</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">+</span> <span class="n">b</span><span class="p">)</span>
+<span class="c1"># Subtraktion</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">-</span> <span class="n">b</span><span class="p">)</span>
+<span class="c1"># Multiplikation</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">*</span> <span class="n">b</span><span class="p">)</span>
+<span class="c1"># Division</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span> <span class="o">/</span> <span class="n">b</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3.5+5.5j)
+(1.5+0.5j)
+(-5+9.25j)
+(1.3793103448275863-0.44827586206896547j)
 </pre></div>
 </div>
 </div>
 </div>
-<p>Alternativ kann man hierfür auch <a class="reference external" href="http://www.gnuplot.info/">Gnuplot</a> nutzen. Wenn wir obiges Beispiel in Gnuplot lösen,
-sieht dies wie folgt aus:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># Defintion der zu fittenden Funktion</span>
-<span class="n">fitf</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">=</span> <span class="n">p3</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">3</span> <span class="o">+</span> <span class="n">p2</span><span class="o">*</span><span class="n">x</span><span class="o">**</span><span class="mi">2</span> <span class="o">+</span> <span class="n">p1</span><span class="o">*</span><span class="n">x</span> <span class="o">+</span> <span class="n">p0</span>
-<span class="c1"># initialisieren der Variablen</span>
-<span class="n">p3</span> <span class="o">=</span> <span class="n">p2</span> <span class="o">=</span> <span class="n">p1</span> <span class="o">=</span> <span class="n">p0</span> <span class="o">=</span> <span class="mi">1</span>
-<span class="c1"># fitten der Funktion an die Daten in </span>
-<span class="c1"># &quot;data.dat&quot;</span>
-<span class="n">fit</span> <span class="n">fitf</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="s2">&quot;data.dat&quot;</span> <span class="n">u</span> <span class="mi">1</span><span class="p">:</span><span class="mi">2</span> <span class="n">via</span> <span class="n">p1</span><span class="p">,</span><span class="n">p2</span><span class="p">,</span><span class="n">p3</span><span class="p">,</span><span class="n">p4</span>
+<p>Ebenso kann man auch Listen von komplexen Zahlen erstellen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">complex_ls</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+
+<span class="k">for</span> <span class="n">num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+    <span class="n">num</span> <span class="o">=</span> <span class="n">num</span> <span class="o">+</span> <span class="mi">10</span><span class="n">j</span>
+    <span class="n">complex_ls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">num</span><span class="p">)</span>
+
+<span class="n">complex_ls</span>
 </pre></div>
 </div>
-<p>Das Ergebnis sieht dann wie folgt aus:</p>
-<figure class="align-default" id="id1">
-<img alt="../_images/plot.png" src="../_images/plot.png" />
-<figcaption>
-<p><span class="caption-number">Fig. 3 </span><span class="caption-text">Geplottetes Ergebnis eines Fits an einen Datensatz in Gnuplot</span><a class="headerlink" href="#id1" title="Permalink to this image">#</a></p>
-</figcaption>
-</figure>
-<p>Hiermit ist gezeigt, wie man mit den beiden in diesem Kurs verwendeten Tools, Daten an eine Funktion fitten und plotten
-kann. Welches Tool man benutzt, bleibt dem eigenen Geschmack überlassen, aber man sollte beides einmal gesehen haben.
-Damit ist das Kapitel über lineare Regression auch schon abgeschlossen.</p>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[10j,
+ (1+10j),
+ (2+10j),
+ (3+10j),
+ (4+10j),
+ (5+10j),
+ (6+10j),
+ (7+10j),
+ (8+10j),
+ (9+10j)]
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="rechenregeln-mit-gleitkommazahlen">
+<h2>Rechenregeln mit Gleitkommazahlen<a class="headerlink" href="#rechenregeln-mit-gleitkommazahlen" title="Permalink to this heading">#</a></h2>
+<p>Wie der ein oder andere im Laufe des Kurses gemerkt haben könnte, können beim Rechnen mit Gleitkommazahlen einige Probleme
+entstehen. Schauen wir uns den folgenden Code einmal an:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mf">5.001</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mf">2.001</span> <span class="o">+</span> <span class="mf">3.0</span>
+
+<span class="n">a</span> <span class="o">==</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>False
+</pre></div>
+</div>
+</div>
+</div>
+<p>Offensichtlich sollte <code class="docutils literal notranslate"><span class="pre">5.001</span> <span class="pre">==</span> <span class="pre">2.001</span> <span class="pre">+</span> <span class="pre">3.0</span></code> gelten, aber Python sagt uns, dass dies falsch ist! Jedoch warum ist dies
+falsch? Dies liegt ganz einfach daran, dass wir Menschen im <strong>Zehner</strong>-System rechnen, aber ein Computer im <strong>Binär</strong>-System
+rechnet mit endlicher Genauigkeit. Und bei dieser Umwandlung kommt es zu solch skurilen Problemen (die an einigen Stellen
+zu großen Problemen geführt haben). Deshalb <strong>darf man niemals</strong> Gleitkomma-Zahlen direkt auf Gleichheit prüfen.</p>
+<p>Sicherer ist es, Gleitkomma-Zahlen auf Ungleichheit zu prüfen. Ein Beispiel:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="mf">2.000001</span>
+<span class="n">b</span> <span class="o">=</span> <span class="mf">2.0</span>
+
+<span class="n">a</span> <span class="o">&gt;</span> <span class="n">b</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>True
+</pre></div>
+</div>
+</div>
+</div>
+<p>Obwohl die Zahlen, die wir hier gewählt haben, sehr viel dichter beieinander liegen, als in dem Beispiel zuvor, verhält sich
+der Vergleich genauso, wie man es vermuten würde. Deshalb sollte man auch bei einem Test auf Gleichheit zweier Gleitkomma-
+Zahlen einen sogenannten Epsilon-Test durchführen. Dieses Konzept ist allerdings außerhalb der Abdeckung dieser Vorlesung.</p>
 </section>
 </section>
 
@@ -444,22 +481,13 @@ Damit ist das Kapitel über lineare Regression auch schon abgeschlossen.</p>
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="CurveSketching.html"
+       href="Regression.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Kurvendiskussion und Optimierung</p>
+        <p class="prev-next-title">Regression</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="Complex.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Komplexe Zahlen und Rechenregeln mit Gleitkomma-Zahlen</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -476,7 +504,8 @@ Damit ist das Kapitel über lineare Regression auch schon abgeschlossen.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#methode-der-kleinsten-quadrate">Methode der kleinsten Quadrate</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#komplexe-zahlen">Komplexe Zahlen</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rechenregeln-mit-gleitkommazahlen">Rechenregeln mit Gleitkommazahlen</a></li>
 </ul>
   </nav></div>
 
