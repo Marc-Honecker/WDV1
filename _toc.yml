@@ -11,3 +11,4 @@ chapters:
 - file: Notebooks/ODEs
 - file: Notebooks/CurveSketching
 - file: Notebooks/Regression
+- file: Notebooks/Complex
