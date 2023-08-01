@@ -365,28 +365,28 @@ x(t+\Delta t) = 2x(t) - x(t-\Delta t) + a(t)\Delta t^2 + O(t^4)
 <div class="proof algorithm text admonition" id="Verlet">
 <p class="admonition-title"><span class="caption-number">Algorithm 1 </span> (Verlet-Algorithmus)</p>
 <section class="algorithm-content" id="proof-content">
-<p><strong>Eingabe:</strong> <span class="math notranslate nohighlight">\(\Delta t, x(0), x(\Delta t)\)</span> und <span class="math notranslate nohighlight">\(a(\Delta t)\)</span> sowie ein Endpunkt <span class="math notranslate nohighlight">\(t_{Ende}\)</span></p>
-<p><strong>Ausgabe:</strong> Sequenz der berechneten <span class="math notranslate nohighlight">\(x(t)\)</span> Werte</p>
+<p><strong>Eingabe:</strong> <span class="math notranslate nohighlight">\(\Delta t, \text{x}(0), \text{x}(\Delta t)\)</span> und <span class="math notranslate nohighlight">\(\text{a}(\Delta t)\)</span> sowie ein Endpunkt <span class="math notranslate nohighlight">\(t_\text{Ende}\)</span></p>
+<p><strong>Ausgabe:</strong> Sequenz der berechneten <span class="math notranslate nohighlight">\(\text{x}(t)\)</span> Werte</p>
 <ol class="arabic simple">
-<li><p>Initialisiere Liste <span class="math notranslate nohighlight">\(x_{vals}\)</span></p></li>
+<li><p>Initialisiere Liste <span class="math notranslate nohighlight">\(\text{x}_\text{vals}\)</span></p></li>
 <li><p>Setze:</p>
 <ul class="simple">
-<li><p><span class="math notranslate nohighlight">\(x_{vor}\)</span> auf <span class="math notranslate nohighlight">\(x(0)\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(x_{jetzt}\)</span> auf <span class="math notranslate nohighlight">\(x(\Delta t)\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(a\)</span> auf <span class="math notranslate nohighlight">\(a(\Delta t)\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(t\)</span> auf <span class="math notranslate nohighlight">\(\Delta t\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(dt_{squared}\)</span> auf <span class="math notranslate nohighlight">\(\Delta t^2\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\text{x}_\text{vor} \leftarrow \text{x}(0)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\text{x}_\text{jetzt} \leftarrow \text{x}(\Delta t)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\text{a} \leftarrow \text{a}(\Delta t)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(t \leftarrow \Delta t\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(dt_\text{squared} \leftarrow \Delta t^2\)</span></p></li>
 </ul>
 </li>
-<li><p>Solange t <span class="math notranslate nohighlight">\(\ne\)</span> t_{Ende}:</p>
+<li><p>Solange <span class="math notranslate nohighlight">\(t\)</span> <span class="math notranslate nohighlight">\(\ne\)</span> <span class="math notranslate nohighlight">\(t_\text{Ende}\)</span>:</p>
 <ol class="arabic simple" start="4">
-<li><p><span class="math notranslate nohighlight">\(x_{vals}(t) \leftarrow\)</span> <span class="math notranslate nohighlight">\(2 \cdot x_{jetzt} - x_{vor} + a\cdot dt_{squared}\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(x_{vor} \leftarrow x_{jetzt}\)</span></p></li>
-<li><p><span class="math notranslate nohighlight">\(x_{jetzt} \leftarrow x_{vals}(t)\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\text{x}_\text{vals}(t) \leftarrow\)</span> <span class="math notranslate nohighlight">\(2 \cdot \text{x}_\text{jetzt} - \text{x}_\text{vor} + a\cdot dt_\text{squared}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\text{x}_\text{vor} \leftarrow \text{x}_\text{jetzt}\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\text{x}_\text{jetzt} \leftarrow \text{x}_\text{vals}(t)\)</span></p></li>
 <li><p><span class="math notranslate nohighlight">\(t \leftarrow t + \Delta t\)</span></p></li>
 </ol>
 </li>
-<li><p>Gib <span class="math notranslate nohighlight">\(x_{vals}\)</span> zurück</p></li>
+<li><p>Gib <span class="math notranslate nohighlight">\(\text{x}_\text{vals}\)</span> zurück</p></li>
 </ol>
 </section>
 </div><p>Hieraus lässt sich selbstverständlich auch ganz einfach der dazugehörige Python-Code schreiben. Dies wird aber in diesem
