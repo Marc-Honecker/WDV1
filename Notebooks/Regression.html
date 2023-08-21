@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html >
 
   <head>
     <meta charset="utf-8" />
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -39,13 +39,12 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -65,10 +64,9 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'Notebooks/Regression';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Komplexe Zahlen und Rechenregeln mit Gleitkomma-Zahlen" href="Complex.html" />
     <link rel="prev" title="Kurvendiskussion und Optimierung" href="CurveSketching.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
   
   
@@ -165,7 +163,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="ODEs.html">Gewöhnliche Differential Gleichungen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="CurveSketching.html">Kurvendiskussion und Optimierung</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Regression</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Complex.html">Komplexe Zahlen und Rechenregeln mit Gleitkomma-Zahlen</a></li>
 </ul>
 
     </div>
@@ -325,11 +322,11 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="regression">
-<h1>Regression<a class="headerlink" href="#regression" title="Permalink to this heading">#</a></h1>
+<h1>Regression<a class="headerlink" href="#regression" title="Permalink to this headline">#</a></h1>
 <p>In diesem Kapitel werden wir uns der (linearen) Regression widmen. Dies wird es uns erlauben, dass wir Trends in
 Daten besser analysieren können.</p>
 <section id="methode-der-kleinsten-quadrate">
-<h2>Methode der kleinsten Quadrate<a class="headerlink" href="#methode-der-kleinsten-quadrate" title="Permalink to this heading">#</a></h2>
+<h2>Methode der kleinsten Quadrate<a class="headerlink" href="#methode-der-kleinsten-quadrate" title="Permalink to this headline">#</a></h2>
 <p>Die Methode der kleinsten Quadrate (engl. Linear Least Squares) geht auf
 <a class="reference external" href="https://de.wikipedia.org/wiki/Carl_Friedrich_Gau%C3%9F">Carl Friedrich Gauss</a> zurück. Ziel ist es bei dieser Methode,
 dass man die Funktion findet, welche im quadratischen Mittel am dichtesten an allen Punkten liegt. Visuell sieht dies
@@ -381,7 +378,7 @@ Funktion erhält. In Python kann man dies z.B. wie folgt implementieren:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/03bc8d80e6b45c60ceb78f5f63d67b1b7a24be15f3e0c9227768ff4f19303dfa.png" src="../_images/03bc8d80e6b45c60ceb78f5f63d67b1b7a24be15f3e0c9227768ff4f19303dfa.png" />
+<img alt="../_images/093ef75a759b917f9c18b3c09530109078d758d1b3336dfd8af4f6e423aa9388.png" src="../_images/093ef75a759b917f9c18b3c09530109078d758d1b3336dfd8af4f6e423aa9388.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -441,7 +438,10 @@ Damit ist das Kapitel über lineare Regression auch schon abgeschlossen.</p>
               
               
                 <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="CurveSketching.html"
@@ -452,16 +452,10 @@ Damit ist das Kapitel über lineare Regression auch schon abgeschlossen.</p>
         <p class="prev-next-title">Kurvendiskussion und Optimierung</p>
       </div>
     </a>
-    <a class="right-next"
-       href="Complex.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Komplexe Zahlen und Rechenregeln mit Gleitkomma-Zahlen</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
-    </a>
+</div></div>
+  
 </div>
+
                 </footer>
               
             </div>
@@ -485,7 +479,7 @@ Damit ist das Kapitel über lineare Regression auch schon abgeschlossen.</p>
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
@@ -515,7 +509,7 @@ By Chrsitian Müller, Marc Johannes Honecker und Martin H. Müser
     
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -524,8 +518,8 @@ By Chrsitian Müller, Marc Johannes Honecker und Martin H. Müser
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
   <footer class="bd-footer">
   </footer>

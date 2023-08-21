@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html >
 
   <head>
     <meta charset="utf-8" />
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -39,13 +39,12 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -70,7 +69,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Kurvendiskussion und Optimierung" href="CurveSketching.html" />
     <link rel="prev" title="Numerisches Integrieren und Differenzieren" href="Int_and_Diff.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
   
   
@@ -327,14 +326,14 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="gewohnliche-differential-gleichungen">
-<h1>Gewöhnliche Differential Gleichungen<a class="headerlink" href="#gewohnliche-differential-gleichungen" title="Permalink to this heading">#</a></h1>
+<h1>Gewöhnliche Differential Gleichungen<a class="headerlink" href="#gewohnliche-differential-gleichungen" title="Permalink to this headline">#</a></h1>
 <p>Zum Lösen gewöhnlicher DGLs werden wir den <a class="reference external" href="https://en.wikipedia.org/wiki/Verlet_integration">Verlet-Algorithmus</a>
 benutzen. Dieser wurde, wie der Name bereits vermuten lässt, von Jean Baptiste Joseph Delambre Ende
 des 18. Jahrhunderts entwickelt. Später wurde er dann unabhängig mehrfach von anderen Wissenschaftlern
 entwickelt, unter anderem auch dem Namensgeber Loup Verlet in den 1960er Jahren. Dieser Algorithmus
 löst DGLs 2. Ordnung.</p>
 <section id="herleitung">
-<h2>Herleitung<a class="headerlink" href="#herleitung" title="Permalink to this heading">#</a></h2>
+<h2>Herleitung<a class="headerlink" href="#herleitung" title="Permalink to this headline">#</a></h2>
 <p>Stellen wir uns vor, wir möchten den Weg/Flugbahn eines Köpers anhand seiner Position,
 Beschleunigung und seiner Beschleunigungsänderung berechnen. Schauen wir uns die Taylor-Entwicklung
 dritten Grades über <span class="math notranslate nohighlight">\(t\)</span> dafür an:</p>
@@ -420,7 +419,10 @@ Fall Ihnen überlassen. Damit ist auch das Kapitel über DGLs abegeschlossen.</p
               
               
                 <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="Int_and_Diff.html"
@@ -440,7 +442,10 @@ Fall Ihnen überlassen. Damit ist auch das Kapitel über DGLs abegeschlossen.</p
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
+</div></div>
+  
 </div>
+
                 </footer>
               
             </div>
@@ -464,7 +469,7 @@ Fall Ihnen überlassen. Damit ist auch das Kapitel über DGLs abegeschlossen.</p
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
@@ -494,7 +499,7 @@ By Chrsitian Müller, Marc Johannes Honecker und Martin H. Müser
     
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -503,8 +508,8 @@ By Chrsitian Müller, Marc Johannes Honecker und Martin H. Müser
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
   <footer class="bd-footer">
   </footer>

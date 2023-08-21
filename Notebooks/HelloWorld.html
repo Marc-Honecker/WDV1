@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html >
 
   <head>
     <meta charset="utf-8" />
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -39,13 +39,12 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -70,7 +69,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Lesen und Schreiben von Dateien" href="IO.html" />
     <link rel="prev" title="Vorbemerkungen zu Kurs und Skript" href="../intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
   
   
@@ -167,7 +166,6 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="ODEs.html">Gewöhnliche Differential Gleichungen</a></li>
 <li class="toctree-l1"><a class="reference internal" href="CurveSketching.html">Kurvendiskussion und Optimierung</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Regression.html">Regression</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Complex.html">Komplexe Zahlen und Rechenregeln mit Gleitkomma-Zahlen</a></li>
 </ul>
 
     </div>
@@ -331,7 +329,7 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="erste-schritte-in-python">
-<h1>Erste Schritte in Python<a class="headerlink" href="#erste-schritte-in-python" title="Permalink to this heading">#</a></h1>
+<h1>Erste Schritte in Python<a class="headerlink" href="#erste-schritte-in-python" title="Permalink to this headline">#</a></h1>
 <p>Traditionell ist “Hello World!” das erste Programm, welches man in einer neuen Programmiersprache schreibt.
 Dieses Programm tut nichts anderes als den Text “Hello World!” auszugeben.
 Diese Aufgabe ist in Python jedoch so simpel, dass wir sie etwas anpassen werden um Sie mit den Strukturen vertraut machen, die sie in Ihren Computerprogrammen brauchen werden.
@@ -448,7 +446,7 @@ Wir empfinden die Verarbeitung von Eingaben des Nutzers allerdings als unwichtig
 </div>
 </div>
 <section id="das-verbesserte-hello-world-programm">
-<h2>Das verbesserte Hello World! - Programm<a class="headerlink" href="#das-verbesserte-hello-world-programm" title="Permalink to this heading">#</a></h2>
+<h2>Das verbesserte Hello World! - Programm<a class="headerlink" href="#das-verbesserte-hello-world-programm" title="Permalink to this headline">#</a></h2>
 <p>Wir wollen die Aufgabe unseres “Hello World!”-Programms nun etwas erweitern, sodass es nicht nur die Welt, sondern auch Personen begrüßen kann, und zwar beliebig oft und mit Wochentag-abhängiger Freundlichkeit.
 (Letzteres bedeutet nicht, dass wir ein Programm mit Gefühlen entwickeln, sondern lediglich, dass es <strong>Fallunterscheidungen</strong> macht.)</p>
 <div class="cell docutils container">
@@ -483,7 +481,7 @@ Hello Julia
 <p>Sie können sich wahrscheinlich vorstellen, dass die obige Methode zur Begrüßung aller Studenten mühsamer wird, je länger die Liste ist.
 Aus diesem Grund bieten Programmiersprachen eine einfache Lösung für sich ständig wiederholende Abläufe: <em><strong>Schleifen</strong></em>.</p>
 <section id="schleifen-engl-loops">
-<h3>Schleifen (engl. Loops)<a class="headerlink" href="#schleifen-engl-loops" title="Permalink to this heading">#</a></h3>
+<h3>Schleifen (engl. Loops)<a class="headerlink" href="#schleifen-engl-loops" title="Permalink to this headline">#</a></h3>
 <p>Also schreiben wir unser letztes Programm ein wenig um.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -563,7 +561,7 @@ Hello Julia
 <p>Auch wenn Sie <code class="docutils literal notranslate"><span class="pre">while</span></code>-Schleifen in diesem Kurs nicht unbedingt nutzen werden, sind Sie nun zumindest vorbereitet, wenn sie Ihnen mal begegnen.</p>
 </section>
 <section id="die-if-else-fallunterscheidung">
-<h3>Die <code class="docutils literal notranslate"><span class="pre">if-else</span></code> Fallunterscheidung<a class="headerlink" href="#die-if-else-fallunterscheidung" title="Permalink to this heading">#</a></h3>
+<h3>Die <code class="docutils literal notranslate"><span class="pre">if-else</span></code> Fallunterscheidung<a class="headerlink" href="#die-if-else-fallunterscheidung" title="Permalink to this headline">#</a></h3>
 <p>Basierend auf dem zuletzt eingeführten Konzept von <code class="docutils literal notranslate"><span class="pre">True</span></code> und <code class="docutils literal notranslate"><span class="pre">False</span></code>, können wir auch eine Fallunterscheidung realisieren.
 Vielleicht möchte man die Welt z.B. an allen Wochentagen mit einem freundlichen <code class="docutils literal notranslate"><span class="pre">Hello</span> <span class="pre">Beautiful</span> <span class="pre">World!</span></code> begrüßen, außer montags.
 Eine mögliche Implementierung wäre die Folgende:</p>
@@ -583,7 +581,7 @@ Eine mögliche Implementierung wäre die Folgende:</p>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello World.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Hello Beautiful World!
 </pre></div>
 </div>
 </div>
@@ -634,7 +632,10 @@ Da dies allerdings keine Informatik-Veranstaltung ist, sollte Ihnen das hier ver
               
               
                 <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="../intro.html"
@@ -654,7 +655,10 @@ Da dies allerdings keine Informatik-Veranstaltung ist, sollte Ihnen das hier ver
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
+</div></div>
+  
 </div>
+
                 </footer>
               
             </div>
@@ -682,7 +686,7 @@ Da dies allerdings keine Informatik-Veranstaltung ist, sollte Ihnen das hier ver
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
@@ -712,7 +716,7 @@ By Chrsitian Müller, Marc Johannes Honecker und Martin H. Müser
     
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -721,8 +725,8 @@ By Chrsitian Müller, Marc Johannes Honecker und Martin H. Müser
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
   <footer class="bd-footer">
   </footer>

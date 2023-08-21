@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html >
 
   <head>
     <meta charset="utf-8" />
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -39,13 +39,12 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
-    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <script src="../_static/clipboard.min.js"></script>
     <script src="../_static/copybutton.js"></script>
@@ -70,7 +69,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="next" title="Numerisches Integrieren und Differenzieren" href="Int_and_Diff.html" />
     <link rel="prev" title="Lesen und Schreiben von Dateien" href="IO.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:language" content="None"/>
   </head>
   
   
@@ -315,7 +314,10 @@ document.write(`
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#der-mittelwert">Der Mittelwert</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#varianz-und-streuung">Varianz und Streuung</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#varianz-und-streuung">Varianz und Streuung</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normierung-der-varianz">Normierung der Varianz</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#histogramme">Histogramme</a></li>
 </ul>
             </nav>
@@ -329,34 +331,30 @@ document.write(`
                 <article class="bd-article" role="main">
                   
   <section class="tex2jax_ignore mathjax_ignore" id="mittelwert-varianz-und-histogramme">
-<h1>Mittelwert, Varianz und Histogramme<a class="headerlink" href="#mittelwert-varianz-und-histogramme" title="Permalink to this heading">#</a></h1>
+<h1>Mittelwert, Varianz und Histogramme<a class="headerlink" href="#mittelwert-varianz-und-histogramme" title="Permalink to this headline">#</a></h1>
 <p>In diesem Kapitel werden wir uns um das Berechnen von Mittelwert, Varianz und Streuung kümmern, sowie dem Plotten von
 Histogrammen.</p>
 <section id="der-mittelwert">
-<h2>Der Mittelwert<a class="headerlink" href="#der-mittelwert" title="Permalink to this heading">#</a></h2>
-<p>Der Mittelwert, oder auch arithmetisches Mittel (engl. sample mean), dürfte bereits aus der Schule bekannt sein. Dennoch
-werden wir die Definition hier noch einmal einführen, damit die hier verwendete Notation jedem bekannt ist. Es gilt:</p>
+<h2>Der Mittelwert<a class="headerlink" href="#der-mittelwert" title="Permalink to this headline">#</a></h2>
+<p>Der Mittelwert, oder auch arithmetisches Mittel (engl. sample mean), dürfte bereits aus der Schule bekannt sein.
+Dennoch werden wir die Definition hier noch einmal wiederholen, damit die hier verwendete Notation jedem bekannt ist.
+Es gilt:</p>
 <div class="math notranslate nohighlight">
 \[
 \bar{x} = \frac{1}{N} \sum_{i=1}^N x_i
 \]</div>
-<p>Wollen wir dies in Python implementieren, so gibt es verschiedene Möglichkeiten. Die erste und wahrscheinlich
-offensichtlichste ist:</p>
+<p>Wollen wir dies in Python implementieren, so gibt es verschiedene Möglichkeiten.
+Die erste und wahrscheinlich offensichtlichste ist:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_mean</span><span class="p">(</span><span class="n">ls</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-    <span class="c1"># speichert die Summe der Einträge</span>
-    <span class="n">s</span> <span class="o">=</span> <span class="mf">0.</span>
-    <span class="c1"># speichert die Länge der Liste</span>
-    <span class="n">l</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">ls</span><span class="p">)</span>
-
-    <span class="c1"># aufsummieren der Einträge</span>
-    <span class="k">for</span> <span class="n">elem</span> <span class="ow">in</span> <span class="n">ls</span><span class="p">:</span>
-        <span class="n">s</span> <span class="o">+=</span> <span class="n">elem</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_mean</span><span class="p">(</span><span class="n">x_values</span><span class="p">):</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x_values</span><span class="p">)</span>
+    <span class="n">summe</span> <span class="o">=</span> <span class="mf">0.</span>
     
-    <span class="c1"># wir teilen die Summe mit der Länge</span>
-    <span class="c1"># der Liste und geben das Ergebnis zurück</span>
-    <span class="k">return</span> <span class="n">s</span><span class="o">/</span><span class="n">l</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">x_values</span><span class="p">:</span>
+        <span class="n">summe</span> <span class="o">+=</span> <span class="n">x</span>
+    
+    <span class="k">return</span> <span class="n">summe</span><span class="o">/</span><span class="n">N</span>
 
 <span class="n">my_list</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">11</span><span class="p">))</span>
 
@@ -370,12 +368,14 @@ offensichtlichste ist:</p>
 </div>
 </div>
 </div>
-<p>Dieses Programm ist leicht zu lesen und man sieht genau, was passiert, aber es ist nicht unbedingt die Version, die man in Python bevorzugen sollte. Da das Berechnen einer Summe über ein Liste von Werten etwas sehr alltägliches ist,
-stellt Python dafür eine eingebaute Funktion zur Verfügung. Außerdem sieht man in obigem Programm leicht, dass wir dort
-zwei unnötige Variablen genutzt haben. Implementiert man alle gerade besprochenen Änderungen, so erhält man:</p>
+<p>Dieses Programm ist leicht zu lesen und macht genau das, was es soll.
+Allerdings gleicht diese Herangehensweise dem Versuch, das Rad neuzuerfinden.
+Für so alltägliche Probleme wie die Berechnung der Summe von Elementen in einem Container hat Python selbst bereits gelöst.
+Außerdem würde man sich die Definitionen der lokalen Zwischenergebnisse <code class="docutils literal notranslate"><span class="pre">N</span></code> und <code class="docutils literal notranslate"><span class="pre">summe</span></code> gerne sparen.
+Wir nutzen diese Vereinfachungen also aus bekommen einen wesentlich aufgeräuteren Code:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_simpler_mean</span><span class="p">(</span><span class="n">ls</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_simpler_mean</span><span class="p">(</span><span class="n">ls</span><span class="p">):</span>
     <span class="k">return</span> <span class="nb">sum</span><span class="p">(</span><span class="n">ls</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">ls</span><span class="p">)</span>
 
 <span class="n">my_simpler_mean</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>
@@ -388,93 +388,137 @@ zwei unnötige Variablen genutzt haben. Implementiert man alle gerade besprochen
 </div>
 </div>
 </div>
-<p>Dieser Code ist eindeutig wesentlich aufgeräumter! Man kann dies aber sogar noch einfacher (und schneller) implementieren.
-Dafür nutzt man einfach <code class="docutils literal notranslate"><span class="pre">numpy</span></code>. Mit <code class="docutils literal notranslate"><span class="pre">numpy</span></code> sieht dies dann wie folgt aus:</p>
+<p>In der Praxis sollten Sie zum Arbeiten mit Zahlen stets die Infrostruktur von <code class="docutils literal notranslate"><span class="pre">numpy</span></code> gegenüber einfachen Python-Listen bevorzugen.
+<code class="docutils literal notranslate"><span class="pre">numpy</span></code>’s <code class="docutils literal notranslate"><span class="pre">arange</span></code> ist das direkte Äquivalent zur bereits bekannten <code class="docutils literal notranslate"><span class="pre">range</span></code>-Funktion, mit dem Unterschied, dass das Ergebnis vom Typ <code class="docutils literal notranslate"><span class="pre">numpy.ndarray</span></code> (n-dimensional array) ist.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>
+<span class="n">my_array</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">11</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">my_array</span><span class="p">))</span>
+<span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">my_array</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;class &#39;numpy.ndarray&#39;&gt;
+</pre></div>
+</div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.0
 </pre></div>
 </div>
 </div>
 </div>
-<div class="info dropdown admonition">
-<p class="admonition-title">Eingabe- und Rückgabetypen von Funktionen</p>
-<p>In unseren hier vorgestellten Code-Beispielen haben wir erstmals konkrete Typ-Annotationen genutzt. Diese sagen im
-Wesentlichen aus, welche Arten von Parametern an die Funktion übergeben werden sollen und was man als Rückgabe
-erwarten darf. Diese dienen (in Python) aber mehr als Dokumentation, da die tatsächlichen Typen <strong>nicht</strong> beachtet werden.
-Dennoch ist es sinnvoll, dass man die Typ-Annotationen nutzt, da man dann leichter den Überblick behält.</p>
-</div>
 </section>
 <section id="varianz-und-streuung">
-<h2>Varianz und Streuung<a class="headerlink" href="#varianz-und-streuung" title="Permalink to this heading">#</a></h2>
-<p>Die Definition der empirischen Varianz lautet:</p>
+<h2>Varianz und Streuung<a class="headerlink" href="#varianz-und-streuung" title="Permalink to this headline">#</a></h2>
+<p>Die klassische Definition der <strong>Varianz</strong> lautet</p>
+<div class="math notranslate nohighlight">
+\[ 
+s^2 = \frac{1}{N} \sum_{i=1}^N (x_i - \bar{x})^2.
+\]</div>
+<p>Wenn Sie mit Summenzeichen umgehen können, sollten Sie in wenigen Schritten zeigen können, dass diese Definition äquivalent ist zu</p>
 <div class="math notranslate nohighlight">
 \[
-s^2 = \frac{1}{n-1} \sum_{i=1}^N (x_i - \bar{x})^2
+s^2 = \bar{x^2} - \bar{x}^2.
 \]</div>
-<p>Die Streuung ist lediglich die Wurzel der Varianz, also einfach <span class="math notranslate nohighlight">\(s\)</span>. Auch hier werden wir wieder die offensichtliche
-Implementierung angeben und dann die <code class="docutils literal notranslate"><span class="pre">numpy</span></code> “Implementierung”. Dies sieht dann wie folgt aus:</p>
+<p>Die <strong>Standardabweichung</strong> (engl. standard deviation) ist definiert als die Wurzel der Varianz, also <span class="math notranslate nohighlight">\(s\)</span>.
+Auch hier werden wir wieder die offensichtliche Implementierung angeben und dann die <code class="docutils literal notranslate"><span class="pre">numpy</span></code>-Lösung.
+Dies sieht dann wie folgt aus:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_var</span><span class="p">(</span><span class="n">ls</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-    <span class="c1"># wir brauchen zunächst den Mittelwert</span>
-    <span class="n">x_bar</span> <span class="o">=</span> <span class="n">my_mean</span><span class="p">(</span><span class="n">ls</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_var</span><span class="p">(</span><span class="n">x_values</span><span class="p">):</span>
+    <span class="n">x_bar</span> <span class="o">=</span> <span class="n">my_mean</span><span class="p">(</span><span class="n">x_values</span><span class="p">)</span>
 
-    <span class="c1"># zum speichern der Summe</span>
     <span class="n">s_squared</span> <span class="o">=</span> <span class="mf">0.</span>
-
-    <span class="c1"># naive Schleife</span>
-    <span class="k">for</span> <span class="n">x_i</span> <span class="ow">in</span> <span class="n">ls</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">x_i</span> <span class="ow">in</span> <span class="n">x_values</span><span class="p">:</span>
         <span class="n">s_squared</span> <span class="o">+=</span> <span class="p">(</span><span class="n">x_i</span> <span class="o">-</span> <span class="n">x_bar</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
 
-    <span class="c1"># zurückgeben des Ergebnisses</span>
-    <span class="k">return</span> <span class="n">s_squared</span> <span class="o">/</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ls</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">s_squared</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">x_values</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
-<p>Diese Implementierung ist wieder sehr ähnlich zu der naiven Implementierung des Mittelwertes. Allerdings können wir
-nicht direkt die verbesserte Version angeben. Denn <code class="docutils literal notranslate"><span class="pre">sum()</span></code> liefert nur die einfache Summe über die Einträge zurück
-nicht die quadritische Summe. Allerdings kann man dies einfach umgehen.</p>
+<p>Diese Implementierung ist wieder sehr ähnlich zu der naiven Implementierung des Mittelwertes.
+Ähnlich wie oben können wir die Funktion vereinfachen, indem wir die vordefinierte <code class="docutils literal notranslate"><span class="pre">sum()</span></code>-Funktion nutzen.
+Hierzu brauchen wir eine Lösung um mit <code class="docutils literal notranslate"><span class="pre">sum()</span></code> über die Quadrate der Einträge zu summieren anstatt über die Einträge selbst:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_simpler_var</span><span class="p">(</span><span class="n">ls</span><span class="p">:</span> <span class="nb">list</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-    <span class="c1"># wie vorher</span>
-    <span class="n">x_bar</span> <span class="o">=</span> <span class="n">my_mean</span><span class="p">(</span><span class="n">ls</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_simpler_var</span><span class="p">(</span><span class="n">x_values</span><span class="p">):</span>
+    <span class="n">x_bar</span> <span class="o">=</span> <span class="n">my_simpler_mean</span><span class="p">(</span><span class="n">x_values</span><span class="p">)</span>
+    <span class="n">s_squared</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([(</span><span class="n">x_i</span> <span class="o">-</span> <span class="n">x_bar</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x_i</span> <span class="ow">in</span> <span class="n">x_values</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">s_squared</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">x_values</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>In dieser Implementierung haben wir eine sogenannte <code class="docutils literal notranslate"><span class="pre">list</span> <span class="pre">comprehension</span></code> genutzt.
+Dieses Tool ermöglicht es, dass man aus einer bereits gegebenen Liste eine neue Liste erstellt und gleichzeitig Operationen auf den Elementen ausführt.
+Dies haben wir in obigem Beispiel ausgenutzt und haben als Elemente der neuen Liste die <span class="math notranslate nohighlight">\((x_i - \bar{x})^2\)</span> abgespeichert.
+Anschließend haben wir dann diese Liste direkt in die Summen Funktion gesteckt und dieses Ergebnis (wie vorher) in <code class="docutils literal notranslate"><span class="pre">s_squared</span></code> gespeichert.
+Dadurch konnten wir wieder die Implementierung wesentlich kürzer gestalten.
+Interessierte können <a class="reference external" href="https://www.w3schools.com/python/python_lists_comprehension.asp">hier</a> mehr über die <code class="docutils literal notranslate"><span class="pre">list</span> <span class="pre">comprehension</span></code> erfahren.</p>
+<p>Vielleicht fällt Ihnen im obigen Beispiel auf, dass wir in der Funktion für die Varianz noch einmal die Funktion für den Mittelwert aufrufen.
+Das können wir aber vermeiden indem wir die alternative Gleichung für die Varianz nutzen:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">my_other_var</span><span class="p">(</span><span class="n">x_values</span><span class="p">):</span>
+    <span class="n">N</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x_values</span><span class="p">)</span>
+    <span class="n">sum_x</span> <span class="o">=</span> <span class="mf">0.</span>
+    <span class="n">sum_x_squared</span> <span class="o">=</span> <span class="mf">0.</span>
+    <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">x_values</span><span class="p">:</span>
+        <span class="n">sum_x</span> <span class="o">+=</span> <span class="n">x</span>
+        <span class="n">sum_x_squared</span> <span class="o">+=</span> <span class="n">x</span><span class="o">**</span><span class="mi">2</span>
+    
+    <span class="k">return</span> <span class="p">(</span><span class="n">sum_x_squared</span><span class="o">/</span><span class="n">N</span> <span class="o">-</span> <span class="p">(</span><span class="n">sum_x</span><span class="o">/</span><span class="n">N</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span><span class="p">)</span>
 
-    <span class="c1"># bessere Implementierung mit list comprehension</span>
-    <span class="n">s_squared</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([(</span><span class="n">x_i</span> <span class="o">-</span> <span class="n">x_bar</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span> <span class="k">for</span> <span class="n">x_i</span> <span class="ow">in</span> <span class="n">ls</span><span class="p">])</span>
-
-    <span class="c1"># Rückgabe des Ergebnisses</span>
-    <span class="k">return</span> <span class="n">s_squared</span> <span class="o">/</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">ls</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span>
-
-<span class="c1"># testen beider Funktionen</span>
+<span class="c1"># Vergleich der drei Funktionen</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">my_var</span><span class="p">(</span><span class="n">my_list</span><span class="p">))</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">my_simpler_var</span><span class="p">(</span><span class="n">my_list</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">my_other_var</span><span class="p">(</span><span class="n">my_list</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>11.0
-11.0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10.0
+10.0
+10.0
 </pre></div>
 </div>
 </div>
 </div>
-<p>In dieser Implementierung haben wir eine sogenannte <code class="docutils literal notranslate"><span class="pre">list</span> <span class="pre">comprehension</span></code> genutzt. Dieses Tool ermöglicht es, dass man
-aus einer bereits gegebenen Liste eine neue Liste erstellt und gleichzeitig Operationen auf den Elementen ausführt.
-Dies haben wir in obigem Beispiel ausgenutzt und haben als Elemente der neuen Liste die <span class="math notranslate nohighlight">\((x_i - \bar{x})^2\)</span> abgespeichert.
-Anschließend haben wir dann diese Liste direkt in die Summen Funktion gesteckt und dieses Ergebnis (wie vorher) in
-<code class="docutils literal notranslate"><span class="pre">s_squared</span></code> gespeichert. Dadurch konnten wir wieder die Implementierung wesentlich kürzer gestalten. Interessierte können
-<a class="reference external" href="https://www.w3schools.com/python/python_lists_comprehension.asp">hier</a> mehr über die <code class="docutils literal notranslate"><span class="pre">list</span> <span class="pre">comprehension</span></code> erfahren.</p>
 <p>Die kürzeste Implementierung erfolgt aber natürlich wieder durch <code class="docutils literal notranslate"><span class="pre">numpy</span></code>. Hier erhalten wir:</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10.0
+</pre></div>
+</div>
+</div>
+</div>
+<section id="normierung-der-varianz">
+<h3>Normierung der Varianz<a class="headerlink" href="#normierung-der-varianz" title="Permalink to this headline">#</a></h3>
+<p>Die obige Definition für die Varianz ist zwar die mathematisch schönste, stellt aber nicht unbedingt das beste Maß für die Streuung von Werten dar.
+In der Praxis ist es üblich durch <span class="math notranslate nohighlight">\(N-1\)</span> statt <span class="math notranslate nohighlight">\(N\)</span> zu teilen, weil die Normalisierung mit <span class="math notranslate nohighlight">\(\frac{1}{N}\)</span> die Streuung ‘unterschätzt’.
+Spürbar ist dieser Effekt nur für kleine <span class="math notranslate nohighlight">\(N\)</span>, weil <span class="math notranslate nohighlight">\(N \approx {N-1}\)</span>, für <span class="math notranslate nohighlight">\(N \rightarrow \infty\)</span>.
+Dennoch ist es oft besser mit <span class="math notranslate nohighlight">\({N-1}\)</span> zu normieren, was man auch als <strong>empirische Varianz</strong> bezeichnet:</p>
+<div class="math notranslate nohighlight">
+\[
+s^2 = \frac{1}{N-1} \sum_{i=1}^N (x_i - \bar{x})^2.
+\]</div>
+<p>Diese Wahl kann wie folgt motiviert werden:
+Wir wollen, dass die Varianz von experimentellen Messungen etwas über die Genauigkeit (bzw. Vertrauenswürdigkeit) der Messung aussagt: je kleiner die Varianz, desto besser.
+Im ersten Fall wiederholen wir eine Messung <span class="math notranslate nohighlight">\(N\)</span> mal und bekommen immer ungefähr das gleiche Ergnis für <span class="math notranslate nohighlight">\(x\)</span> mit geringer Streuung <span class="math notranslate nohighlight">\(s\)</span>. Das ist das beruhigend.
+Im zweiten Fall messen wir nur ein einziges Mal und versuchen nie wieder das Ergebnis zu reproduzieren.
+Hoffentlich ist es offensichtlich für Sie, dass das zweite Ergebnis viel weniger vertrauenerweckend ist als das erste.
+Mit der unkorrigierten Varianz (Norm <span class="math notranslate nohighlight">\(N\)</span>) hätte die zweite Messung eine Standardabweichung von 0.
+Die korrigierte Varianz (Norm <span class="math notranslate nohighlight">\(N-1\)</span>) bescheinigt jedoch auf eine unendlich große Standardabweichung, also eine maximale Unsicherheit des Ergebnisses.</p>
+<p>In <code class="docutils literal notranslate"><span class="pre">numpy</span></code> können wir die Korrektur der Varianz übrigens erzwingen mit dem optionalen Funktionsargument <code class="docutils literal notranslate"><span class="pre">ddof=1</span></code>.
+Bei den naiven Implementierungen sollten die nötigen Änderungen offensichtlich sein, abgesehen davon, dass die Gleichung <span class="math notranslate nohighlight">\(s^2 = \bar{x^2} - \bar{x}^2\)</span> nur für die klassische und nicht für die empirische Varianz gilt.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">my_list</span><span class="p">,</span> <span class="n">ddof</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -487,18 +531,10 @@ Anschließend haben wir dann diese Liste direkt in die Summen Funktion gesteckt 
 </div>
 </div>
 </div>
-<p>Man muss allerdings beachten, dass der Default von <code class="docutils literal notranslate"><span class="pre">numpy.var()</span></code> <strong>keine</strong> Korrektur vornimmt. Deshalb übergeben wir
-den Parameter <code class="docutils literal notranslate"><span class="pre">ddof=1</span></code>.</p>
-<div class="info admonition">
-<p class="admonition-title">Korrektur der Varianz</p>
-<p>In unseren Beispielen haben wir die Varianz mit <span class="math notranslate nohighlight">\(\frac{1}{N-1}\)</span> normalisiert. Dies wird üblicherweise gemacht, weil die
-Normalisierung mit <span class="math notranslate nohighlight">\(\frac{1}{N}\)</span> die Varianz ‘unterschätzt’. Wirkliche Auswirkungen hat dies aber natürlich nur für
-kleine <span class="math notranslate nohighlight">\(N\)</span>, weil <span class="math notranslate nohighlight">\(\frac{1}{N} \approx \frac{1}{N-1}\)</span>, für <span class="math notranslate nohighlight">\(N \rightarrow \infty\)</span>. Dennoch ist es formal richtiger mit
-<span class="math notranslate nohighlight">\(\frac{1}{N-1}\)</span> zu normalisieren.</p>
-</div>
+</section>
 </section>
 <section id="histogramme">
-<h2>Histogramme<a class="headerlink" href="#histogramme" title="Permalink to this heading">#</a></h2>
+<h2>Histogramme<a class="headerlink" href="#histogramme" title="Permalink to this headline">#</a></h2>
 <p>Histogramme dienen der graphischen Darstellung einer Häufigkeitsverteilung eines Datensatzes. Somit bekommt man einen
 Eindruck davon, welche Werte in einem Datensatz dominant sind. Eine mögliche Anwendung ist z.B. die Visualisierung von
 Spektren. Ein Beispiel (mit artifiziellen Daten) sieht in Python wie folgt aus:</p>
@@ -519,7 +555,7 @@ Spektren. Ein Beispiel (mit artifiziellen Daten) sieht in Python wie folgt aus:<
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="../_images/7b44c9fb0fd7d326943649e36158b6f4e8175bf2e67aea4c9796d2bdb3efe0ff.png" src="../_images/7b44c9fb0fd7d326943649e36158b6f4e8175bf2e67aea4c9796d2bdb3efe0ff.png" />
+<img alt="../_images/78bd4aa612f5100b2a7de73ac0d3b8d5b50fdca9b27d224ed851f62e42349082.png" src="../_images/78bd4aa612f5100b2a7de73ac0d3b8d5b50fdca9b27d224ed851f62e42349082.png" />
 </div>
 </div>
 <p>Als Datensatz haben wir 10.000 normalverteilte Zufallszahlen generiert. Neu ist hierbei, dass wir einen sogenannten <code class="docutils literal notranslate"><span class="pre">Seed</span></code>
@@ -570,7 +606,10 @@ Ausführung das gleiche Ergebnis.</p>
               
               
                 <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="IO.html"
@@ -590,7 +629,10 @@ Ausführung das gleiche Ergebnis.</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
+</div></div>
+  
 </div>
+
                 </footer>
               
             </div>
@@ -606,7 +648,10 @@ Ausführung das gleiche Ergebnis.</p>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#der-mittelwert">Der Mittelwert</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#varianz-und-streuung">Varianz und Streuung</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#varianz-und-streuung">Varianz und Streuung</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#normierung-der-varianz">Normierung der Varianz</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#histogramme">Histogramme</a></li>
 </ul>
   </nav></div>
@@ -616,7 +661,7 @@ Ausführung das gleiche Ergebnis.</p>
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
@@ -646,7 +691,7 @@ By Chrsitian Müller, Marc Johannes Honecker und Martin H. Müser
     
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -655,8 +700,8 @@ By Chrsitian Müller, Marc Johannes Honecker und Martin H. Müser
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
   <footer class="bd-footer">
   </footer>
