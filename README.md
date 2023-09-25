@@ -5,26 +5,28 @@ Die Vorlesung wird zum ersten Mal im Sommersemester 2024 stattfinden.
 
 [Hier klicken](https://marc-honecker.github.io/WDV1/intro.html) für die kompilierte Web-Version.
 
+
+
 ## Anweisungen für Mitarbeiter
 
-### Arbeiten mit dem Skript
+### Installation
 
-Installation von jupyter-book mit Anaconda:  
-`conda install -c conda-forge jupyter-book`  
-`conda install -c conda-forge pyppeteer`  
-`conda install -c conda-forge ghp-import`  
-
-Installation von jupyter-book mit Python ohne Anaconda:  
+Folgende Module werden via `pip` installiert:  
 `pip install jupyter-book`  
 `pip install pyppeteer`  
 `pip install ghp-import`  
-`pip install sphinx-proof`
+`pip install sphinx-proof`  
 `pip install docutils==0.17.1`
 
-Alternativ kann man auch einfach folgenden Befehl ausführen:
+Alternativ:
 `pip install -r /path/to/requirements.txt`
 
-`requirements.txt` liegt im root-Verzeichnis.
+`requirements.txt` liegt im root-Verzeichnis des Repositories.
+
+(im Fall von Anaconda wird `pip` in `/path/to/anaconda/bin` ausgeführt.)
+
+
+### Arbeiten am Skript
 
 Öffnen des Source Codes in Jupyter: `jupyter-notebook` (öffnet Jupyter im Browser)  
 Kompilieren der HTML-Version: `jb build .`  
@@ -35,12 +37,12 @@ Aktualisieren der Web-Verison: `ghp-import -n -p -f _build/html` (auf dem main b
 
 Der branch `gh-pages` wird automatisch generiert und darf nicht manuell verändert werden!
 
+
 ### Konventionen
-
-Maximale Zeilenlänge von Code: ca. 80 Zeichen, damit Code-Zellen auch im PDF ordentlich aussehen.
-
-Leerzeichen und Sonderzeichen in Dateinamen und Labels vermeiden.
 
 Für neue Arbeitseinheiten (Arbeit an einem bestimmten Kapitel) bitte einen neuen git branch anlegen mit Jahr und Monat im Namen, z.B. "23Mar_Plotting". 
 Solche branches sollten solange sie verwendet werden regelmäßig mit dem main branch gemerged werden und geschlossen werden wenn nicht mehr benötigt.
 
+Leerzeichen und Sonderzeichen in Dateinamen und Labels vermeiden.
+
+Maximale Zeilenlänge von Code-Zellen ca. 80 Zeichen, damit sie im PDF ordentlich aussehen.
